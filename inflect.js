@@ -1,23 +1,4 @@
 (function (exports) {
-  exports.kinds = ["perus", "jarjestys"];
-
-  exports.cases = [
-    "nominatiivi",
-    "genetiivi",
-    "partitiivi",
-    "inessiivi",
-    "elatiivi",
-    "illatiivi",
-    "adessiivi",
-    "ablatiivi",
-    "allatiivi",
-    "essiivi",
-    "translatiivi",
-    "abessiivi",
-  ];
-
-  exports.pluralities = ["yksikko", "monikko"];
-
   const suffixes = {
     perus: {
       nominatiivi: {
@@ -595,19 +576,6 @@
   }
 
   function inflect({ number: originalNumber, kind, caseName, plurality }) {
-    if (originalNumber < 0 || originalNumber > 10000) {
-      throw new Error(`Unexpected number: ${originalNumber}`);
-    }
-    if (!exports.kinds.includes(kind)) {
-      throw new Error(`Unexpected kind: ${kind}`);
-    }
-    if (!exports.cases.includes(caseName)) {
-      throw new Error(`Unexpected case: ${caseName}`);
-    }
-    if (!exports.pluralities.includes(plurality)) {
-      throw new Error(`Unexpected plurality: ${plurality}`);
-    }
-
     const findSuffix = (suffixNumber, overrides = {}) => {
       let suffixOptions =
         suffixes[overrides.kind || kind][overrides.caseName || caseName][

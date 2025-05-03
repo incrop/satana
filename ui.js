@@ -35,19 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function placeholderText({ kind, caseName, plurality }) {
     let pluralityText = {
-      yksikko: 'Yksikkö',
-      monikko: 'Monikko',
+      yksikko: "Yksikkö",
+      monikko: "Monikko",
     };
     let kindText = {
-      perus: 'perusluku',
-      jarjestys: 'järjestysluku',
+      perus: "perusluku",
+      jarjestys: "järjestysluku",
     };
-    return `${pluralityText[plurality]} ${caseName} ${kindText[kind]}`
+    return `${pluralityText[plurality]} ${caseName} ${kindText[kind]}`;
   }
 
   function generateQuestion() {
-    question = generate()
-    console.log('question', question)
+    question = generate();
     current = inflect(question);
 
     document.getElementById("question").textContent = current.short;

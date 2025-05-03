@@ -33,7 +33,7 @@ for (let number = 0; number <= 9999; number++) {
     for (const caseName of cases) {
       for (const plurality of pluralities) {
         const expected = testData[number.toString()][kind][caseName][plurality];
-        const actual = inflect(number, kind, caseName, plurality);
+        const actual = inflect({ number, kind, caseName, plurality });
 
         if (expected.short === actual.short && expected.long === actual.long) {
           passedCount++;
