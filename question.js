@@ -21,23 +21,6 @@
       ["essiivi", "translatiivi"],
     ],
     range: [11, 20, 100, 200, 1000, 2100, 10000],
-    resolveIndex: (index) => {
-      const kind = settings.kind[index.kind];
-      const plurality = settings.plurality[index.plurality];
-      const caseGroup = settings.caseGroup.flat()[index.caseGroup];
-      const maxNumberIndex = index.range;
-
-      const minNumber =
-        maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
-      const maxNumber = settings.range[maxNumberIndex];
-      return {
-        kind,
-        plurality,
-        caseGroup,
-        minNumber,
-        maxNumber,
-      };
-    },
     statsVersion: 1,
     practice: {
       questionCount: 10,
@@ -47,9 +30,14 @@
     newTopics: {
       initialIndex: "0,0,0,0",
       maxCount: 3,
-      questionCount: 5,
+      questionCountDefault: 5,
+      questionCountFirstRange: 11,
+      questionCountLocatives: 10,
     },
   };
+
+  const indexToString = ({ kind, plurality, caseGroup, range }) =>
+    `${kind},${plurality},${caseGroup},${range}`;
 
   const parseIndex = (key) => {
     const [kind, plurality, caseGroup, range] = key
@@ -63,8 +51,23 @@
     };
   };
 
-  const indexToString = ({ kind, plurality, caseGroup, range }) =>
-    `${kind},${plurality},${caseGroup},${range}`;
+  const resolveIndex = (index) => {
+    const kind = settings.kind[index.kind];
+    const plurality = settings.plurality[index.plurality];
+    const caseGroup = settings.caseGroup.flat()[index.caseGroup];
+    const maxNumberIndex = index.range;
+
+    const minNumber =
+      maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
+    const maxNumber = settings.range[maxNumberIndex];
+    return {
+      kind,
+      plurality,
+      caseGroup,
+      minNumber,
+      maxNumber,
+    };
+  };
 
   const stats = (() => {
     let stats = JSON.parse(localStorage.getItem("stats")) || {};
@@ -217,24 +220,60 @@
     } ${caseName}`;
   };
 
-  const generateQuestions = (topicIndex, count) => {
-    const { kind, plurality, caseGroup, minNumber, maxNumber } =
-      settings.resolveIndex(parseIndex(topicIndex));
-    const caseNames =
-      typeof caseGroup === "string" ? [caseGroup] : caseGroup.cases;
+  const shuffle = (array) => {
+    let currentIndex = array.length;
+    while (currentIndex != 0) {
+      let randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      const tmp = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = tmp;
+    }
+  };
+
+  const generateQuestions = (topicIndex, mode) => {
+    const { kind, plurality, caseGroup, minNumber, maxNumber } = resolveIndex(
+      parseIndex(topicIndex)
+    );
 
     const numbers = [];
-    while (numbers.length < Math.min(count, maxNumber - minNumber)) {
-      let number =
-        Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
-      if (numbers.includes(number)) {
-        continue;
+    if (mode === "new-topic" && maxNumber === settings.range[0]) {
+      for (let i = 0; i < settings.newTopics.questionCountFirstRange; i++) {
+        numbers.push(i);
       }
-      numbers.push(number);
+      shuffle(numbers);
+    } else {
+      let count;
+      if (mode === "practice") {
+        count = 1;
+      } else if (caseGroup.names === "paikallissijat") {
+        count = settings.newTopics.questionCountLocatives;
+      } else {
+        count = settings.newTopics.questionCountDefault;
+      }
+      while (numbers.length < Math.min(count, maxNumber - minNumber)) {
+        let number =
+          Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+        if (numbers.includes(number)) {
+          continue;
+        }
+        numbers.push(number);
+      }
     }
 
-    return numbers.map((number) => {
-      const caseName = caseNames[Math.floor(Math.random() * caseNames.length)];
+    let caseNames = caseGroup;
+    if (caseGroup.cases) {
+      caseNames = [...caseGroup.cases];
+      shuffle(caseNames);
+      while (caseNames.length < numbers.length) {
+        caseNames.push(...caseGroup.cases);
+      }
+      caseNames = caseNames.slice(0, numbers.length);
+      shuffle(caseNames);
+    }
+
+    return numbers.map((number, i) => {
+      const caseName = typeof caseNames === "string" ? caseNames : caseNames[i];
       const title = titleForTopic({
         kind,
         caseName,
@@ -264,13 +303,13 @@
       questions: Array(settings.practice.questionCount)
         .fill()
         .map(() => knownTopicIndex())
-        .flatMap((topicIndex) => generateQuestions(topicIndex, 1)),
+        .flatMap((topicIndex) => generateQuestions(topicIndex, "practice")),
     };
   };
 
   const generateNewTopics = () => {
     return newTopicIndexes().map((topicIndex) => {
-      const topic = settings.resolveIndex(parseIndex(topicIndex));
+      const topic = resolveIndex(parseIndex(topicIndex));
       return {
         title: titleForTopic({
           ...topic,
@@ -279,10 +318,7 @@
               ? topic.caseGroup
               : topic.caseGroup.name,
         }),
-        questions: generateQuestions(
-          topicIndex,
-          settings.newTopics.questionCount
-        ),
+        questions: generateQuestions(topicIndex, "new-topic"),
       };
     });
   };
