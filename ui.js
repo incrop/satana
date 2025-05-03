@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dontknowButton.disabled = input.value.trim() === "";
   }
 
-  function addFeedbackClasses(isCorrect) {
-    const className = isCorrect ? "correct" : "incorrect";
+  function addFeedbackClasses(className) {
     document.body.classList.add(className);
     document.querySelector(".container").classList.add(className);
     document.querySelector("h1").classList.add(className);
@@ -22,20 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("button").classList.add(className);
   }
 
-  function addRewardClasses() {
-    document.body.classList.add("reward");
-    document.querySelector(".container").classList.add("reward");
-    document.querySelector("h1").classList.add("reward");
-    document.querySelector("input").classList.add("reward");
-    document.querySelector("button").classList.add("reward");
-  }
-
-  function removeRewardClasses() {
-    document.body.classList.remove("reward");
-    document.querySelector(".container").classList.remove("reward");
-    document.querySelector("h1").classList.remove("reward");
-    document.querySelector("input").classList.remove("reward");
-    document.querySelector("button").classList.remove("reward");
+  function removeFeedbackClasses(classNames) {
+    document.body.classList.remove(classNames);
+    document.querySelector(".container").classList.remove(classNames);
+    document.querySelector("h1").classList.remove(classNames);
+    document.querySelector("input").classList.remove(classNames);
+    document.querySelector("button").classList.remove(classNames);
   }
 
   function createFlyingEmoji(emoji) {
@@ -48,16 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       emojiElement.remove();
     }, 3000);
-  }
-
-  function removeFeedbackClasses() {
-    document.body.classList.remove("correct", "incorrect");
-    document
-      .querySelector(".container")
-      .classList.remove("correct", "incorrect");
-    document.querySelector("h1").classList.remove("correct", "incorrect");
-    document.querySelector("input").classList.remove("correct", "incorrect");
-    document.querySelector("button").classList.remove("correct", "incorrect");
   }
 
   function updateDontknowEmoji(emoji) {
@@ -131,8 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       button.textContent = inflect(questions[i]).short;
       button.onclick = () => {
+        showQuestion(questions[i]);
         if (questions[i].reward) {
-          addRewardClasses();
+          addFeedbackClasses("reward");
           const emojis = questions[i].reward;
           for (let j = 0; j < emojis.length * 5; j++) {
             setTimeout(() => {
@@ -142,12 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }, Math.random() * 1500);
           }
           setTimeout(() => {
-            removeRewardClasses();
-            showQuestion(questions[i]);
+            removeFeedbackClasses("reward");
           }, 3500);
-          return;
         }
-        showQuestion(questions[i]);
       };
       choiceContainer.appendChild(button);
       const hint = document.createElement("div");
@@ -179,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (showingCorrectAnswer) {
       if (source === "button") {
-        removeFeedbackClasses();
+        removeFeedbackClasses("incorrect");
         generateQuestion();
         showingCorrectAnswer = false;
       }
@@ -187,9 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (userAnswer === correctAnswer) {
         right(question);
         updateDontknowEmoji("✓");
-        addFeedbackClasses(true);
+        addFeedbackClasses("correct");
         setTimeout(() => {
-          removeFeedbackClasses();
+          removeFeedbackClasses("correct");
           generateQuestion();
         }, 1000);
       } else {
@@ -197,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (source === "button") {
       wrong(question);
-      addFeedbackClasses(false);
+      addFeedbackClasses("incorrect");
       document.getElementById("answer").value = correctAnswer;
       updateDontknowEmoji("✓");
       showingCorrectAnswer = true;
