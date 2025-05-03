@@ -19,7 +19,8 @@
     range: [11, 20, 100, 200, 1000, 2000, 10000],
     choices: {
       count: 3,
-      interval: 4,
+      interval: 5,
+      rightRate: 0.9,
     },
   };
 
@@ -75,7 +76,13 @@
   const newTopicIndexes = () => {
     const consider = {};
     const reject = {};
-    for (const key of Object.keys(stats.topics)) {
+    for (const [key, {right, wrong}] of Object.entries(stats.topics)) {
+      if (right + wrong < settings.choices.interval) {
+        continue;
+      }
+      if (right / (right + wrong) < settings.choices.rightRate) {
+        continue;
+      }
       const index = parseIndex(key);
       for (const [dim, i] of Object.entries(index)) {
         if (i + 1 === settings[dim].length) {
@@ -142,7 +149,7 @@
     };
   };
 
-  let previousNumbers = [-1, -1, -1];
+  let previousNumbers = [-1, -1, -1, -1, -1];
 
   exports.generate = () => {
     const questions = [];
@@ -155,7 +162,7 @@
         break;
       }
     }
-    if ((stats.sequence + 1) % settings.choices.interval === 0) {
+    if (stats.sequence % settings.choices.interval === 0) {
       questions.push(
         ...newTopicIndexes().map((index) => questionForTopic(index))
       );
