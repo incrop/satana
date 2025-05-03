@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("question").textContent = answer.short;
     document.getElementById("answer").value = "";
-    document.getElementById("answer").placeholder = question.title;
+    document.querySelector(".answer-hint").textContent = question.title;
 
     document.getElementById("choice-container").classList.remove("visible");
     document.getElementById("question-container").classList.add("visible");
