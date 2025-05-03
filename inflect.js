@@ -274,11 +274,11 @@
   };
 
   const roots = {
-    0: [{ value: "nolla" }, { value: "noll", suffixStartVocals: [1, 2] }],
+    0: [{ value: "nolla" }, { value: "noll", suffixStartsWithVocal: true }],
     1: [
       { value: "yhde" },
       { value: "ensimmäi", kind: "jarjestys", originalNumber: 1 },
-      { value: "yks", suffixStartVocals: [1, 2] },
+      { value: "yks", suffixStartsWithVocal: true },
       {
         value: "yksi",
         kind: "perus",
@@ -307,7 +307,7 @@
     2: [
       { value: "kahde" },
       { value: "toi", kind: "jarjestys", originalNumber: 2 },
-      { value: "kaks", suffixStartVocals: [1, 2] },
+      { value: "kaks", suffixStartsWithVocal: true },
       {
         value: "kaksi",
         kind: "perus",
@@ -335,7 +335,7 @@
     ],
     3: [
       { value: "kolme" },
-      { value: "kolm", suffixStartVocals: [1, 2] },
+      { value: "kolm", suffixStartsWithVocal: true },
       { value: "kolma", kind: "jarjestys" },
       {
         value: "kolme",
@@ -344,10 +344,10 @@
         plurality: "yksikko",
       },
     ],
-    4: [{ value: "neljä" }, { value: "nelj", suffixStartVocals: [1, 2] }],
+    4: [{ value: "neljä" }, { value: "nelj", suffixStartsWithVocal: true }],
     5: [
       { value: "viide" },
-      { value: "viis", suffixStartVocals: [1, 2] },
+      { value: "viis", suffixStartsWithVocal: true },
       {
         value: "viisi",
         kind: "perus",
@@ -369,7 +369,7 @@
     ],
     6: [
       { value: "kuude" },
-      { value: "kuus", suffixStartVocals: [1, 2] },
+      { value: "kuus", suffixStartsWithVocal: true },
       {
         value: "kuusi",
         kind: "perus",
@@ -391,7 +391,7 @@
     ],
     7: [
       { value: "seitsemä" },
-      { value: "seitsem", suffixStartVocals: [1, 2] },
+      { value: "seitsem", suffixStartsWithVocal: true },
       {
         value: "seitsemän",
         kind: "perus",
@@ -401,7 +401,7 @@
     ],
     8: [
       { value: "kahdeksa" },
-      { value: "kahdeks", suffixStartVocals: [1, 2] },
+      { value: "kahdeks", suffixStartsWithVocal: true },
       {
         value: "kahdeksan",
         kind: "perus",
@@ -411,7 +411,7 @@
     ],
     9: [
       { value: "yhdeksä" },
-      { value: "yhdeks", suffixStartVocals: [1, 2] },
+      { value: "yhdeks", suffixStartsWithVocal: true },
       {
         value: "yhdeksän",
         kind: "perus",
@@ -421,7 +421,7 @@
     ],
     10: [
       { value: "kymmene" },
-      { value: "kymmen", suffixStartVocals: [1, 2] },
+      { value: "kymmen", suffixStartsWithVocal: true },
       {
         value: "kymmen",
         kind: "perus",
@@ -598,9 +598,7 @@
           kind: kind,
           caseName: caseName,
           plurality: plurality,
-          suffixStartVocals: ((ssv) => (ssv ? ssv[0].length : 0))(
-            /^[aouäöyie]+/i.exec(suffix)
-          ),
+          suffixStartsWithVocal: /^[aouäöyie]/i.test(suffix),
           trailingZeros: trailingZeros(rootNumber),
           ...overrides,
         }) + suffix
