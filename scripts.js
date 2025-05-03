@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mapping of numbers to their Finnish forms in different cases
     const numberForms = {
         1: {
-            nominatiivi: 'yksi',
             genetiivi: 'yhden',
             partitiivi: 'yhtä',
             inessiivi: 'yhdessä',
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'yhdelle'
         },
         2: {
-            nominatiivi: 'kaksi',
             genetiivi: 'kahden',
             partitiivi: 'kahta',
             inessiivi: 'kahdessa',
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'kahdelle'
         },
         3: {
-            nominatiivi: 'kolme',
             genetiivi: 'kolmen',
             partitiivi: 'kolmea',
             inessiivi: 'kolmessa',
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'kolmelle'
         },
         4: {
-            nominatiivi: 'neljä',
             genetiivi: 'neljän',
             partitiivi: 'neljää',
             inessiivi: 'neljässä',
@@ -49,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'neljälle'
         },
         5: {
-            nominatiivi: 'viisi',
             genetiivi: 'viiden',
             partitiivi: 'viittä',
             inessiivi: 'viidessä',
@@ -60,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'viidelle'
         },
         6: {
-            nominatiivi: 'kuusi',
             genetiivi: 'kuuden',
             partitiivi: 'kuutta',
             inessiivi: 'kuudessa',
@@ -71,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'kuudelle'
         },
         7: {
-            nominatiivi: 'seitsemän',
             genetiivi: 'seitsemän',
             partitiivi: 'seitsemää',
             inessiivi: 'seitsemässä',
@@ -82,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'seitsemälle'
         },
         8: {
-            nominatiivi: 'kahdeksan',
             genetiivi: 'kahdeksan',
             partitiivi: 'kahdeksaa',
             inessiivi: 'kahdeksassa',
@@ -93,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'kahdeksalle'
         },
         9: {
-            nominatiivi: 'yhdeksän',
             genetiivi: 'yhdeksän',
             partitiivi: 'yhdeksää',
             inessiivi: 'yhdeksässä',
@@ -104,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
             allatiivi: 'yhdeksälle'
         },
         10: {
-            nominatiivi: 'kymmenen',
             genetiivi: 'kymmenen',
             partitiivi: 'kymmentä',
             inessiivi: 'kymmenessä',
@@ -118,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // List of grammar cases with their endings
     const grammarCases = {
-        nominatiivi: '',
         genetiivi: ':n',
         partitiivi: ':a',
         inessiivi: ':ssa',
@@ -131,6 +120,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentNumber = 0;
     let currentCase = '';
+
+    // Function to add visual feedback classes
+    function addFeedbackClasses(isCorrect) {
+        const className = isCorrect ? 'correct' : 'incorrect';
+        document.body.classList.add(className);
+        document.querySelector('.container').classList.add(className);
+        document.querySelector('h1').classList.add(className);
+        document.querySelector('input').classList.add(className);
+        document.querySelector('button').classList.add(className);
+    }
+
+    // Function to remove visual feedback classes
+    function removeFeedbackClasses() {
+        document.body.classList.remove('correct', 'incorrect');
+        document.querySelector('.container').classList.remove('correct', 'incorrect');
+        document.querySelector('h1').classList.remove('correct', 'incorrect');
+        document.querySelector('input').classList.remove('correct', 'incorrect');
+        document.querySelector('button').classList.remove('correct', 'incorrect');
+    }
 
     // Function to generate a random question
     function generateQuestion() {
@@ -153,11 +161,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const correctAnswer = numberForms[currentNumber][currentCase];
         
         if (userAnswer === correctAnswer) {
-            alert('Correct!');
-            document.getElementById('answer').value = '';
-            generateQuestion();
+            addFeedbackClasses(true);
+            setTimeout(() => {
+                removeFeedbackClasses();
+                document.getElementById('answer').value = '';
+                generateQuestion();
+            }, 1000);
         } else {
-            alert(`Incorrect. The correct answer is: ${correctAnswer}`);
+            addFeedbackClasses(false);
+            document.getElementById('answer').value = correctAnswer;
+            setTimeout(() => {
+                removeFeedbackClasses();
+                setTimeout(() => {
+                    document.getElementById('answer').value = '';
+                    generateQuestion();
+                }, 1000);
+            }, 3000);
         }
     }
 

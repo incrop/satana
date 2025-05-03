@@ -10,25 +10,64 @@ body {
     background-color: #000;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: background-color 1s ease, color 1s ease;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.correct {
+    background-color: #001a00;
+    color: #00ff00;
+}
+
+body.incorrect {
+    background-color: #1a0000;
+    color: #ff0000;
 }
 
 .container {
     max-width: 800px;
+    width: 90%;
     margin: 0 auto;
     padding: 2rem;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    transition: background 1s ease, box-shadow 1s ease;
+}
+
+.container.correct {
+    background: rgba(0, 26, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.container.incorrect {
+    background: rgba(26, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
 h1 {
     color: #ff00ff;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     text-shadow: 0 0 10px #ff00ff;
+    transition: color 1s ease, text-shadow 1s ease;
+    text-align: center;
+}
+
+h1.correct {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+h1.incorrect {
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000;
 }
 
 .answer-container {
@@ -55,6 +94,18 @@ input[type="text"]:focus {
     background: rgba(255, 255, 255, 0.2);
 }
 
+input[type="text"].correct {
+    border-color: #00ff00;
+    box-shadow: 0 0 15px #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+input[type="text"].incorrect {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+    background: rgba(255, 0, 0, 0.1);
+}
+
 button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
@@ -76,6 +127,16 @@ button:hover {
 
 button:active {
     transform: scale(0.95);
+}
+
+button.correct {
+    background-color: #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+button.incorrect {
+    background-color: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
 }
 
 p {
