@@ -73,7 +73,7 @@
         yksikko: [
           { value: "aan" },
           { value: "een", lastDigit: [1, 2, 3, 5, 6] },
-          { value: "een", lastDigit: 0, trailingZeros: 1 },
+          { value: "een", lastDigit: 0, trailingZeros: [1, 3] },
           { value: "ään", lastDigit: [4, 7, 9] },
         ],
         monikko: [{ value: "iin" }, { value: "ihin", trailingZeros: 2 }],
@@ -508,6 +508,53 @@
         plurality: "monikko",
       },
     ],
+    1000: [
+      { value: "tuhanne" },
+      {
+        value: "tuhans",
+        kind: "perus",
+        plurality: "monikko",
+      },
+      {
+        value: "tuhanne",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "monikko",
+      },
+      {
+        value: "tuhat",
+        kind: "perus",
+        caseName: ["nominatiivi", "partitiivi"],
+        plurality: "yksikko",
+      },
+      {
+        value: "tuhatta",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "yksikko",
+        trailingZeros: 3,
+      },
+      {
+        value: "tuhat",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "yksikko",
+        trailingZeros: 3,
+        firstDigit: 1,
+      },
+      {
+        value: "tuhante",
+        kind: "perus",
+        caseName: "essiivi",
+        plurality: "yksikko",
+      },
+      {
+        value: "tuhant",
+        kind: "perus",
+        caseName: "illatiivi",
+        plurality: "yksikko",
+      },
+    ],
   };
 
   function findMatchingValue(options, query) {
@@ -622,6 +669,19 @@
         long += findRoot(100, findSuffix(100), { firstDigit: firstDigit });
         if (nuberWithoutHundreds > 0) {
           long += findLong(nuberWithoutHundreds);
+        }
+        return long;
+      }
+      if (number < 10000) {
+        const firstDigit = Math.floor(number / 1000);
+        const nuberWithoutThousands = number - firstDigit * 1000;
+        let long = "";
+        if (firstDigit > 1) {
+          long += findRoot(firstDigit, findSuffix(firstDigit));
+        }
+        long += findRoot(1000, findSuffix(1000), { firstDigit: firstDigit });
+        if (nuberWithoutThousands > 0) {
+          long += findLong(nuberWithoutThousands);
         }
         return long;
       }
