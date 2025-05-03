@@ -12,9 +12,12 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: background-color 1s ease, color 1s ease;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    overflow: hidden;
 }
 
 body.correct {
@@ -36,13 +39,20 @@ body.reward {
     min-width: 350px;
     max-width: 800px;
     width: 90%;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    margin: auto;
+    padding: 1rem;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     transition: background 1s ease, box-shadow 1s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container.correct {
