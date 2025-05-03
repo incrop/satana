@@ -2,68 +2,78 @@
   const settings = {
     kind: ["perus", "jarjestys"],
     plurality: ["yksikko", "monikko"],
-    caseName: [
+    caseGroup: [
       ["nominatiivi"],
       ["genetiivi", "partitiivi"],
       [
-        "inessiivi",
-        "elatiivi",
+        {
+          name: "paikallissijat",
+          cases: [
+            "inessiivi",
+            "elatiivi",
+            "adessiivi",
+            "ablatiivi",
+            "allatiivi",
+          ],
+        },
         "illatiivi",
-        "adessiivi",
-        "ablatiivi",
-        "allatiivi",
       ],
+
       ["essiivi", "translatiivi"],
     ],
     range: [11, 20, 100, 200, 1000, 2100, 10000],
-    choices: {
-      count: 3,
-      interval: 5,
-      rightRate: 0.9,
+    resolveIndex: (index) => {
+      const kind = settings.kind[index.kind];
+      const plurality = settings.plurality[index.plurality];
+      const caseGroup = settings.caseGroup.flat()[index.caseGroup];
+      const maxNumberIndex = index.range;
+
+      const minNumber =
+        maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
+      const maxNumber = settings.range[maxNumberIndex];
+      return {
+        kind,
+        plurality,
+        caseGroup,
+        minNumber,
+        maxNumber,
+      };
+    },
+    statsVersion: 1,
+    practice: {
+      questionCount: 10,
+      minWeight: 0.1,
+      decayFactor: 0.8,
+    },
+    newTopics: {
+      initialIndex: "0,0,0,0",
+      maxCount: 3,
+      questionCount: 5,
     },
   };
 
   const parseIndex = (key) => {
-    const [kind, plurality, caseName, range] = key
+    const [kind, plurality, caseGroup, range] = key
       .split(",")
       .map((s) => parseInt(s, 10));
     return {
       kind,
       plurality,
-      caseName,
+      caseGroup,
       range,
     };
   };
 
-  const indexToString = ({ kind, plurality, caseName, range }) =>
-    `${kind},${plurality},${caseName},${range}`;
+  const indexToString = ({ kind, plurality, caseGroup, range }) =>
+    `${kind},${plurality},${caseGroup},${range}`;
 
   const stats = (() => {
-    const statsStr = localStorage.getItem("stats");
-    const stats = statsStr ? JSON.parse(statsStr) : {};
-    stats.sequence = 0;
-    if (!stats.topics) {
-      stats.topics = {
-        // Indexes for kind, plurality, caseName, range
-        "0,0,0,0": {
-          right: 0,
-          wrong: 0,
-        },
+    let stats = JSON.parse(localStorage.getItem("stats")) || {};
+    if (stats.version !== settings.statsVersion) {
+      stats = {
+        version: settings.statsVersion,
+        topics: {},
       };
-    }
-    topics: for (const [key, t] of Object.entries(stats.topics)) {
-      for (const [dim, i] of Object.entries(parseIndex(key))) {
-        if (
-          typeof i !== "number" ||
-          i < 0 ||
-          !settings[dim] ||
-          i >= settings[dim].flat().length
-        ) {
-          delete stats.topics[key];
-          continue topics;
-        }
-      }
-      stats.sequence += t.right + t.wrong;
     }
     return stats;
   })();
@@ -80,27 +90,37 @@
     total:
       settings.kind.length *
       settings.plurality.length *
-      settings.caseName.flat().length *
+      settings.caseGroup.flat().length *
       settings.range.length,
   });
 
   const knownTopicIndex = () => {
+    const weight = (topicStats) => {
+      const { minWeight, decayFactor } = settings.practice;
+      const { right, wrong, streak } = topicStats;
+      return (
+        (Math.pow(decayFactor, streak) * (wrong + 1)) / (right + 1) + minWeight
+      );
+    };
     let totalWeight = 0;
     for (const t of Object.values(stats.topics)) {
-      totalWeight += (t.wrong + 1) / (t.right + 1);
+      totalWeight += weight(t);
     }
     const rnd = Math.random() * totalWeight;
     let inc = 0;
     for (const [key, t] of Object.entries(stats.topics)) {
-      inc += (t.wrong + 1) / (t.right + 1);
+      inc += weight(t);
       if (inc > rnd) {
-        return parseIndex(key);
+        return key;
       }
     }
     throw Error("this should not have happened 😅");
   };
 
   const newTopicIndexes = () => {
+    if (Object.keys(stats.topics).length === 0) {
+      return [settings.newTopics.initialIndex];
+    }
     const candidateIndexes = (dim, i) => {
       if (!Array.isArray(settings[dim][0])) {
         if (i + 1 === settings[dim].length) {
@@ -138,13 +158,7 @@
 
     const consider = {};
     const reject = {};
-    for (const [key, { right, wrong }] of Object.entries(stats.topics)) {
-      if (right + wrong < settings.choices.interval) {
-        continue;
-      }
-      if (right / (right + wrong) < settings.choices.rightRate) {
-        continue;
-      }
+    for (const key of Object.keys(stats.topics)) {
       const index = parseIndex(key);
       for (const [dim, i] of Object.entries(index)) {
         candidates: for (const candidateIdx of candidateIndexes(dim, i)) {
@@ -173,11 +187,11 @@
       }
     }
     const results = [];
-    let n = settings.choices.count;
+    let n = settings.newTopics.maxCount;
     while (n > 0 && Object.keys(consider).length > 0) {
       const keys = Object.keys(consider);
       const pick = keys[Math.floor(Math.random() * keys.length)];
-      results.push(consider[pick]);
+      results.push(pick);
       delete consider[pick];
       n--;
     }
@@ -220,51 +234,122 @@
     };
   };
 
-  let previousNumbers = [-1, -1, -1, -1, -1];
+  const titleForTopic = ({
+    kind,
+    caseName,
+    plurality,
+    minNumber,
+    maxNumber,
+  }) => {
+    let kindText = {
+      perus: "Perusluvut",
+      jarjestys: "Järjestysluvut",
+    };
+    let pluralityText = {
+      yksikko: "yksikön",
+      monikko: "monikon",
+    };
+    return `${kindText[kind]} ${minNumber}-${maxNumber - 1}: ${
+      pluralityText[plurality]
+    } ${caseName}`;
+  };
 
-  exports.generate = () => {
-    const questions = [];
-    while (true) {
-      const knownQuestion = questionForTopic(knownTopicIndex());
-      if (!previousNumbers.includes(knownQuestion.number)) {
-        questions.push(knownQuestion);
-        previousNumbers.push(knownQuestion.number);
-        previousNumbers.shift();
-        break;
+  const generateQuestions = (topicIndex, count) => {
+    const { kind, plurality, caseGroup, minNumber, maxNumber } =
+      settings.resolveIndex(parseIndex(topicIndex));
+    const caseNames =
+      typeof caseGroup === "string" ? [caseGroup] : caseGroup.cases;
+
+    const numbers = [];
+    while (numbers.length < Math.min(count, maxNumber - minNumber)) {
+      let number =
+        Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+      if (numbers.includes(number)) {
+        continue;
       }
+      numbers.push(number);
     }
-    if (stats.sequence % settings.choices.interval === 0) {
-      questions.push(
-        ...newTopicIndexes().map((index) => questionForTopic(index, true))
-      );
+
+    return numbers.map((number) => {
+      const caseName = caseNames[Math.floor(Math.random() * caseNames.length)];
+      const title = titleForTopic({
+        kind,
+        caseName,
+        plurality,
+        minNumber,
+        maxNumber,
+      });
+      return {
+        number,
+        kind,
+        caseName,
+        plurality,
+        topicIndex,
+        title,
+      };
+    });
+  };
+
+  const generatePractice = () => {
+    if (Object.keys(stats.topics).length === 0) {
+      return null;
     }
-    return questions;
+    return {
+      title: `Tee ${settings.practice.questionCount} satunnaista tehtävää`,
+      questions: Array(settings.practice.questionCount)
+        .fill()
+        .map(() => knownTopicIndex())
+        .flatMap((topicIndex) => generateQuestions(topicIndex, 1)),
+    };
+  };
+
+  const generateNewTopics = () => {
+    return newTopicIndexes().map((topicIndex) => {
+      const topic = settings.resolveIndex(parseIndex(topicIndex));
+      return {
+        title: titleForTopic({
+          ...topic,
+          caseName:
+            typeof topic.caseGroup === "string"
+              ? topic.caseGroup
+              : topic.caseGroup.name,
+        }),
+        questions: generateQuestions(
+          topicIndex,
+          settings.newTopics.questionCount
+        ),
+      };
+    });
+  };
+
+  exports.generateExercises = () => {
+    return {
+      practice: generatePractice(),
+      newTopics: generateNewTopics(),
+    };
   };
 
   exports.right = (question) => {
-    const key = indexToString(question.topicIndex);
-    if (stats.topics[key]) {
-      stats.topics[key].right++;
-    } else {
-      stats.topics[key] = { right: 1, wrong: 0 };
-    }
-    stats.sequence = question.sequence;
-    if (question.sequence % settings.choices.interval === 0) {
-      localStorage.setItem("stats", JSON.stringify(stats));
-    }
+    const statsForTopic = stats.topics[question.topicIndex] || {
+      right: 0,
+      wrong: 0,
+      streak: 0,
+    };
+    statsForTopic.streak++;
+    statsForTopic.right++;
+    stats.topics[question.topicIndex] = statsForTopic;
+    localStorage.setItem("stats", JSON.stringify(stats));
   };
 
   exports.wrong = (question) => {
-    const key = indexToString(question.topicIndex);
-    if (stats.topics[key]) {
-      stats.topics[key].wrong++;
-    } else {
-      stats.topics[key] = { wrong: 1, right: 0 };
-    }
-    stats.sequence = question.sequence;
-    if (question.sequence % settings.choices.interval === 0) {
-      localStorage.setItem("stats", JSON.stringify(stats));
-    }
+    const statsForTopic = stats.topics[question.topicIndex] || {
+      right: 0,
+      wrong: 0,
+    };
+    statsForTopic.streak = 0;
+    statsForTopic.wrong++;
+    stats.topics[question.topicIndex] = statsForTopic;
+    localStorage.setItem("stats", JSON.stringify(stats));
   };
 
   exports.progress = progress;

@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const { inflect } = this.inflect;
-  const { generate, right, wrong, progress } = this.question;
+  const { generateExercises, right, wrong, progress } = this.question;
 
   let question;
   let answer;
-  let currentQuestions = [];
+  let currentQuestions =
+    JSON.parse(localStorage.getItem("currentQuestions")) || [];
   let showingCorrectAnswer = false;
 
   function updateButtonState() {
@@ -45,32 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dontknow-emoji").textContent = emoji;
   }
 
-  function placeholderText({
-    kind,
-    caseName,
-    plurality,
-    range: [minNumber, maxNumber],
-  }) {
-    let kindText = {
-      perus: "Perusluvut",
-      jarjestys: "Järjestysluvut",
-    };
-    let pluralityText = {
-      yksikko: "yksikön",
-      monikko: "monikon",
-    };
-    return `${kindText[kind]} ${minNumber}-${maxNumber - 1}: ${
-      pluralityText[plurality]
-    } ${caseName}`;
-  }
-
   function showQuestion(selectedQuestion) {
     question = selectedQuestion;
     answer = inflect(question);
 
     document.getElementById("question").textContent = answer.short;
     document.getElementById("answer").value = "";
-    document.getElementById("answer").placeholder = placeholderText(question);
+    document.getElementById("answer").placeholder = question.title;
 
     document.getElementById("choice-container").classList.remove("visible");
     document.getElementById("question-container").classList.add("visible");
@@ -78,93 +60,98 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("answer").focus();
   }
 
-  function showChoiceButtons(questions) {
+  function setCurrentQuestions(questions) {
+    currentQuestions = questions;
+    localStorage.setItem("currentQuestions", JSON.stringify(questions));
+    nextQuestionOrChoices();
+  }
+
+  function nextQuestionOrChoices() {
+    if (currentQuestions.length > 0) {
+      showQuestion(currentQuestions[0]);
+      return;
+    }
+    const exercises = generateExercises();
+    showChoiceButtons(exercises);
+  }
+
+  function showChoiceButtons({ practice, newTopics }) {
     const choiceContainer = document.getElementById("choice-container");
     choiceContainer.innerHTML = "";
 
-    const knownHeader = document.createElement("div");
-    knownHeader.className = "choice-header";
-    knownHeader.textContent = "Jatka harjoittelua";
+    if (practice) {
+      const practiceHeader = document.createElement("div");
+      practiceHeader.className = "choice-header";
+      practiceHeader.textContent = "Jatka harjoittelua";
+      choiceContainer.appendChild(practiceHeader);
 
-    const refreshLink = document.createElement("a");
-    refreshLink.href = "";
-    refreshLink.className = "choice-hint refresh-link";
-    refreshLink.textContent = "⇄";
-    knownHeader.appendChild(refreshLink);
-
-    choiceContainer.appendChild(knownHeader);
-
-    const knownButton = document.createElement("button");
-    knownButton.className = "choice-button known-topic";
-    knownButton.textContent = inflect(questions[0]).short;
-    knownButton.onclick = () => {
-      showQuestion(questions[0]);
-    };
-    choiceContainer.appendChild(knownButton);
-    const knownHint = document.createElement("div");
-    knownHint.className = "choice-hint";
-    knownHint.textContent = placeholderText(questions[0]);
-    choiceContainer.appendChild(knownHint);
-
-    const newHeader = document.createElement("div");
-    newHeader.className = "choice-header";
-
-    const headerText = document.createElement("span");
-    headerText.className = "choice-header-text";
-    headerText.textContent = "tai avaa uudet aiheet";
-    newHeader.appendChild(headerText);
-
-    const progressText = document.createElement("span");
-    progressText.className = "choice-hint progress-text";
-    const { open, total } = progress();
-    progressText.textContent = `Avattu: ${open} / ${total}`;
-    newHeader.appendChild(progressText);
-
-    choiceContainer.appendChild(newHeader);
-
-    for (let i = 1; i < questions.length; i++) {
-      const button = document.createElement("button");
-      button.className = "choice-button new-topic";
-      if (questions[i].reward) {
-        button.classList.add("reward");
-      }
-      button.textContent = inflect(questions[i]).short;
-      button.onclick = () => {
-        showQuestion(questions[i]);
-        if (questions[i].reward) {
-          addFeedbackClasses("reward");
-          const emojis = questions[i].reward;
-          for (let j = 0; j < emojis.length * 5; j++) {
-            setTimeout(() => {
-              createFlyingEmoji(
-                emojis[Math.floor(Math.random() * emojis.length)]
-              );
-            }, Math.random() * 1500);
-          }
-          setTimeout(() => {
-            removeFeedbackClasses("reward");
-          }, 3500);
-        }
+      const practiceButton = document.createElement("button");
+      practiceButton.className = "choice-button known-topic";
+      practiceButton.textContent = inflect(practice.questions[0]).short;
+      practiceButton.onclick = () => {
+        setCurrentQuestions(practice.questions);
       };
-      choiceContainer.appendChild(button);
-      const hint = document.createElement("div");
-      hint.className = "choice-hint";
-      hint.textContent = placeholderText(questions[i]);
-      choiceContainer.appendChild(hint);
+      choiceContainer.appendChild(practiceButton);
+
+      const practiceHint = document.createElement("div");
+      practiceHint.className = "choice-hint";
+      practiceHint.textContent = practice.title;
+      choiceContainer.appendChild(practiceHint);
+    }
+
+    if (newTopics.length > 0) {
+      const newHeader = document.createElement("div");
+      newHeader.className = "choice-header";
+
+      const headerText = document.createElement("span");
+      headerText.className = "choice-header-text";
+      headerText.textContent = newTopics.length > 1
+        ? "Avaa uudet aiheet"
+        : "Avaa uusi aihe";
+      newHeader.appendChild(headerText);
+
+      const progressText = document.createElement("span");
+      progressText.className = "choice-hint progress-text";
+      const { open, total } = progress();
+      progressText.textContent = `${open} / ${total}`;
+      newHeader.appendChild(progressText);
+
+      choiceContainer.appendChild(newHeader);
+
+      for (const topic of newTopics) {
+        const button = document.createElement("button");
+        button.className = "choice-button new-topic";
+        if (topic.reward) {
+          button.classList.add("reward");
+        }
+        button.textContent = inflect(topic.questions[0]).short;
+        button.onclick = () => {
+          setCurrentQuestions(topic.questions);
+          if (topic.reward) {
+            addFeedbackClasses("reward");
+            const emojis = topic.reward;
+            for (let j = 0; j < emojis.length * 5; j++) {
+              setTimeout(() => {
+                createFlyingEmoji(
+                  emojis[Math.floor(Math.random() * emojis.length)]
+                );
+              }, Math.random() * 1500);
+            }
+            setTimeout(() => {
+              removeFeedbackClasses("reward");
+            }, 3500);
+          }
+        };
+        choiceContainer.appendChild(button);
+        const hint = document.createElement("div");
+        hint.className = "choice-hint";
+        hint.textContent = topic.title;
+        choiceContainer.appendChild(hint);
+      }
     }
 
     document.getElementById("question-container").classList.remove("visible");
     choiceContainer.classList.add("visible");
-  }
-
-  function generateQuestion() {
-    currentQuestions = generate();
-
-    if (currentQuestions.length === 1) {
-      showQuestion(currentQuestions[0]);
-    } else {
-      showChoiceButtons(currentQuestions);
-    }
   }
 
   function checkAnswer(source) {
@@ -177,23 +164,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (showingCorrectAnswer) {
       if (source === "button") {
         removeFeedbackClasses("incorrect");
-        generateQuestion();
+        setCurrentQuestions([
+          ...currentQuestions.slice(1),
+          { ...currentQuestions[0], repeated: true },
+        ]);
         showingCorrectAnswer = false;
       }
     } else if (source === "input") {
       if (userAnswer === correctAnswer) {
-        right(question);
+        if (!question.repeated) {
+          right(question);
+        }
         updateDontknowEmoji("✓");
         addFeedbackClasses("correct");
         setTimeout(() => {
           removeFeedbackClasses("correct");
-          generateQuestion();
+          setCurrentQuestions(currentQuestions.slice(1));
         }, 1000);
       } else {
         updateDontknowEmoji("🤔");
       }
     } else if (source === "button") {
-      wrong(question);
+      if (!question.repeated) {
+        wrong(question);
+      }
       addFeedbackClasses("incorrect");
       document.getElementById("answer").value = correctAnswer;
       updateDontknowEmoji("✓");
@@ -210,5 +204,5 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("dontknow")
     .addEventListener("click", () => checkAnswer("button"));
 
-  generateQuestion();
+  nextQuestionOrChoices();
 });

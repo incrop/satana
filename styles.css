@@ -281,14 +281,6 @@ p {
     margin-top: -0.5rem;
 }
 
-.refresh-link {
-    font-size: 1rem;
-    font-style: normal;
-    text-decoration: none;
-    color: #00ffff;
-    transition: color 0.3s ease;
-}
-
 .choice-hint.progress-text {
     margin: 0;
     flex-shrink: 0;
