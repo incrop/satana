@@ -1,17 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const kinds = ["perus", "jarjestys"];
-  const cases = [
-    "nominatiivi",
-    "genetiivi",
-    "partitiivi",
-    "inessiivi",
-    "elatiivi",
-    "illatiivi",
-    "adessiivi",
-    "ablatiivi",
-    "allatiivi",
-  ];
-  const pluralities = ["yksikko", "monikko"];
+  const { kinds, cases, pluralities, inflect } = this.inflect;
   const maxNumber = 20;
 
   let current = {};
@@ -51,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const caseName = cases[Math.floor(Math.random() * cases.length)];
     const plurality =
       pluralities[Math.floor(Math.random() * pluralities.length)];
-    current = this.inflect.inflect(number, kind, caseName, plurality);
+    current = inflect(number, kind, caseName, plurality);
 
     // Update the question element
     document.getElementById("question").textContent = current.short;

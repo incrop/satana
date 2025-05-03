@@ -107,16 +107,32 @@
         monikko: [{ value: "ille" }],
       },
       essiivi: {
-        yksikko: [{ value: "na" }],
-        monikko: [{ value: "ina" }],
+        yksikko: [
+          { value: "na" },
+          { value: "nä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "nä", lastDigit: 0, trailingZeros: 1 },
+        ],
+        monikko: [
+          { value: "ina" },
+          { value: "inä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "inä", lastDigit: 0, trailingZeros: 1 },
+        ],
       },
       translatiivi: {
         yksikko: [{ value: "ksi" }],
         monikko: [{ value: "iksi" }],
       },
       abessiivi: {
-        yksikko: [{ value: "tta" }],
-        monikko: [{ value: "itta" }],
+        yksikko: [
+          { value: "tta" },
+          { value: "ttä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "ttä", lastDigit: 0, trailingZeros: 1 },
+        ],
+        monikko: [
+          { value: "itta" },
+          { value: "ittä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "ittä", lastDigit: 0, trailingZeros: 1 },
+        ],
       },
     },
     jarjestys: {
@@ -217,16 +233,40 @@
         monikko: [{ value: "nsille" }, { value: "sille", number: [1, 2] }],
       },
       essiivi: {
-        yksikko: [{ value: "ntena" }],
-        monikko: [{ value: "nsina" }],
+        yksikko: [
+          { value: "ntena" },
+          { value: "senä", number: 1 },
+          { value: "sena", number: 2 },
+          { value: "ntenä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "ntenä", lastDigit: 0, trailingZeros: 1 },
+        ],
+        monikko: [
+          { value: "nsina" },
+          { value: "sinä", number: 1 },
+          { value: "sina", number: 2 },
+          { value: "nsinä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "nsinä", lastDigit: 0, trailingZeros: 1 },
+        ],
       },
       translatiivi: {
-        yksikko: [{ value: "nneksi" }],
-        monikko: [{ value: "nsiksi" }],
+        yksikko: [{ value: "nneksi" }, { value: "seksi", number: [1, 2] }],
+        monikko: [{ value: "nsiksi" }, { value: "siksi", number: [1, 2] }],
       },
       abessiivi: {
-        yksikko: [{ value: "nnetta" }],
-        monikko: [{ value: "nsitta" }],
+        yksikko: [
+          { value: "nnetta" },
+          { value: "settä", number: 1 },
+          { value: "setta", number: 2 },
+          { value: "nnettä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "nnettä", lastDigit: 0, trailingZeros: 1 },
+        ],
+        monikko: [
+          { value: "nsitta" },
+          { value: "sittä", number: 1 },
+          { value: "sitta", number: 2 },
+          { value: "nsittä", lastDigit: [1, 4, 5, 7, 9] },
+          { value: "nsittä", lastDigit: 0, trailingZeros: 1 },
+        ],
       },
     },
   };
@@ -255,6 +295,12 @@
         caseName: "illatiivi",
         plurality: "yksikko",
       },
+      {
+        value: "yhte",
+        kind: "perus",
+        caseName: "essiivi",
+        plurality: "yksikko",
+      },
     ],
     2: [
       { value: "kahde" },
@@ -276,6 +322,12 @@
         value: "kaht",
         kind: "perus",
         caseName: "illatiivi",
+        plurality: "yksikko",
+      },
+      {
+        value: "kahte",
+        kind: "perus",
+        caseName: "essiivi",
         plurality: "yksikko",
       },
     ],
@@ -306,6 +358,12 @@
         caseName: ["partitiivi", "illatiivi"],
         plurality: "yksikko",
       },
+      {
+        value: "viite",
+        kind: "perus",
+        caseName: "essiivi",
+        plurality: "yksikko",
+      },
     ],
     6: [
       { value: "kuude" },
@@ -320,6 +378,12 @@
         value: "kuut",
         kind: "perus",
         caseName: ["partitiivi", "illatiivi"],
+        plurality: "yksikko",
+      },
+      {
+        value: "kuute",
+        kind: "perus",
+        caseName: "essiivi",
         plurality: "yksikko",
       },
     ],
