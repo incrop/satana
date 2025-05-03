@@ -7,13 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentQuestions =
     JSON.parse(localStorage.getItem("currentQuestions")) || [];
   let showingCorrectAnswer = false;
-
-  let forceDisable = false;
+  let holdAnswer = "";
 
   function updateButtonState() {
     const input = document.getElementById("answer");
     const dontknowButton = document.getElementById("dontknow");
-    dontknowButton.disabled = forceDisable || input.value.trim() === "";
+    dontknowButton.disabled = holdAnswer ? true : input.value.trim() === "";
   }
 
   function addFeedbackClasses(className) {
@@ -158,14 +157,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function checkAnswer(source) {
-    const userAnswer = document
-      .getElementById("answer")
-      .value.toLowerCase()
-      .trim();
-    const correctAnswer = answer.long;
+    const userAnswer = document.getElementById("answer").value;
+    const userAnswerNormalized = userAnswer.toLowerCase().trim();
 
-    if (forceDisable) {
-      document.getElementById("answer").value = correctAnswer;
+    if (holdAnswer) {
+      document.getElementById("answer").value = holdAnswer;
     } else if (showingCorrectAnswer) {
       if (source === "button") {
         removeFeedbackClasses("incorrect");
@@ -176,16 +172,16 @@ document.addEventListener("DOMContentLoaded", () => {
         showingCorrectAnswer = false;
       }
     } else if (source === "input") {
-      if (userAnswer === correctAnswer) {
+      if (userAnswerNormalized === answer.long) {
         if (!question.repeated) {
           right(question);
         }
         updateDontknowEmoji("✓");
         addFeedbackClasses("correct");
-        forceDisable = true;
+        holdAnswer = userAnswer;
         updateButtonState();
         setTimeout(() => {
-          forceDisable = false;
+          holdAnswer = "";
           removeFeedbackClasses("correct");
           setCurrentQuestions(currentQuestions.slice(1));
         }, 1000);
