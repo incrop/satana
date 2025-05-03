@@ -291,7 +291,7 @@
     const { open, total } = progress();
     if (open + 1 === total) {
       topic.reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
-      return topic
+      return topic;
     }
     const question = topic.questions[0];
     if (question.minNumber === 100 && question.caseName === "essiivi") {

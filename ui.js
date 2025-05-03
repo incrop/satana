@@ -8,10 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     JSON.parse(localStorage.getItem("currentQuestions")) || [];
   let showingCorrectAnswer = false;
 
+  let forceDisable = false;
+
   function updateButtonState() {
     const input = document.getElementById("answer");
     const dontknowButton = document.getElementById("dontknow");
-    dontknowButton.disabled = input.value.trim() === "";
+    input.disabled = forceDisable;
+    dontknowButton.disabled = forceDisable || input.value.trim() === "";
   }
 
   function addFeedbackClasses(className) {
@@ -105,9 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const headerText = document.createElement("span");
       headerText.className = "choice-header-text";
-      headerText.textContent = newTopics.length > 1
-        ? "Avaa uudet aiheet"
-        : "Avaa uusi aihe";
+      headerText.textContent =
+        newTopics.length > 1 ? "Avaa uudet aiheet" : "Avaa uusi aihe";
       newHeader.appendChild(headerText);
 
       const progressText = document.createElement("span");
@@ -177,7 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         updateDontknowEmoji("✓");
         addFeedbackClasses("correct");
+        forceDisable = true;
+        updateButtonState();
         setTimeout(() => {
+          forceDisable = false;
           removeFeedbackClasses("correct");
           setCurrentQuestions(currentQuestions.slice(1));
         }, 1000);
@@ -200,9 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
     checkAnswer("input");
     updateButtonState();
   });
-  document
-    .getElementById("dontknow")
-    .addEventListener("click", () => checkAnswer("button"));
+  document.getElementById("dontknow").addEventListener("click", (event) => {
+    if (!event.currentTarget.disabled) {
+      checkAnswer("button");
+    }
+  });
 
   nextQuestionOrChoices();
 });
