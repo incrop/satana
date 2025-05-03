@@ -121,6 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentNumber = 0;
     let currentCase = '';
 
+    // Function to update button state
+    function updateButtonState() {
+        const input = document.getElementById('answer');
+        const submitButton = document.getElementById('submit');
+        submitButton.disabled = input.value.trim() === '';
+    }
+
     // Function to add visual feedback classes
     function addFeedbackClasses(isCorrect) {
         const className = isCorrect ? 'correct' : 'incorrect';
@@ -140,6 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('button').classList.remove('correct', 'incorrect');
     }
 
+    // Function to update submit button emoji
+    function updateSubmitEmoji(emoji) {
+        document.getElementById('submit-emoji').textContent = emoji;
+    }
+
     // Function to generate a random question
     function generateQuestion() {
         // Generate random number between 1 and 10
@@ -153,10 +165,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update the question element
         document.getElementById('question').textContent = 
             `${currentNumber}${ending}`;
+        
+        // Reset submit button to checkmark
+        updateSubmitEmoji('✓');
+        
+        // Update button state
+        updateButtonState();
     }
 
     // Function to check the answer
-    function checkAnswer() {
+    function checkAnswer(isKeypress = false) {
         const userAnswer = document.getElementById('answer').value.toLowerCase().trim();
         const correctAnswer = numberForms[currentNumber][currentCase];
         
@@ -167,7 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('answer').value = '';
                 generateQuestion();
             }, 1000);
-        } else {
+        } else if (!isKeypress) {
+            // Only show incorrect feedback when submit button is clicked
             addFeedbackClasses(false);
             document.getElementById('answer').value = correctAnswer;
             setTimeout(() => {
@@ -177,11 +196,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     generateQuestion();
                 }, 1000);
             }, 3000);
+        } else {
+            // On keypress, just update the submit button emoji
+            updateSubmitEmoji('🤷');
         }
     }
 
-    // Add event listener to the submit button
-    document.getElementById('submit').addEventListener('click', checkAnswer);
+    // Add event listeners
+    const answerInput = document.getElementById('answer');
+    answerInput.addEventListener('input', () => {
+        checkAnswer(true);
+        updateButtonState();
+    });
+    document.getElementById('submit').addEventListener('click', () => checkAnswer(false));
 
     // Generate initial question
     generateQuestion();
