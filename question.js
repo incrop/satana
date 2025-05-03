@@ -22,11 +22,6 @@
       rightRate: 0.9,
     },
   };
-  const totalTopics =
-    settings.kind.length *
-    settings.plurality.length *
-    settings.caseName.flat().length *
-    settings.range.length;
 
   const stats = (() => {
     const statsStr = localStorage.getItem("stats");
@@ -52,6 +47,14 @@
     par.appendChild(text);
     document.body.appendChild(par);
   }
+
+  const progress = () => ({
+    open: Object.keys(stats.topics).length,
+    total: settings.kind.length *
+      settings.plurality.length *
+      settings.caseName.flat().length *
+      settings.range.length
+  })
 
   const parseIndex = (key) => {
     const [kind, plurality, caseName, range] = key
@@ -181,14 +184,15 @@
       Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
 
     let reward;
-    if (isNewTopic && minNumber === 100 && caseName === "essiivi") {
-      reward = ["💯", ":NA"];
-      number = 100;
-    } else if (
-      isNewTopic &&
-      Object.keys(stats.topics).length + 1 === totalTopics
-    ) {
-      reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
+
+    if (isNewTopic) {
+      const { open, total } = progress()
+      if (open + 1 === total) {
+        reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
+      } else if (minNumber === 100 && caseName === "essiivi") {
+        reward = ["💯", ":NA"];
+        number = 100;
+      }
     }
 
     return {
@@ -249,4 +253,6 @@
       localStorage.setItem("stats", JSON.stringify(stats));
     }
   };
+
+  exports.progress = progress;
 })(typeof exports === "undefined" ? (this["question"] = {}) : exports);

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const { inflect } = this.inflect;
-  const { generate, right, wrong } = this.question;
+  const { generate, right, wrong, progress } = this.question;
 
   let question;
   let answer;
@@ -101,7 +101,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newHeader = document.createElement("div");
     newHeader.className = "choice-header";
-    newHeader.textContent = "tai avaa uudet aiheet";
+
+    const headerText = document.createElement("span");
+    headerText.className = "choice-header-text";
+    headerText.textContent = "tai avaa uudet aiheet";
+    newHeader.appendChild(headerText);
+
+    const progressText = document.createElement("span");
+    progressText.className = "choice-hint progress-text";
+    const { open, total } = progress();
+    progressText.textContent = `Avattu: ${open} / ${total}`;
+    newHeader.appendChild(progressText);
+
     choiceContainer.appendChild(newHeader);
 
     for (let i = 1; i < questions.length; i++) {

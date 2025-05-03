@@ -281,6 +281,13 @@ p {
     transition: all 0.3s ease;
 }
 
+.choice-hint.progress-text {
+    margin: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+    line-height: 1;
+}
+
 .choice-container.visible .choice-hint {
     opacity: 0.5;
     transform: translateY(0);
@@ -298,6 +305,18 @@ p {
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.choice-header-text {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .choice-container.visible .choice-header {
