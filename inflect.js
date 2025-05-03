@@ -234,7 +234,7 @@ const roots = {
   0: [{ value: "nolla" }, { value: "noll", suffixStartVocals: [1, 2] }],
   1: [
     { value: "yhde" },
-    { value: "ensimmäi", kind: "jarjestys" },
+    { value: "ensimmäi", kind: "jarjestys", originalNumber: 1 },
     { value: "yks", suffixStartVocals: [1, 2] },
     {
       value: "yksi",
@@ -257,7 +257,7 @@ const roots = {
   ],
   2: [
     { value: "kahde" },
-    { value: "toi", kind: "jarjestys" },
+    { value: "toi", kind: "jarjestys", originalNumber: 2 },
     { value: "kaks", suffixStartVocals: [1, 2] },
     {
       value: "kaksi",
@@ -426,19 +426,32 @@ function inflect(number, kind, caseName, plurality) {
     trailingZeros: trailingZeros,
   });
 
-  const root = findMatchingValue(roots[number], {
-    number: number,
-    kind: kind,
-    caseName: caseName,
-    plurality: plurality,
-    suffixStartVocals: ((ssv) => (ssv ? ssv[0].length : 0))(
-      /^[aouäöyie]+/i.exec(suffix)
-    ),
-  });
+  const findRoot = (rootNumber, extra = {}) => {
+    return findMatchingValue(roots[rootNumber], {
+      number: rootNumber,
+      originalNumber: number,
+      kind: kind,
+      caseName: caseName,
+      plurality: plurality,
+      suffixStartVocals: ((ssv) => (ssv ? ssv[0].length : 0))(
+        /^[aouäöyie]+/i.exec(suffix)
+      ),
+      ...extra,
+    });
+  };
+
+  let long;
+  if (number <= 10) {
+    long = findRoot(number) + suffix;
+  } else if (number < 20) {
+    long = findRoot(number - 10) + suffix + "toista";
+  } else {
+    throw new Error(`Nuber is not supported: ${number}`);
+  }
 
   return {
     short: suffix ? `${number}:${suffix}` : `${number}`,
-    long: root + suffix,
+    long: long,
   };
 }
 

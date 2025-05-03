@@ -25,7 +25,7 @@ const pluralities = ["yksikko", "monikko"];
 let passedCount = 0;
 let errors = [];
 
-for (let number = 0; number <= 10; number++) {
+for (let number = 0; number <= 19; number++) {
   if (!testData[number.toString()]) {
     continue;
   }
