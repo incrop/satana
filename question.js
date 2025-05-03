@@ -322,8 +322,13 @@
       topic.reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
       return topic;
     }
-    const question = topic.questions[0];
-    if (question.minNumber === 100 && question.caseName === "essiivi") {
+    const { kind, plurality, caseName, minNumber } = topic.questions[0];
+    if (
+      kind === "perus" &&
+      plurality === "yksikko" &&
+      caseName === "essiivi" &&
+      minNumber === 100
+    ) {
       topic.questions[0].number = 100;
       topic.reward = ["💯", ":NA"];
     }
