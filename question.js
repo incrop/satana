@@ -80,13 +80,6 @@
     return stats;
   })();
 
-  if (window.location.hash === "#stats") {
-    var par = document.createElement("p");
-    var text = document.createTextNode(JSON.stringify(stats));
-    par.appendChild(text);
-    document.body.appendChild(par);
-  }
-
   const progress = () => ({
     open: Object.keys(stats.topics).length,
     total:
