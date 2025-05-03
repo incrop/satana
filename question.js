@@ -18,7 +18,6 @@
         },
         "illatiivi",
       ],
-
       ["essiivi", "translatiivi"],
     ],
     range: [11, 20, 100, 200, 1000, 2100, 10000],
@@ -198,42 +197,6 @@
     return results;
   };
 
-  const questionForTopic = (index, isNewTopic) => {
-    const kind = settings.kind[index.kind];
-    const plurality = settings.plurality[index.plurality];
-    const caseName = settings.caseName.flat()[index.caseName];
-    const maxNumberIndex = index.range;
-
-    const minNumber =
-      maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
-    const maxNumber = settings.range[maxNumberIndex];
-    let number =
-      Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
-
-    let reward;
-
-    if (isNewTopic) {
-      const { open, total } = progress();
-      if (open + 1 === total) {
-        reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
-      } else if (minNumber === 100 && caseName === "essiivi") {
-        reward = ["💯", ":NA"];
-        number = 100;
-      }
-    }
-
-    return {
-      sequence: stats.sequence + 1,
-      topicIndex: index,
-      number: number,
-      range: [minNumber, maxNumber],
-      kind: kind,
-      caseName: caseName,
-      plurality: plurality,
-      reward: reward,
-    };
-  };
-
   const titleForTopic = ({
     kind,
     caseName,
@@ -284,6 +247,8 @@
         kind,
         caseName,
         plurality,
+        minNumber,
+        maxNumber,
         topicIndex,
         title,
       };
@@ -322,10 +287,24 @@
     });
   };
 
+  const addRewardsForTopic = (topic) => {
+    const { open, total } = progress();
+    if (open + 1 === total) {
+      topic.reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
+      return topic
+    }
+    const question = topic.questions[0];
+    if (question.minNumber === 100 && question.caseName === "essiivi") {
+      topic.questions[0].number = 100;
+      topic.reward = ["💯", ":NA"];
+    }
+    return topic;
+  };
+
   exports.generateExercises = () => {
     return {
       practice: generatePractice(),
-      newTopics: generateNewTopics(),
+      newTopics: generateNewTopics().map(addRewardsForTopic),
     };
   };
 
