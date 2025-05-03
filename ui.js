@@ -22,6 +22,34 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("button").classList.add(className);
   }
 
+  function addRewardClasses() {
+    document.body.classList.add("reward");
+    document.querySelector(".container").classList.add("reward");
+    document.querySelector("h1").classList.add("reward");
+    document.querySelector("input").classList.add("reward");
+    document.querySelector("button").classList.add("reward");
+  }
+
+  function removeRewardClasses() {
+    document.body.classList.remove("reward");
+    document.querySelector(".container").classList.remove("reward");
+    document.querySelector("h1").classList.remove("reward");
+    document.querySelector("input").classList.remove("reward");
+    document.querySelector("button").classList.remove("reward");
+  }
+
+  function createFlyingEmoji(emoji) {
+    const emojiElement = document.createElement("div");
+    emojiElement.className = "reward-emoji";
+    emojiElement.textContent = emoji;
+    const startX = Math.random() * window.innerWidth;
+    emojiElement.style.left = `${startX}px`;
+    document.body.appendChild(emojiElement);
+    setTimeout(() => {
+      emojiElement.remove();
+    }, 3000);
+  }
+
   function removeFeedbackClasses() {
     document.body.classList.remove("correct", "incorrect");
     document
@@ -98,8 +126,27 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 1; i < questions.length; i++) {
       const button = document.createElement("button");
       button.className = "choice-button new-topic";
+      if (questions[i].reward) {
+        button.classList.add("reward");
+      }
       button.textContent = inflect(questions[i]).short;
       button.onclick = () => {
+        if (questions[i].reward) {
+          addRewardClasses();
+          const emojis = questions[i].reward;
+          for (let j = 0; j < emojis.length * 5; j++) {
+            setTimeout(() => {
+              createFlyingEmoji(
+                emojis[Math.floor(Math.random() * emojis.length)]
+              );
+            }, Math.random() * 1500);
+          }
+          setTimeout(() => {
+            removeRewardClasses();
+            showQuestion(questions[i]);
+          }, 3500);
+          return;
+        }
         showQuestion(questions[i]);
       };
       choiceContainer.appendChild(button);

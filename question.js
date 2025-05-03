@@ -22,6 +22,11 @@
       rightRate: 0.9,
     },
   };
+  const totalTopics =
+    settings.kind.length *
+    settings.plurality.length *
+    settings.caseName.flat().length *
+    settings.range.length;
 
   const stats = (() => {
     const statsStr = localStorage.getItem("stats");
@@ -40,6 +45,13 @@
     };
     return stats;
   })();
+
+  if (window.location.hash === "#stats") {
+    var par = document.createElement("p");
+    var text = document.createTextNode(JSON.stringify(stats));
+    par.appendChild(text);
+    document.body.appendChild(par);
+  }
 
   const parseIndex = (key) => {
     const [kind, plurality, caseName, range] = key
@@ -156,7 +168,7 @@
     return results;
   };
 
-  const questionForTopic = (index) => {
+  const questionForTopic = (index, isNewTopic) => {
     const kind = settings.kind[index.kind];
     const plurality = settings.plurality[index.plurality];
     const caseName = settings.caseName.flat()[index.caseName];
@@ -165,8 +177,19 @@
     const minNumber =
       maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
     const maxNumber = settings.range[maxNumberIndex];
-    const number =
+    let number =
       Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+
+    let reward;
+    if (isNewTopic && minNumber === 100 && caseName === "essiivi") {
+      reward = ["💯", ":NA"];
+      number = 100;
+    } else if (
+      isNewTopic &&
+      Object.keys(stats.topics).length + 1 === totalTopics
+    ) {
+      reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
+    }
 
     return {
       sequence: stats.sequence + 1,
@@ -176,6 +199,7 @@
       kind: kind,
       caseName: caseName,
       plurality: plurality,
+      reward: reward,
     };
   };
 
@@ -194,7 +218,7 @@
     }
     if (stats.sequence % settings.choices.interval === 0) {
       questions.push(
-        ...newTopicIndexes().map((index) => questionForTopic(index))
+        ...newTopicIndexes().map((index) => questionForTopic(index, true))
       );
     }
     return questions;
