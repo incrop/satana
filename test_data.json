@@ -1,0 +1,2224 @@
+{
+  "0": {
+    "short": {
+      "genetiivi": "0:n",
+      "partitiivi": "0:a",
+      "inessiivi": "0:ssa",
+      "elatiivi": "0:sta",
+      "illatiivi": "0:een",
+      "adessiivi": "0:lla",
+      "ablatiivi": "0:lta",
+      "allatiivi": "0:lle"
+    },
+    "long": {
+      "genetiivi": "nollan",
+      "partitiivi": "nollaa",
+      "inessiivi": "nollassa",
+      "elatiivi": "nollasta",
+      "illatiivi": "nollaan",
+      "adessiivi": "nollalla",
+      "ablatiivi": "nollalta",
+      "allatiivi": "nollalle"
+    }
+  },
+  "1": {
+    "short": {
+      "genetiivi": "1:n",
+      "partitiivi": "1:tä",
+      "inessiivi": "1:ssä",
+      "elatiivi": "1:stä",
+      "illatiivi": "1:een",
+      "adessiivi": "1:llä",
+      "ablatiivi": "1:ltä",
+      "allatiivi": "1:lle"
+    },
+    "long": {
+      "genetiivi": "yhden",
+      "partitiivi": "yhtä",
+      "inessiivi": "yhdessä",
+      "elatiivi": "yhdestä",
+      "illatiivi": "yhteen",
+      "adessiivi": "yhdellä",
+      "ablatiivi": "yhdeltä",
+      "allatiivi": "yhdelle"
+    }
+  },
+  "2": {
+    "short": {
+      "genetiivi": "2:n",
+      "partitiivi": "2:ta",
+      "inessiivi": "2:ssa",
+      "elatiivi": "2:sta",
+      "illatiivi": "2:een",
+      "adessiivi": "2:lla",
+      "ablatiivi": "2:lta",
+      "allatiivi": "2:lle"
+    },
+    "long": {
+      "genetiivi": "kahden",
+      "partitiivi": "kahta",
+      "inessiivi": "kahdessa",
+      "elatiivi": "kahdesta",
+      "illatiivi": "kahteen",
+      "adessiivi": "kahdella",
+      "ablatiivi": "kahdelta",
+      "allatiivi": "kahdelle"
+    }
+  },
+  "3": {
+    "short": {
+      "genetiivi": "3:n",
+      "partitiivi": "3:a",
+      "inessiivi": "3:ssa",
+      "elatiivi": "3:sta",
+      "illatiivi": "3:een",
+      "adessiivi": "3:lla",
+      "ablatiivi": "3:lta",
+      "allatiivi": "3:lle"
+    },
+    "long": {
+      "genetiivi": "kolmen",
+      "partitiivi": "kolmea",
+      "inessiivi": "kolmessa",
+      "elatiivi": "kolmesta",
+      "illatiivi": "kolmeen",
+      "adessiivi": "kolmella",
+      "ablatiivi": "kolmelta",
+      "allatiivi": "kolmelle"
+    }
+  },
+  "4": {
+    "short": {
+      "genetiivi": "4:n",
+      "partitiivi": "4:ää",
+      "inessiivi": "4:ssä",
+      "elatiivi": "4:stä",
+      "illatiivi": "4:ään",
+      "adessiivi": "4:llä",
+      "ablatiivi": "4:ltä",
+      "allatiivi": "4:lle"
+    },
+    "long": {
+      "genetiivi": "neljän",
+      "partitiivi": "neljää",
+      "inessiivi": "neljässä",
+      "elatiivi": "neljästä",
+      "illatiivi": "neljään",
+      "adessiivi": "neljällä",
+      "ablatiivi": "neljältä",
+      "allatiivi": "neljälle"
+    }
+  },
+  "5": {
+    "short": {
+      "genetiivi": "5:n",
+      "partitiivi": "5:tä",
+      "inessiivi": "5:ssä",
+      "elatiivi": "5:stä",
+      "illatiivi": "5:een",
+      "adessiivi": "5:llä",
+      "ablatiivi": "5:ltä",
+      "allatiivi": "5:lle"
+    },
+    "long": {
+      "genetiivi": "viiden",
+      "partitiivi": "viittä",
+      "inessiivi": "viidessä",
+      "elatiivi": "viidestä",
+      "illatiivi": "viiteen",
+      "adessiivi": "viidellä",
+      "ablatiivi": "viideltä",
+      "allatiivi": "viidelle"
+    }
+  },
+  "6": {
+    "short": {
+      "genetiivi": "6:n",
+      "partitiivi": "6:ta",
+      "inessiivi": "6:ssa",
+      "elatiivi": "6:sta",
+      "illatiivi": "6:een",
+      "adessiivi": "6:lla",
+      "ablatiivi": "6:lta",
+      "allatiivi": "6:lle"
+    },
+    "long": {
+      "genetiivi": "kuuden",
+      "partitiivi": "kuutta",
+      "inessiivi": "kuudessa",
+      "elatiivi": "kuudesta",
+      "illatiivi": "kuuteen",
+      "adessiivi": "kuudella",
+      "ablatiivi": "kuudelta",
+      "allatiivi": "kuudelle"
+    }
+  },
+  "7": {
+    "short": {
+      "genetiivi": "7:n",
+      "partitiivi": "7:ää",
+      "inessiivi": "7:ssä",
+      "elatiivi": "7:stä",
+      "illatiivi": "7:ään",
+      "adessiivi": "7:llä",
+      "ablatiivi": "7:ltä",
+      "allatiivi": "7:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemän",
+      "partitiivi": "seitsemää",
+      "inessiivi": "seitsemässä",
+      "elatiivi": "seitsemästä",
+      "illatiivi": "seitsemään",
+      "adessiivi": "seitsemällä",
+      "ablatiivi": "seitsemältä",
+      "allatiivi": "seitsemälle"
+    }
+  },
+  "8": {
+    "short": {
+      "genetiivi": "8:n",
+      "partitiivi": "8:aa",
+      "inessiivi": "8:ssa",
+      "elatiivi": "8:sta",
+      "illatiivi": "8:aan",
+      "adessiivi": "8:lla",
+      "ablatiivi": "8:lta",
+      "allatiivi": "8:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksan",
+      "partitiivi": "kahdeksaa",
+      "inessiivi": "kahdeksassa",
+      "elatiivi": "kahdeksasta",
+      "illatiivi": "kahteentokymmeneenkahdeksaan",
+      "adessiivi": "kahdeksallakymmenelläkahdeksalla",
+      "ablatiivi": "kahdeksaltakymmeneltäkahdeksalta",
+      "allatiivi": "kahdeksallekymmenellekahdeksalle"
+    }
+  },
+  "9": {
+    "short": {
+      "genetiivi": "9:n",
+      "partitiivi": "9:ää",
+      "inessiivi": "9:ssä",
+      "elatiivi": "9:stä",
+      "illatiivi": "9:ään",
+      "adessiivi": "9:llä",
+      "ablatiivi": "9:ltä",
+      "allatiivi": "9:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksän",
+      "partitiivi": "yhdeksää",
+      "inessiivi": "yhdeksässä",
+      "elatiivi": "yhdeksästä",
+      "illatiivi": "yhdeksään",
+      "adessiivi": "yhdeksällä",
+      "ablatiivi": "yhdeksältä",
+      "allatiivi": "yhdeksälle"
+    }
+  },
+  "10": {
+    "short": {
+      "genetiivi": "10:n",
+      "partitiivi": "10:tä",
+      "inessiivi": "10:ssä",
+      "elatiivi": "10:stä",
+      "illatiivi": "10:een",
+      "adessiivi": "10:llä",
+      "ablatiivi": "10:ltä",
+      "allatiivi": "10:lle"
+    },
+    "long": {
+      "genetiivi": "kymmenen",
+      "partitiivi": "kymmentä",
+      "inessiivi": "kymmenessä",
+      "elatiivi": "kymmenestä",
+      "illatiivi": "kymmeneen",
+      "adessiivi": "kymmenellä",
+      "ablatiivi": "kymmeneltä",
+      "allatiivi": "kymmenelle"
+    }
+  },
+  "11": {
+    "short": {
+      "genetiivi": "11:n",
+      "partitiivi": "11:tä",
+      "inessiivi": "11:ssä",
+      "elatiivi": "11:stä",
+      "illatiivi": "11:een",
+      "adessiivi": "11:llä",
+      "ablatiivi": "11:ltä",
+      "allatiivi": "11:lle"
+    },
+    "long": {
+      "genetiivi": "yhdentoista",
+      "partitiivi": "yhtätoista",
+      "inessiivi": "yhdessätoista",
+      "elatiivi": "yhdestätoista",
+      "illatiivi": "yhteentoista",
+      "adessiivi": "yhdellätoista",
+      "ablatiivi": "yhdeltätoista",
+      "allatiivi": "yhdelletoista"
+    }
+  },
+  "12": {
+    "short": {
+      "genetiivi": "12:n",
+      "partitiivi": "12:ta",
+      "inessiivi": "12:ssa",
+      "elatiivi": "12:sta",
+      "illatiivi": "12:een",
+      "adessiivi": "12:lla",
+      "ablatiivi": "12:lta",
+      "allatiivi": "12:lle"
+    },
+    "long": {
+      "genetiivi": "kahdentoista",
+      "partitiivi": "kahtatoista",
+      "inessiivi": "kahdessatoista",
+      "elatiivi": "kahdestatoista",
+      "illatiivi": "kahteentoista",
+      "adessiivi": "kahdellatoista",
+      "ablatiivi": "kahdeltatoista",
+      "allatiivi": "kahdelletoista"
+    }
+  },
+  "13": {
+    "short": {
+      "genetiivi": "13:n",
+      "partitiivi": "13:a",
+      "inessiivi": "13:ssa",
+      "elatiivi": "13:sta",
+      "illatiivi": "13:een",
+      "adessiivi": "13:lla",
+      "ablatiivi": "13:lta",
+      "allatiivi": "13:lle"
+    },
+    "long": {
+      "genetiivi": "kolmentoista",
+      "partitiivi": "kolmeatoista",
+      "inessiivi": "kolmessatoista",
+      "elatiivi": "kolmestatoista",
+      "illatiivi": "kolmeentoista",
+      "adessiivi": "kolmellatoista",
+      "ablatiivi": "kolmeltatoista",
+      "allatiivi": "kolmelletoista"
+    }
+  },
+  "14": {
+    "short": {
+      "genetiivi": "14:n",
+      "partitiivi": "14:ää",
+      "inessiivi": "14:ssä",
+      "elatiivi": "14:stä",
+      "illatiivi": "14:ään",
+      "adessiivi": "14:llä",
+      "ablatiivi": "14:ltä",
+      "allatiivi": "14:lle"
+    },
+    "long": {
+      "genetiivi": "neljäntoista",
+      "partitiivi": "neljäätoista",
+      "inessiivi": "neljässätoista",
+      "elatiivi": "neljästätoista",
+      "illatiivi": "neljääntoista",
+      "adessiivi": "neljällätoista",
+      "ablatiivi": "neljältätoista",
+      "allatiivi": "neljälletoista"
+    }
+  },
+  "15": {
+    "short": {
+      "genetiivi": "15:n",
+      "partitiivi": "15:tä",
+      "inessiivi": "15:ssä",
+      "elatiivi": "15:stä",
+      "illatiivi": "15:een",
+      "adessiivi": "15:llä",
+      "ablatiivi": "15:ltä",
+      "allatiivi": "15:lle"
+    },
+    "long": {
+      "genetiivi": "viidentoista",
+      "partitiivi": "viittätoista",
+      "inessiivi": "viidessätoista",
+      "elatiivi": "viidestätoista",
+      "illatiivi": "viiteentoista",
+      "adessiivi": "viidellätoista",
+      "ablatiivi": "viideltätoista",
+      "allatiivi": "viidelletoista"
+    }
+  },
+  "16": {
+    "short": {
+      "genetiivi": "16:n",
+      "partitiivi": "16:ta",
+      "inessiivi": "16:ssa",
+      "elatiivi": "16:sta",
+      "illatiivi": "16:een",
+      "adessiivi": "16:lla",
+      "ablatiivi": "16:lta",
+      "allatiivi": "16:lle"
+    },
+    "long": {
+      "genetiivi": "kuudentoista",
+      "partitiivi": "kuuttatoista",
+      "inessiivi": "kuudessatoista",
+      "elatiivi": "kuudestatoista",
+      "illatiivi": "kuuteentoista",
+      "adessiivi": "kuudellatoista",
+      "ablatiivi": "kuudeltatoista",
+      "allatiivi": "kuudelletoista"
+    }
+  },
+  "17": {
+    "short": {
+      "genetiivi": "17:n",
+      "partitiivi": "17:ää",
+      "inessiivi": "17:ssä",
+      "elatiivi": "17:stä",
+      "illatiivi": "17:ään",
+      "adessiivi": "17:llä",
+      "ablatiivi": "17:ltä",
+      "allatiivi": "17:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemäntoista",
+      "partitiivi": "seitsemäätoista",
+      "inessiivi": "seitsemässätoista",
+      "elatiivi": "seitsemästätoista",
+      "illatiivi": "seitsemääntoista",
+      "adessiivi": "seitsemällätoista",
+      "ablatiivi": "seitsemältätoista",
+      "allatiivi": "seitsemälletoista"
+    }
+  },
+  "18": {
+    "short": {
+      "genetiivi": "18:n",
+      "partitiivi": "18:aa",
+      "inessiivi": "18:ssa",
+      "elatiivi": "18:sta",
+      "illatiivi": "18:aan",
+      "adessiivi": "18:lla",
+      "ablatiivi": "18:lta",
+      "allatiivi": "18:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksantoista",
+      "partitiivi": "kahdeksaatoista",
+      "inessiivi": "kahdeksassatoista",
+      "elatiivi": "kahdeksastatoista",
+      "illatiivi": "kahteentokymmeneenkahdeksaan",
+      "adessiivi": "kahdeksallakymmenelläkahdeksalla",
+      "ablatiivi": "kahdeksaltakymmeneltäkahdeksalta",
+      "allatiivi": "kahdeksallekymmenellekahdeksalle"
+    }
+  },
+  "19": {
+    "short": {
+      "genetiivi": "19:n",
+      "partitiivi": "19:ää",
+      "inessiivi": "19:ssä",
+      "elatiivi": "19:stä",
+      "illatiivi": "19:ään",
+      "adessiivi": "19:llä",
+      "ablatiivi": "19:ltä",
+      "allatiivi": "19:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksäntoista",
+      "partitiivi": "yhdeksäätoista",
+      "inessiivi": "yhdeksässätoista",
+      "elatiivi": "yhdeksästätoista",
+      "illatiivi": "yhdeksääntoista",
+      "adessiivi": "yhdeksällätoista",
+      "ablatiivi": "yhdeksältätoista",
+      "allatiivi": "yhdeksälletoista"
+    }
+  },
+  "20": {
+    "short": {
+      "genetiivi": "20:n",
+      "partitiivi": "20:tä",
+      "inessiivi": "20:ssä",
+      "elatiivi": "20:stä",
+      "illatiivi": "20:een",
+      "adessiivi": "20:llä",
+      "ablatiivi": "20:ltä",
+      "allatiivi": "20:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenen",
+      "partitiivi": "kahtakymmentä",
+      "inessiivi": "kahdessakymmenessä",
+      "elatiivi": "kahdestakymmenestä",
+      "illatiivi": "kahteentokymmeneen",
+      "adessiivi": "kahdellakymmenellä",
+      "ablatiivi": "kahdeltakymmeneltä",
+      "allatiivi": "kahdellekymmenelle"
+    }
+  },
+  "21": {
+    "short": {
+      "genetiivi": "21:n",
+      "partitiivi": "21:tä",
+      "inessiivi": "21:ssä",
+      "elatiivi": "21:stä",
+      "illatiivi": "21:een",
+      "adessiivi": "21:llä",
+      "ablatiivi": "21:ltä",
+      "allatiivi": "21:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenyhden",
+      "partitiivi": "kahtakymmentäyhtä",
+      "inessiivi": "kahdessakymmenessäyhdessä",
+      "elatiivi": "kahdestakymmenestäyhdestä",
+      "illatiivi": "kahteentokymmeneenyhteen",
+      "adessiivi": "kahdellakymmenelläyhdellä",
+      "ablatiivi": "kahdeltakymmeneltäyhdeltä",
+      "allatiivi": "kahdellekymmenelleyhdelle"
+    }
+  },
+  "22": {
+    "short": {
+      "genetiivi": "22:n",
+      "partitiivi": "22:ta",
+      "inessiivi": "22:ssa",
+      "elatiivi": "22:sta",
+      "illatiivi": "22:een",
+      "adessiivi": "22:lla",
+      "ablatiivi": "22:lta",
+      "allatiivi": "22:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenkahden",
+      "partitiivi": "kahtakymmentäkahta",
+      "inessiivi": "kahdessakymmenessäkahdessa",
+      "elatiivi": "kahdestakymmenestäkahdesta",
+      "illatiivi": "kahteentokymmeneenkahteen",
+      "adessiivi": "kahdellakymmenelläkahdella",
+      "ablatiivi": "kahdeltakymmeneltäkahdelta",
+      "allatiivi": "kahdellekymmenellekahdelle"
+    }
+  },
+  "23": {
+    "short": {
+      "genetiivi": "23:n",
+      "partitiivi": "23:a",
+      "inessiivi": "23:ssa",
+      "elatiivi": "23:sta",
+      "illatiivi": "23:een",
+      "adessiivi": "23:lla",
+      "ablatiivi": "23:lta",
+      "allatiivi": "23:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenkolmen",
+      "partitiivi": "kahtakymmentäkolmea",
+      "inessiivi": "kahdessakymmenessäkolmessa",
+      "elatiivi": "kahdestakymmenestäkolmesta",
+      "illatiivi": "kahteentokymmeneenkolmeen",
+      "adessiivi": "kahdellakymmenelläkolmella",
+      "ablatiivi": "kahdeltakymmeneltäkolmelta",
+      "allatiivi": "kahdellekymmenellekolmelle"
+    }
+  },
+  "24": {
+    "short": {
+      "genetiivi": "24:n",
+      "partitiivi": "24:ää",
+      "inessiivi": "24:ssä",
+      "elatiivi": "24:stä",
+      "illatiivi": "24:ään",
+      "adessiivi": "24:llä",
+      "ablatiivi": "24:ltä",
+      "allatiivi": "24:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenneljän",
+      "partitiivi": "kahtakymmentäneljää",
+      "inessiivi": "kahdessakymmenessäneljässä",
+      "elatiivi": "kahdestakymmenestäneljästä",
+      "illatiivi": "kahteentokymmeneenneljään",
+      "adessiivi": "kahdellakymmenelläneljällä",
+      "ablatiivi": "kahdeltakymmeneltäneljältä",
+      "allatiivi": "kahdellekymmenelleneljälle"
+    }
+  },
+  "25": {
+    "short": {
+      "genetiivi": "25:n",
+      "partitiivi": "25:tä",
+      "inessiivi": "25:ssä",
+      "elatiivi": "25:stä",
+      "illatiivi": "25:een",
+      "adessiivi": "25:llä",
+      "ablatiivi": "25:ltä",
+      "allatiivi": "25:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenviiden",
+      "partitiivi": "kahtakymmentäviittä",
+      "inessiivi": "kahdessakymmenessäviidessä",
+      "elatiivi": "kahdestakymmenestäviidestä",
+      "illatiivi": "kahteentokymmeneenviiteen",
+      "adessiivi": "kahdellakymmenelläviidellä",
+      "ablatiivi": "kahdeltakymmeneltäviideltä",
+      "allatiivi": "kahdellekymmenelleviidelle"
+    }
+  },
+  "26": {
+    "short": {
+      "genetiivi": "26:n",
+      "partitiivi": "26:ta",
+      "inessiivi": "26:ssa",
+      "elatiivi": "26:sta",
+      "illatiivi": "26:een",
+      "adessiivi": "26:lla",
+      "ablatiivi": "26:lta",
+      "allatiivi": "26:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenkuuden",
+      "partitiivi": "kahtakymmentäkuutta",
+      "inessiivi": "kahdessakymmenessäkuudessa",
+      "elatiivi": "kahdestakymmenestäkuudesta",
+      "illatiivi": "kahteentokymmeneenkuuteen",
+      "adessiivi": "kahdellakymmenelläkuudella",
+      "ablatiivi": "kahdeltakymmeneltäkuudelta",
+      "allatiivi": "kahdellekymmenellekuudelle"
+    }
+  },
+  "27": {
+    "short": {
+      "genetiivi": "27:n",
+      "partitiivi": "27:ää",
+      "inessiivi": "27:ssä",
+      "elatiivi": "27:stä",
+      "illatiivi": "27:ään",
+      "adessiivi": "27:llä",
+      "ablatiivi": "27:ltä",
+      "allatiivi": "27:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenseitsemän",
+      "partitiivi": "kahtakymmentäseitsemää",
+      "inessiivi": "seitsemässäkymmenessä",
+      "elatiivi": "kahdestakymmenestäseitsemästä",
+      "illatiivi": "kahteentokymmeneenseitsemään",
+      "adessiivi": "kahdellakymmenelläseitsemällä",
+      "ablatiivi": "kahdeltakymmeneltäseitsemältä",
+      "allatiivi": "kahdellekymmenelleseitsemälle"
+    }
+  },
+  "28": {
+    "short": {
+      "genetiivi": "28:n",
+      "partitiivi": "28:aa",
+      "inessiivi": "28:ssa",
+      "elatiivi": "28:sta",
+      "illatiivi": "28:aan",
+      "adessiivi": "28:lla",
+      "ablatiivi": "28:lta",
+      "allatiivi": "28:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenkahdeksan",
+      "partitiivi": "kahtakymmentäkahdeksaa",
+      "inessiivi": "kahdeksassakymmenessäkahdeksassa",
+      "elatiivi": "kahdeksastakymmenestäkahdeksasta",
+      "illatiivi": "kahteentokymmeneenkahdeksaan",
+      "adessiivi": "kahdeksallakymmenelläkahdeksalla",
+      "ablatiivi": "kahdeksaltakymmeneltäkahdeksalta",
+      "allatiivi": "kahdeksallekymmenellekahdeksalle"
+    }
+  },
+  "29": {
+    "short": {
+      "genetiivi": "29:n",
+      "partitiivi": "29:ää",
+      "inessiivi": "29:ssä",
+      "elatiivi": "29:stä",
+      "illatiivi": "29:ään",
+      "adessiivi": "29:llä",
+      "ablatiivi": "29:ltä",
+      "allatiivi": "29:lle"
+    },
+    "long": {
+      "genetiivi": "kahdenkymmenenyhdeksän",
+      "partitiivi": "kahtakymmentäyhdeksää",
+      "inessiivi": "yhdeksässäkymmenessäyhdeksässä",
+      "elatiivi": "kahdeksästäkymmenestäyhdeksästä",
+      "illatiivi": "kahteentokymmeneenyhdeksään",
+      "adessiivi": "kahdeksälläkymmenelläyhdeksällä",
+      "ablatiivi": "kahdeksältäkymmeneltäyhdeksältä",
+      "allatiivi": "kahdeksällekymmenelleyhdeksälle"
+    }
+  },
+  "30": {
+    "short": {
+      "genetiivi": "30:n",
+      "partitiivi": "30:a",
+      "inessiivi": "30:ssa",
+      "elatiivi": "30:sta",
+      "illatiivi": "30:een",
+      "adessiivi": "30:lla",
+      "ablatiivi": "30:lta",
+      "allatiivi": "30:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenen",
+      "partitiivi": "kolmeakymmentä",
+      "inessiivi": "kolmessakymmenessä",
+      "elatiivi": "kolmestakymmenestä",
+      "illatiivi": "kolmeentokymmeneen",
+      "adessiivi": "kolmellakymmenellä",
+      "ablatiivi": "kolmeltakymmeneltä",
+      "allatiivi": "kolmellekymmenelle"
+    }
+  },
+  "31": {
+    "short": {
+      "genetiivi": "31:n",
+      "partitiivi": "31:tä",
+      "inessiivi": "31:ssä",
+      "elatiivi": "31:stä",
+      "illatiivi": "31:een",
+      "adessiivi": "31:llä",
+      "ablatiivi": "31:ltä",
+      "allatiivi": "31:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenyhden",
+      "partitiivi": "kolmeakymmentäyhtä",
+      "inessiivi": "kolmessakymmenessäyhdessä",
+      "elatiivi": "kolmestakymmenestäyhdestä",
+      "illatiivi": "kolmeentokymmeneenyhteen",
+      "adessiivi": "kolmellakymmenelläyhdellä",
+      "ablatiivi": "kolmeltakymmeneltäyhdeltä",
+      "allatiivi": "kolmellekymmenelleyhdelle"
+    }
+  },
+  "32": {
+    "short": {
+      "genetiivi": "32:n",
+      "partitiivi": "32:ta",
+      "inessiivi": "32:ssa",
+      "elatiivi": "32:sta",
+      "illatiivi": "32:een",
+      "adessiivi": "32:lla",
+      "ablatiivi": "32:lta",
+      "allatiivi": "32:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenkahden",
+      "partitiivi": "kolmeakymmentäkahta",
+      "inessiivi": "kolmessakymmenessäkahdessa",
+      "elatiivi": "kolmestakymmenestäkahdesta",
+      "illatiivi": "kolmeentokymmeneenkahteen",
+      "adessiivi": "kolmellakymmenelläkahdella",
+      "ablatiivi": "kolmeltakymmeneltäkahdelta",
+      "allatiivi": "kolmellekymmenellekahdelle"
+    }
+  },
+  "33": {
+    "short": {
+      "genetiivi": "33:n",
+      "partitiivi": "33:a",
+      "inessiivi": "33:ssa",
+      "elatiivi": "33:sta",
+      "illatiivi": "33:een",
+      "adessiivi": "33:lla",
+      "ablatiivi": "33:lta",
+      "allatiivi": "33:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenkolmen",
+      "partitiivi": "kolmeakymmentäkolmea",
+      "inessiivi": "kolmessakymmenessäkolmessa",
+      "elatiivi": "kolmestakymmenestäkolmesta",
+      "illatiivi": "kolmeentokymmeneenkolmeen",
+      "adessiivi": "kolmellakymmenelläkolmella",
+      "ablatiivi": "kolmeltakymmeneltäkolmelta",
+      "allatiivi": "kolmellekymmenellekolmelle"
+    }
+  },
+  "34": {
+    "short": {
+      "genetiivi": "34:n",
+      "partitiivi": "34:ää",
+      "inessiivi": "34:ssä",
+      "elatiivi": "34:stä",
+      "illatiivi": "34:ään",
+      "adessiivi": "34:llä",
+      "ablatiivi": "34:ltä",
+      "allatiivi": "34:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenneljän",
+      "partitiivi": "kolmeakymmentäneljää",
+      "inessiivi": "kolmessakymmenessäneljässä",
+      "elatiivi": "kolmestakymmenestäneljästä",
+      "illatiivi": "kolmeentokymmeneenneljään",
+      "adessiivi": "kolmellakymmenelläneljällä",
+      "ablatiivi": "kolmeltakymmeneltäneljältä",
+      "allatiivi": "kolmellekymmenelleneljälle"
+    }
+  },
+  "35": {
+    "short": {
+      "genetiivi": "35:n",
+      "partitiivi": "35:tä",
+      "inessiivi": "35:ssä",
+      "elatiivi": "35:stä",
+      "illatiivi": "35:een",
+      "adessiivi": "35:llä",
+      "ablatiivi": "35:ltä",
+      "allatiivi": "35:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenviiden",
+      "partitiivi": "kolmeakymmentäviittä",
+      "inessiivi": "kolmessakymmenessäviidessä",
+      "elatiivi": "kolmestakymmenestäviidestä",
+      "illatiivi": "kolmeentokymmeneenviiteen",
+      "adessiivi": "kolmellakymmenelläviidellä",
+      "ablatiivi": "kolmeltakymmeneltäviideltä",
+      "allatiivi": "kolmellekymmenelleviidelle"
+    }
+  },
+  "36": {
+    "short": {
+      "genetiivi": "36:n",
+      "partitiivi": "36:ta",
+      "inessiivi": "36:ssa",
+      "elatiivi": "36:sta",
+      "illatiivi": "36:een",
+      "adessiivi": "36:lla",
+      "ablatiivi": "36:lta",
+      "allatiivi": "36:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenkuuden",
+      "partitiivi": "kolmeakymmentäkuutta",
+      "inessiivi": "kolmessakymmenessäkuudessa",
+      "elatiivi": "kolmestakymmenestäkuudesta",
+      "illatiivi": "kolmeentokymmeneenkuuteen",
+      "adessiivi": "kolmellakymmenelläkuudella",
+      "ablatiivi": "kolmeltakymmeneltäkuudelta",
+      "allatiivi": "kolmellekymmenellekuudelle"
+    }
+  },
+  "37": {
+    "short": {
+      "genetiivi": "37:n",
+      "partitiivi": "37:ää",
+      "inessiivi": "37:ssä",
+      "elatiivi": "37:stä",
+      "illatiivi": "37:ään",
+      "adessiivi": "37:llä",
+      "ablatiivi": "37:ltä",
+      "allatiivi": "37:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenseitsemän",
+      "partitiivi": "kolmeakymmentäseitsemää",
+      "inessiivi": "kolmessakymmenessäseitsemässä",
+      "elatiivi": "kolmestakymmenestäseitsemästä",
+      "illatiivi": "kolmeentokymmeneenseitsemään",
+      "adessiivi": "kolmellakymmenelläseitsemällä",
+      "ablatiivi": "kolmeltakymmeneltäseitsemältä",
+      "allatiivi": "kolmellekymmenelleseitsemälle"
+    }
+  },
+  "38": {
+    "short": {
+      "genetiivi": "38:n",
+      "partitiivi": "38:aa",
+      "inessiivi": "38:ssa",
+      "elatiivi": "38:sta",
+      "illatiivi": "38:aan",
+      "adessiivi": "38:lla",
+      "ablatiivi": "38:lta",
+      "allatiivi": "38:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenkahdeksan",
+      "partitiivi": "kolmeakymmentäkahdeksaa",
+      "inessiivi": "kolmessakymmenessäkahdeksassa",
+      "elatiivi": "kolmestakymmenestäkahdeksasta",
+      "illatiivi": "kolmeentokymmeneenkahdeksaan",
+      "adessiivi": "kolmellakymmenelläkahdeksalla",
+      "ablatiivi": "kolmeltakymmeneltäkahdeksalta",
+      "allatiivi": "kolmellekymmenellekahdeksalle"
+    }
+  },
+  "39": {
+    "short": {
+      "genetiivi": "39:n",
+      "partitiivi": "39:ää",
+      "inessiivi": "39:ssä",
+      "elatiivi": "39:stä",
+      "illatiivi": "39:ään",
+      "adessiivi": "39:llä",
+      "ablatiivi": "39:ltä",
+      "allatiivi": "39:lle"
+    },
+    "long": {
+      "genetiivi": "kolmenkymmenenyhdeksän",
+      "partitiivi": "kolmeakymmentäyhdeksää",
+      "inessiivi": "kolmessakymmenessäyhdeksässä",
+      "elatiivi": "kolmestakymmenestäyhdeksästä",
+      "illatiivi": "kolmeentokymmeneenyhdeksään",
+      "adessiivi": "kolmellakymmenelläyhdeksällä",
+      "ablatiivi": "kolmeltakymmeneltäyhdeksältä",
+      "allatiivi": "kolmellekymmenelleyhdeksälle"
+    }
+  },
+  "40": {
+    "short": {
+      "genetiivi": "40:n",
+      "partitiivi": "40:ää",
+      "inessiivi": "40:ssä",
+      "elatiivi": "40:stä",
+      "illatiivi": "40:ään",
+      "adessiivi": "40:llä",
+      "ablatiivi": "40:ltä",
+      "allatiivi": "40:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenen",
+      "partitiivi": "neljääkymmentä",
+      "inessiivi": "neljässäkymmenessä",
+      "elatiivi": "neljästäkymmenestä",
+      "illatiivi": "neljääntokymmeneen",
+      "adessiivi": "neljälläkymmenellä",
+      "ablatiivi": "neljältäkymmeneltä",
+      "allatiivi": "neljällekymmenelle"
+    }
+  },
+  "41": {
+    "short": {
+      "genetiivi": "41:n",
+      "partitiivi": "41:tä",
+      "inessiivi": "41:ssä",
+      "elatiivi": "41:stä",
+      "illatiivi": "41:een",
+      "adessiivi": "41:llä",
+      "ablatiivi": "41:ltä",
+      "allatiivi": "41:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenyhden",
+      "partitiivi": "neljääkymmentäyhtä",
+      "inessiivi": "neljässäkymmenessäyhdessä",
+      "elatiivi": "neljästäkymmenestäyhdestä",
+      "illatiivi": "neljääntokymmeneenyhteen",
+      "adessiivi": "neljälläkymmenelläyhdellä",
+      "ablatiivi": "neljältäkymmeneltäyhdeltä",
+      "allatiivi": "neljällekymmenelleyhdelle"
+    }
+  },
+  "42": {
+    "short": {
+      "genetiivi": "42:n",
+      "partitiivi": "42:ta",
+      "inessiivi": "42:ssa",
+      "elatiivi": "42:sta",
+      "illatiivi": "42:een",
+      "adessiivi": "42:lla",
+      "ablatiivi": "42:lta",
+      "allatiivi": "42:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenkahden",
+      "partitiivi": "neljääkymmentäkahta",
+      "inessiivi": "neljässäkymmenessäkahdessa",
+      "elatiivi": "neljästäkymmenestäkahdesta",
+      "illatiivi": "neljääntokymmeneenkahteen",
+      "adessiivi": "neljälläkymmenelläkahdella",
+      "ablatiivi": "neljältäkymmeneltäkahdelta",
+      "allatiivi": "neljällekymmenellekahdelle"
+    }
+  },
+  "43": {
+    "short": {
+      "genetiivi": "43:n",
+      "partitiivi": "43:a",
+      "inessiivi": "43:ssa",
+      "elatiivi": "43:sta",
+      "illatiivi": "43:een",
+      "adessiivi": "43:lla",
+      "ablatiivi": "43:lta",
+      "allatiivi": "43:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenkolmen",
+      "partitiivi": "neljääkymmentäkolmea",
+      "inessiivi": "neljässäkymmenessäkolmessa",
+      "elatiivi": "neljästäkymmenestäkolmesta",
+      "illatiivi": "neljääntokymmeneenkolmeen",
+      "adessiivi": "neljälläkymmenelläkolmella",
+      "ablatiivi": "neljältäkymmeneltäkolmelta",
+      "allatiivi": "neljällekymmenellekolmelle"
+    }
+  },
+  "44": {
+    "short": {
+      "genetiivi": "44:n",
+      "partitiivi": "44:ää",
+      "inessiivi": "44:ssä",
+      "elatiivi": "44:stä",
+      "illatiivi": "44:ään",
+      "adessiivi": "44:llä",
+      "ablatiivi": "44:ltä",
+      "allatiivi": "44:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenneljän",
+      "partitiivi": "neljääkymmentäneljää",
+      "inessiivi": "neljässäkymmenessäneljässä",
+      "elatiivi": "neljästäkymmenestäneljästä",
+      "illatiivi": "neljääntokymmeneenneljään",
+      "adessiivi": "neljälläkymmenelläneljällä",
+      "ablatiivi": "neljältäkymmeneltäneljältä",
+      "allatiivi": "neljällekymmenelleneljälle"
+    }
+  },
+  "45": {
+    "short": {
+      "genetiivi": "45:n",
+      "partitiivi": "45:tä",
+      "inessiivi": "45:ssä",
+      "elatiivi": "45:stä",
+      "illatiivi": "45:een",
+      "adessiivi": "45:llä",
+      "ablatiivi": "45:ltä",
+      "allatiivi": "45:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenviiden",
+      "partitiivi": "neljääkymmentäviittä",
+      "inessiivi": "neljässäkymmenessäviidessä",
+      "elatiivi": "neljästäkymmenestäviidestä",
+      "illatiivi": "neljääntokymmeneenviiteen",
+      "adessiivi": "neljälläkymmenelläviidellä",
+      "ablatiivi": "neljältäkymmeneltäviideltä",
+      "allatiivi": "neljällekymmenelleviidelle"
+    }
+  },
+  "46": {
+    "short": {
+      "genetiivi": "46:n",
+      "partitiivi": "46:ta",
+      "inessiivi": "46:ssa",
+      "elatiivi": "46:sta",
+      "illatiivi": "46:een",
+      "adessiivi": "46:lla",
+      "ablatiivi": "46:lta",
+      "allatiivi": "46:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenkuuden",
+      "partitiivi": "neljääkymmentäkuutta",
+      "inessiivi": "neljässäkymmenessäkuudessa",
+      "elatiivi": "neljästäkymmenestäkuudesta",
+      "illatiivi": "neljääntokymmeneenkuuteen",
+      "adessiivi": "neljälläkymmenelläkuudella",
+      "ablatiivi": "neljältäkymmeneltäkuudelta",
+      "allatiivi": "neljällekymmenellekuudelle"
+    }
+  },
+  "47": {
+    "short": {
+      "genetiivi": "47:n",
+      "partitiivi": "47:ää",
+      "inessiivi": "47:ssä",
+      "elatiivi": "47:stä",
+      "illatiivi": "47:ään",
+      "adessiivi": "47:llä",
+      "ablatiivi": "47:ltä",
+      "allatiivi": "47:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenseitsemän",
+      "partitiivi": "neljääkymmentäseitsemää",
+      "inessiivi": "neljässäkymmenessäseitsemässä",
+      "elatiivi": "neljästäkymmenestäseitsemästä",
+      "illatiivi": "neljääntokymmeneenseitsemään",
+      "adessiivi": "neljälläkymmenelläseitsemällä",
+      "ablatiivi": "neljältäkymmeneltäseitsemältä",
+      "allatiivi": "neljällekymmenelleseitsemälle"
+    }
+  },
+  "48": {
+    "short": {
+      "genetiivi": "48:n",
+      "partitiivi": "48:aa",
+      "inessiivi": "48:ssa",
+      "elatiivi": "48:sta",
+      "illatiivi": "48:aan",
+      "adessiivi": "48:lla",
+      "ablatiivi": "48:lta",
+      "allatiivi": "48:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenkahdeksan",
+      "partitiivi": "neljääkymmentäkahdeksaa",
+      "inessiivi": "neljässäkymmenessäkahdeksassa",
+      "elatiivi": "neljästäkymmenestäkahdeksasta",
+      "illatiivi": "neljääntokymmeneenkahdeksaan",
+      "adessiivi": "neljälläkymmenelläkahdeksalla",
+      "ablatiivi": "neljältäkymmeneltäkahdeksalta",
+      "allatiivi": "neljällekymmenellekahdeksalle"
+    }
+  },
+  "49": {
+    "short": {
+      "genetiivi": "49:n",
+      "partitiivi": "49:ää",
+      "inessiivi": "49:ssä",
+      "elatiivi": "49:stä",
+      "illatiivi": "49:ään",
+      "adessiivi": "49:llä",
+      "ablatiivi": "49:ltä",
+      "allatiivi": "49:lle"
+    },
+    "long": {
+      "genetiivi": "neljänkymmenenyhdeksän",
+      "partitiivi": "neljääkymmentäyhdeksää",
+      "inessiivi": "neljässäkymmenessäyhdeksässä",
+      "elatiivi": "neljästäkymmenestäyhdeksästä",
+      "illatiivi": "neljääntokymmeneenyhdeksään",
+      "adessiivi": "neljälläkymmenelläyhdeksällä",
+      "ablatiivi": "neljältäkymmeneltäyhdeksältä",
+      "allatiivi": "neljällekymmenelleyhdeksälle"
+    }
+  },
+  "50": {
+    "short": {
+      "genetiivi": "50:n",
+      "partitiivi": "50:tä",
+      "inessiivi": "50:ssä",
+      "elatiivi": "50:stä",
+      "illatiivi": "50:een",
+      "adessiivi": "50:llä",
+      "ablatiivi": "50:ltä",
+      "allatiivi": "50:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenen",
+      "partitiivi": "viittäkymmentä",
+      "inessiivi": "viidessäkymmenessä",
+      "elatiivi": "viidestäkymmenestä",
+      "illatiivi": "viiteentokymmeneen",
+      "adessiivi": "viidelläkymmenellä",
+      "ablatiivi": "viideltäkymmeneltä",
+      "allatiivi": "viidellekymmenelle"
+    }
+  },
+  "51": {
+    "short": {
+      "genetiivi": "51:n",
+      "partitiivi": "51:tä",
+      "inessiivi": "51:ssä",
+      "elatiivi": "51:stä",
+      "illatiivi": "51:een",
+      "adessiivi": "51:llä",
+      "ablatiivi": "51:ltä",
+      "allatiivi": "51:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenyhden",
+      "partitiivi": "viittäkymmentäyhtä",
+      "inessiivi": "viidessäkymmenessäyhdessä",
+      "elatiivi": "viidestäkymmenestäyhdestä",
+      "illatiivi": "viiteentokymmeneenyhteen",
+      "adessiivi": "viidelläkymmenelläyhdellä",
+      "ablatiivi": "viideltäkymmeneltäyhdeltä",
+      "allatiivi": "viidellekymmenelleyhdelle"
+    }
+  },
+  "52": {
+    "short": {
+      "genetiivi": "52:n",
+      "partitiivi": "52:ta",
+      "inessiivi": "52:ssa",
+      "elatiivi": "52:sta",
+      "illatiivi": "52:een",
+      "adessiivi": "52:lla",
+      "ablatiivi": "52:lta",
+      "allatiivi": "52:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenkahden",
+      "partitiivi": "viittäkymmentäkahta",
+      "inessiivi": "viidessäkymmenessäkahdessa",
+      "elatiivi": "viidestäkymmenestäkahdesta",
+      "illatiivi": "viiteentokymmeneenkahteen",
+      "adessiivi": "viidelläkymmenelläkahdella",
+      "ablatiivi": "viideltäkymmeneltäkahdelta",
+      "allatiivi": "viidellekymmenellekahdelle"
+    }
+  },
+  "53": {
+    "short": {
+      "genetiivi": "53:n",
+      "partitiivi": "53:a",
+      "inessiivi": "53:ssa",
+      "elatiivi": "53:sta",
+      "illatiivi": "53:een",
+      "adessiivi": "53:lla",
+      "ablatiivi": "53:lta",
+      "allatiivi": "53:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenkolmen",
+      "partitiivi": "viittäkymmentäkolmea",
+      "inessiivi": "viidessäkymmenessäkolmessa",
+      "elatiivi": "viidestäkymmenestäkolmesta",
+      "illatiivi": "viiteentokymmeneenkolmeen",
+      "adessiivi": "viidelläkymmenelläkolmella",
+      "ablatiivi": "viideltäkymmeneltäkolmelta",
+      "allatiivi": "viidellekymmenellekolmelle"
+    }
+  },
+  "54": {
+    "short": {
+      "genetiivi": "54:n",
+      "partitiivi": "54:ää",
+      "inessiivi": "54:ssä",
+      "elatiivi": "54:stä",
+      "illatiivi": "54:ään",
+      "adessiivi": "54:llä",
+      "ablatiivi": "54:ltä",
+      "allatiivi": "54:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenneljän",
+      "partitiivi": "viittäkymmentäneljää",
+      "inessiivi": "viidessäkymmenessäneljässä",
+      "elatiivi": "viidestäkymmenestäneljästä",
+      "illatiivi": "viiteentokymmeneenneljään",
+      "adessiivi": "viidelläkymmenelläneljällä",
+      "ablatiivi": "viideltäkymmeneltäneljältä",
+      "allatiivi": "viidellekymmenelleneljälle"
+    }
+  },
+  "55": {
+    "short": {
+      "genetiivi": "55:n",
+      "partitiivi": "55:tä",
+      "inessiivi": "55:ssä",
+      "elatiivi": "55:stä",
+      "illatiivi": "55:een",
+      "adessiivi": "55:llä",
+      "ablatiivi": "55:ltä",
+      "allatiivi": "55:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenviiden",
+      "partitiivi": "viittäkymmentäviittä",
+      "inessiivi": "viidessäkymmenessäviidessä",
+      "elatiivi": "viidestäkymmenestäviidestä",
+      "illatiivi": "viiteentokymmeneenviiteen",
+      "adessiivi": "viidelläkymmenelläviidellä",
+      "ablatiivi": "viideltäkymmeneltäviideltä",
+      "allatiivi": "viidellekymmenelleviidelle"
+    }
+  },
+  "56": {
+    "short": {
+      "genetiivi": "56:n",
+      "partitiivi": "56:ta",
+      "inessiivi": "56:ssa",
+      "elatiivi": "56:sta",
+      "illatiivi": "56:een",
+      "adessiivi": "56:lla",
+      "ablatiivi": "56:lta",
+      "allatiivi": "56:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenkuuden",
+      "partitiivi": "viittäkymmentäkuutta",
+      "inessiivi": "viidessäkymmenessäkuudessa",
+      "elatiivi": "viidestäkymmenestäkuudesta",
+      "illatiivi": "viiteentokymmeneenkuuteen",
+      "adessiivi": "viidelläkymmenelläkuudella",
+      "ablatiivi": "viideltäkymmeneltäkuudelta",
+      "allatiivi": "viidellekymmenellekuudelle"
+    }
+  },
+  "57": {
+    "short": {
+      "genetiivi": "57:n",
+      "partitiivi": "57:ää",
+      "inessiivi": "57:ssä",
+      "elatiivi": "57:stä",
+      "illatiivi": "57:ään",
+      "adessiivi": "57:llä",
+      "ablatiivi": "57:ltä",
+      "allatiivi": "57:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenseitsemän",
+      "partitiivi": "viittäkymmentäseitsemää",
+      "inessiivi": "viidessäkymmenessäseitsemässä",
+      "elatiivi": "viidestäkymmenestäseitsemästä",
+      "illatiivi": "viiteentokymmeneenseitsemään",
+      "adessiivi": "viidelläkymmenelläseitsemällä",
+      "ablatiivi": "viideltäkymmeneltäseitsemältä",
+      "allatiivi": "viidellekymmenelleseitsemälle"
+    }
+  },
+  "58": {
+    "short": {
+      "genetiivi": "58:n",
+      "partitiivi": "58:aa",
+      "inessiivi": "58:ssa",
+      "elatiivi": "58:sta",
+      "illatiivi": "58:aan",
+      "adessiivi": "58:lla",
+      "ablatiivi": "58:lta",
+      "allatiivi": "58:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenkahdeksan",
+      "partitiivi": "viittäkymmentäkahdeksaa",
+      "inessiivi": "viidessäkymmenessäkahdeksassa",
+      "elatiivi": "viidestäkymmenestäkahdeksasta",
+      "illatiivi": "viiteentokymmeneenkahdeksaan",
+      "adessiivi": "viidelläkymmenelläkahdeksalla",
+      "ablatiivi": "viideltäkymmeneltäkahdeksalta",
+      "allatiivi": "viidellekymmenellekahdeksalle"
+    }
+  },
+  "59": {
+    "short": {
+      "genetiivi": "59:n",
+      "partitiivi": "59:ää",
+      "inessiivi": "59:ssä",
+      "elatiivi": "59:stä",
+      "illatiivi": "59:ään",
+      "adessiivi": "59:llä",
+      "ablatiivi": "59:ltä",
+      "allatiivi": "59:lle"
+    },
+    "long": {
+      "genetiivi": "viidenkymmenenyhdeksän",
+      "partitiivi": "viittäkymmentäyhdeksää",
+      "inessiivi": "viidessäkymmenessäyhdeksässä",
+      "elatiivi": "viidestäkymmenestäyhdeksästä",
+      "illatiivi": "viiteentokymmeneenyhdeksään",
+      "adessiivi": "viidelläkymmenelläyhdeksällä",
+      "ablatiivi": "viideltäkymmeneltäyhdeksältä",
+      "allatiivi": "viidellekymmenelleyhdeksälle"
+    }
+  },
+  "60": {
+    "short": {
+      "genetiivi": "60:n",
+      "partitiivi": "60:ta",
+      "inessiivi": "60:ssa",
+      "elatiivi": "60:sta",
+      "illatiivi": "60:een",
+      "adessiivi": "60:lla",
+      "ablatiivi": "60:lta",
+      "allatiivi": "60:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenen",
+      "partitiivi": "kuuttakymmentä",
+      "inessiivi": "kuudessakymmenessä",
+      "elatiivi": "kuudestakymmenestä",
+      "illatiivi": "kuuteentokymmeneen",
+      "adessiivi": "kuudellakymmenellä",
+      "ablatiivi": "kuudeltakymmeneltä",
+      "allatiivi": "kuudellekymmenelle"
+    }
+  },
+  "70": {
+    "short": {
+      "genetiivi": "70:n",
+      "partitiivi": "70:ää",
+      "inessiivi": "70:ssä",
+      "elatiivi": "70:stä",
+      "illatiivi": "70:ään",
+      "adessiivi": "70:llä",
+      "ablatiivi": "70:ltä",
+      "allatiivi": "70:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenen",
+      "partitiivi": "seitsemääkymmentä",
+      "inessiivi": "seitsemässäkymmenessä",
+      "elatiivi": "seitsemästäkymmenestä",
+      "illatiivi": "seitsemääntokymmeneen",
+      "adessiivi": "seitsemälläkymmenellä",
+      "ablatiivi": "seitsemältäkymmeneltä",
+      "allatiivi": "seitsemällekymmenelle"
+    }
+  },
+  "80": {
+    "short": {
+      "genetiivi": "80:n",
+      "partitiivi": "80:aa",
+      "inessiivi": "80:ssa",
+      "elatiivi": "80:sta",
+      "illatiivi": "80:aan",
+      "adessiivi": "80:lla",
+      "ablatiivi": "80:lta",
+      "allatiivi": "80:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenen",
+      "partitiivi": "kahdeksaakymmentä",
+      "inessiivi": "kahdeksassakymmenessä",
+      "elatiivi": "kahdeksastakymmenestä",
+      "illatiivi": "kahteentokymmeneenkahdeksaan",
+      "adessiivi": "kahdeksallakymmenelläkahdeksalla",
+      "ablatiivi": "kahdeksaltakymmeneltäkahdeksalta",
+      "allatiivi": "kahdeksallekymmenellekahdeksalle"
+    }
+  },
+  "90": {
+    "short": {
+      "genetiivi": "90:n",
+      "partitiivi": "90:ää",
+      "inessiivi": "90:ssä",
+      "elatiivi": "90:stä",
+      "illatiivi": "90:ään",
+      "adessiivi": "90:llä",
+      "ablatiivi": "90:ltä",
+      "allatiivi": "90:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenen",
+      "partitiivi": "yhdeksääkymmentä",
+      "inessiivi": "yhdeksässäkymmenessä",
+      "elatiivi": "yhdeksästäkymmenestä",
+      "illatiivi": "yhdeksääntokymmeneen",
+      "adessiivi": "yhdeksälläkymmenellä",
+      "ablatiivi": "yhdeksältäkymmeneltä",
+      "allatiivi": "yhdeksällekymmenelle"
+    }
+  },
+  "100": {
+    "short": {
+      "genetiivi": "100:n",
+      "partitiivi": "100:a",
+      "inessiivi": "100:ssa",
+      "elatiivi": "100:sta",
+      "illatiivi": "100:een",
+      "adessiivi": "100:lla",
+      "ablatiivi": "100:lta",
+      "allatiivi": "100:lle"
+    },
+    "long": {
+      "genetiivi": "sadan",
+      "partitiivi": "sataa",
+      "inessiivi": "sadassa",
+      "elatiivi": "sadasta",
+      "illatiivi": "sataan",
+      "adessiivi": "sadalla",
+      "ablatiivi": "sadalta",
+      "allatiivi": "sadalle"
+    }
+  },
+  "61": {
+    "short": {
+      "genetiivi": "61:n",
+      "partitiivi": "61:tä",
+      "inessiivi": "61:ssä",
+      "elatiivi": "61:stä",
+      "illatiivi": "61:een",
+      "adessiivi": "61:llä",
+      "ablatiivi": "61:ltä",
+      "allatiivi": "61:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenyhden",
+      "partitiivi": "kuuttakymmentäyhtä",
+      "inessiivi": "kuudessakymmenessäyhdessä",
+      "elatiivi": "kuudestakymmenestäyhdestä",
+      "illatiivi": "kuuteentokymmeneenyhteen",
+      "adessiivi": "kuudellakymmenelläyhdellä",
+      "ablatiivi": "kuudeltakymmeneltäyhdeltä",
+      "allatiivi": "kuudellekymmenelleyhdelle"
+    }
+  },
+  "62": {
+    "short": {
+      "genetiivi": "62:n",
+      "partitiivi": "62:ta",
+      "inessiivi": "62:ssa",
+      "elatiivi": "62:sta",
+      "illatiivi": "62:een",
+      "adessiivi": "62:lla",
+      "ablatiivi": "62:lta",
+      "allatiivi": "62:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenkahden",
+      "partitiivi": "kuuttakymmentäkahta",
+      "inessiivi": "kuudessakymmenessäkahdessa",
+      "elatiivi": "kuudestakymmenestäkahdesta",
+      "illatiivi": "kuuteentokymmeneenkahteen",
+      "adessiivi": "kuudellakymmenelläkahdella",
+      "ablatiivi": "kuudeltakymmeneltäkahdelta",
+      "allatiivi": "kuudellekymmenellekahdelle"
+    }
+  },
+  "63": {
+    "short": {
+      "genetiivi": "63:n",
+      "partitiivi": "63:a",
+      "inessiivi": "63:ssa",
+      "elatiivi": "63:sta",
+      "illatiivi": "63:een",
+      "adessiivi": "63:lla",
+      "ablatiivi": "63:lta",
+      "allatiivi": "63:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenkolmen",
+      "partitiivi": "kuuttakymmentäkolmea",
+      "inessiivi": "kuudessakymmenessäkolmessa",
+      "elatiivi": "kuudestakymmenestäkolmesta",
+      "illatiivi": "kuuteentokymmeneenkolmeen",
+      "adessiivi": "kuudellakymmenelläkolmella",
+      "ablatiivi": "kuudeltakymmeneltäkolmelta",
+      "allatiivi": "kuudellekymmenellekolmelle"
+    }
+  },
+  "64": {
+    "short": {
+      "genetiivi": "64:n",
+      "partitiivi": "64:ää",
+      "inessiivi": "64:ssä",
+      "elatiivi": "64:stä",
+      "illatiivi": "64:ään",
+      "adessiivi": "64:llä",
+      "ablatiivi": "64:ltä",
+      "allatiivi": "64:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenneljän",
+      "partitiivi": "kuuttakymmentäneljää",
+      "inessiivi": "kuudessakymmenessäneljässä",
+      "elatiivi": "kuudestakymmenestäneljästä",
+      "illatiivi": "kuuteentokymmeneenneljään",
+      "adessiivi": "kuudellakymmenelläneljällä",
+      "ablatiivi": "kuudeltakymmeneltäneljältä",
+      "allatiivi": "kuudellekymmenelleneljälle"
+    }
+  },
+  "65": {
+    "short": {
+      "genetiivi": "65:n",
+      "partitiivi": "65:tä",
+      "inessiivi": "65:ssä",
+      "elatiivi": "65:stä",
+      "illatiivi": "65:een",
+      "adessiivi": "65:llä",
+      "ablatiivi": "65:ltä",
+      "allatiivi": "65:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenviiden",
+      "partitiivi": "kuuttakymmentäviittä",
+      "inessiivi": "kuudessakymmenessäviidessä",
+      "elatiivi": "kuudestakymmenestäviidestä",
+      "illatiivi": "kuuteentokymmeneenviiteen",
+      "adessiivi": "kuudellakymmenelläviidellä",
+      "ablatiivi": "kuudeltakymmeneltäviideltä",
+      "allatiivi": "kuudellekymmenelleviidelle"
+    }
+  },
+  "66": {
+    "short": {
+      "genetiivi": "66:n",
+      "partitiivi": "66:ta",
+      "inessiivi": "66:ssa",
+      "elatiivi": "66:sta",
+      "illatiivi": "66:een",
+      "adessiivi": "66:lla",
+      "ablatiivi": "66:lta",
+      "allatiivi": "66:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenkuuden",
+      "partitiivi": "kuuttakymmentäkuutta",
+      "inessiivi": "kuudessakymmenessäkuudessa",
+      "elatiivi": "kuudestakymmenestäkuudesta",
+      "illatiivi": "kuuteentokymmeneenkuuteen",
+      "adessiivi": "kuudellakymmenelläkuudella",
+      "ablatiivi": "kuudeltakymmeneltäkuudelta",
+      "allatiivi": "kuudellekymmenellekuudelle"
+    }
+  },
+  "67": {
+    "short": {
+      "genetiivi": "67:n",
+      "partitiivi": "67:ää",
+      "inessiivi": "67:ssä",
+      "elatiivi": "67:stä",
+      "illatiivi": "67:ään",
+      "adessiivi": "67:llä",
+      "ablatiivi": "67:ltä",
+      "allatiivi": "67:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenseitsemän",
+      "partitiivi": "kuuttakymmentäseitsemää",
+      "inessiivi": "kuudessakymmenessäseitsemässä",
+      "elatiivi": "kuudestakymmenestäseitsemästä",
+      "illatiivi": "kuuteentokymmeneenseitsemään",
+      "adessiivi": "kuudellakymmenelläseitsemällä",
+      "ablatiivi": "kuudeltakymmeneltäseitsemältä",
+      "allatiivi": "kuudellekymmenelleseitsemälle"
+    }
+  },
+  "68": {
+    "short": {
+      "genetiivi": "68:n",
+      "partitiivi": "68:aa",
+      "inessiivi": "68:ssa",
+      "elatiivi": "68:sta",
+      "illatiivi": "68:aan",
+      "adessiivi": "68:lla",
+      "ablatiivi": "68:lta",
+      "allatiivi": "68:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenkahdeksan",
+      "partitiivi": "kuuttakymmentäkahdeksaa",
+      "inessiivi": "kuudessakymmenessäkahdeksassa",
+      "elatiivi": "kuudestakymmenestäkahdeksasta",
+      "illatiivi": "kuuteentokymmeneenkahdeksaan",
+      "adessiivi": "kuudellakymmenelläkahdeksalla",
+      "ablatiivi": "kuudeltakymmeneltäkahdeksalta",
+      "allatiivi": "kuudellekymmenellekahdeksalle"
+    }
+  },
+  "69": {
+    "short": {
+      "genetiivi": "69:n",
+      "partitiivi": "69:ää",
+      "inessiivi": "69:ssä",
+      "elatiivi": "69:stä",
+      "illatiivi": "69:ään",
+      "adessiivi": "69:llä",
+      "ablatiivi": "69:ltä",
+      "allatiivi": "69:lle"
+    },
+    "long": {
+      "genetiivi": "kuudenkymmenenyhdeksän",
+      "partitiivi": "kuuttakymmentäyhdeksää",
+      "inessiivi": "kuudessakymmenessäyhdeksässä",
+      "elatiivi": "kuudestakymmenestäyhdeksästä",
+      "illatiivi": "kuuteentokymmeneenyhdeksään",
+      "adessiivi": "kuudellakymmenelläyhdeksällä",
+      "ablatiivi": "kuudeltakymmeneltäyhdeksältä",
+      "allatiivi": "kuudellekymmenelleyhdeksälle"
+    }
+  },
+  "71": {
+    "short": {
+      "genetiivi": "71:n",
+      "partitiivi": "71:tä",
+      "inessiivi": "71:ssä",
+      "elatiivi": "71:stä",
+      "illatiivi": "71:een",
+      "adessiivi": "71:llä",
+      "ablatiivi": "71:ltä",
+      "allatiivi": "71:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenyhden",
+      "partitiivi": "seitsemääkymmentäyhtä",
+      "inessiivi": "seitsemässäkymmenessäyhdessä",
+      "elatiivi": "seitsemästäkymmenestäyhdestä",
+      "illatiivi": "seitsemääntokymmeneenyhteen",
+      "adessiivi": "seitsemälläkymmenelläyhdellä",
+      "ablatiivi": "seitsemältäkymmeneltäyhdeltä",
+      "allatiivi": "seitsemällekymmenelleyhdelle"
+    }
+  },
+  "72": {
+    "short": {
+      "genetiivi": "72:n",
+      "partitiivi": "72:ta",
+      "inessiivi": "72:ssa",
+      "elatiivi": "72:sta",
+      "illatiivi": "72:een",
+      "adessiivi": "72:lla",
+      "ablatiivi": "72:lta",
+      "allatiivi": "72:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenkahden",
+      "partitiivi": "seitsemääkymmentäkahta",
+      "inessiivi": "seitsemässäkymmenessäkahdessa",
+      "elatiivi": "seitsemästäkymmenestäkahdesta",
+      "illatiivi": "seitsemääntokymmeneenkahteen",
+      "adessiivi": "seitsemälläkymmenelläkahdella",
+      "ablatiivi": "seitsemältäkymmeneltäkahdelta",
+      "allatiivi": "seitsemällekymmenellekahdelle"
+    }
+  },
+  "73": {
+    "short": {
+      "genetiivi": "73:n",
+      "partitiivi": "73:a",
+      "inessiivi": "73:ssa",
+      "elatiivi": "73:sta",
+      "illatiivi": "73:een",
+      "adessiivi": "73:lla",
+      "ablatiivi": "73:lta",
+      "allatiivi": "73:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenkolmen",
+      "partitiivi": "seitsemääkymmentäkolmea",
+      "inessiivi": "seitsemässäkymmenessäkolmessa",
+      "elatiivi": "seitsemästäkymmenestäkolmesta",
+      "illatiivi": "seitsemääntokymmeneenkolmeen",
+      "adessiivi": "seitsemälläkymmenelläkolmella",
+      "ablatiivi": "seitsemältäkymmeneltäkolmelta",
+      "allatiivi": "seitsemällekymmenellekolmelle"
+    }
+  },
+  "74": {
+    "short": {
+      "genetiivi": "74:n",
+      "partitiivi": "74:ää",
+      "inessiivi": "74:ssä",
+      "elatiivi": "74:stä",
+      "illatiivi": "74:ään",
+      "adessiivi": "74:llä",
+      "ablatiivi": "74:ltä",
+      "allatiivi": "74:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenneljän",
+      "partitiivi": "seitsemääkymmentäneljää",
+      "inessiivi": "seitsemässäkymmenessäneljässä",
+      "elatiivi": "seitsemästäkymmenestäneljästä",
+      "illatiivi": "seitsemääntokymmeneenneljään",
+      "adessiivi": "seitsemälläkymmenelläneljällä",
+      "ablatiivi": "seitsemältäkymmeneltäneljältä",
+      "allatiivi": "seitsemällekymmenelleneljälle"
+    }
+  },
+  "75": {
+    "short": {
+      "genetiivi": "75:n",
+      "partitiivi": "75:tä",
+      "inessiivi": "75:ssä",
+      "elatiivi": "75:stä",
+      "illatiivi": "75:een",
+      "adessiivi": "75:llä",
+      "ablatiivi": "75:ltä",
+      "allatiivi": "75:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenviiden",
+      "partitiivi": "seitsemääkymmentäviittä",
+      "inessiivi": "seitsemässäkymmenessäviidessä",
+      "elatiivi": "seitsemästäkymmenestäviidestä",
+      "illatiivi": "seitsemääntokymmeneenviiteen",
+      "adessiivi": "seitsemälläkymmenelläviidellä",
+      "ablatiivi": "seitsemältäkymmeneltäviideltä",
+      "allatiivi": "seitsemällekymmenelleviidelle"
+    }
+  },
+  "76": {
+    "short": {
+      "genetiivi": "76:n",
+      "partitiivi": "76:ta",
+      "inessiivi": "76:ssa",
+      "elatiivi": "76:sta",
+      "illatiivi": "76:een",
+      "adessiivi": "76:lla",
+      "ablatiivi": "76:lta",
+      "allatiivi": "76:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenkuuden",
+      "partitiivi": "seitsemääkymmentäkuutta",
+      "inessiivi": "seitsemässäkymmenessäkuudessa",
+      "elatiivi": "seitsemästäkymmenestäkuudesta",
+      "illatiivi": "seitsemääntokymmeneenkuuteen",
+      "adessiivi": "seitsemälläkymmenelläkuudella",
+      "ablatiivi": "seitsemältäkymmeneltäkuudelta",
+      "allatiivi": "seitsemällekymmenellekuudelle"
+    }
+  },
+  "77": {
+    "short": {
+      "genetiivi": "77:n",
+      "partitiivi": "77:ää",
+      "inessiivi": "77:ssä",
+      "elatiivi": "77:stä",
+      "illatiivi": "77:ään",
+      "adessiivi": "77:llä",
+      "ablatiivi": "77:ltä",
+      "allatiivi": "77:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenseitsemän",
+      "partitiivi": "seitsemääkymmentäseitsemää",
+      "inessiivi": "seitsemässäkymmenessäseitsemässä",
+      "elatiivi": "seitsemästäkymmenestäseitsemästä",
+      "illatiivi": "seitsemääntokymmeneenseitsemään",
+      "adessiivi": "seitsemälläkymmenelläseitsemällä",
+      "ablatiivi": "seitsemältäkymmeneltäseitsemältä",
+      "allatiivi": "seitsemällekymmenelleseitsemälle"
+    }
+  },
+  "78": {
+    "short": {
+      "genetiivi": "78:n",
+      "partitiivi": "78:aa",
+      "inessiivi": "78:ssa",
+      "elatiivi": "78:sta",
+      "illatiivi": "78:aan",
+      "adessiivi": "78:lla",
+      "ablatiivi": "78:lta",
+      "allatiivi": "78:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenkahdeksan",
+      "partitiivi": "seitsemääkymmentäkahdeksaa",
+      "inessiivi": "seitsemässäkymmenessäkahdeksassa",
+      "elatiivi": "seitsemästäkymmenestäkahdeksasta",
+      "illatiivi": "seitsemääntokymmeneenkahdeksaan",
+      "adessiivi": "seitsemälläkymmenelläkahdeksalla",
+      "ablatiivi": "seitsemältäkymmeneltäkahdeksalta",
+      "allatiivi": "seitsemällekymmenellekahdeksalle"
+    }
+  },
+  "79": {
+    "short": {
+      "genetiivi": "79:n",
+      "partitiivi": "79:ää",
+      "inessiivi": "79:ssä",
+      "elatiivi": "79:stä",
+      "illatiivi": "79:ään",
+      "adessiivi": "79:llä",
+      "ablatiivi": "79:ltä",
+      "allatiivi": "79:lle"
+    },
+    "long": {
+      "genetiivi": "seitsemänkymmenenyhdeksän",
+      "partitiivi": "seitsemääkymmentäyhdeksää",
+      "inessiivi": "seitsemässäkymmenessäyhdeksässä",
+      "elatiivi": "seitsemästäkymmenestäyhdeksästä",
+      "illatiivi": "seitsemääntokymmeneenyhdeksään",
+      "adessiivi": "seitsemälläkymmenelläyhdeksällä",
+      "ablatiivi": "seitsemältäkymmeneltäyhdeksältä",
+      "allatiivi": "seitsemällekymmenelleyhdeksälle"
+    }
+  },
+  "91": {
+    "short": {
+      "genetiivi": "91:n",
+      "partitiivi": "91:tä",
+      "inessiivi": "91:ssä",
+      "elatiivi": "91:stä",
+      "illatiivi": "91:een",
+      "adessiivi": "91:llä",
+      "ablatiivi": "91:ltä",
+      "allatiivi": "91:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenyhden",
+      "partitiivi": "yhdeksääkymmentäyhtä",
+      "inessiivi": "yhdeksässäkymmenessäyhdessä",
+      "elatiivi": "yhdeksästäkymmenestäyhdestä",
+      "illatiivi": "yhdeksääntokymmeneenyhteen",
+      "adessiivi": "yhdeksälläkymmenelläyhdellä",
+      "ablatiivi": "yhdeksältäkymmeneltäyhdeltä",
+      "allatiivi": "yhdeksällekymmenelleyhdelle"
+    }
+  },
+  "92": {
+    "short": {
+      "genetiivi": "92:n",
+      "partitiivi": "92:ta",
+      "inessiivi": "92:ssa",
+      "elatiivi": "92:sta",
+      "illatiivi": "92:een",
+      "adessiivi": "92:lla",
+      "ablatiivi": "92:lta",
+      "allatiivi": "92:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenkahden",
+      "partitiivi": "yhdeksääkymmentäkahta",
+      "inessiivi": "yhdeksässäkymmenessäkahdessa",
+      "elatiivi": "yhdeksästäkymmenestäkahdesta",
+      "illatiivi": "yhdeksääntokymmeneenkahteen",
+      "adessiivi": "yhdeksälläkymmenelläkahdella",
+      "ablatiivi": "yhdeksältäkymmeneltäkahdelta",
+      "allatiivi": "yhdeksällekymmenellekahdelle"
+    }
+  },
+  "99": {
+    "short": {
+      "genetiivi": "99:n",
+      "partitiivi": "99:ää",
+      "inessiivi": "99:ssä",
+      "elatiivi": "99:stä",
+      "illatiivi": "99:ään",
+      "adessiivi": "99:llä",
+      "ablatiivi": "99:ltä",
+      "allatiivi": "99:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenyhdeksän",
+      "partitiivi": "yhdeksääkymmentäyhdeksää",
+      "inessiivi": "yhdeksässäkymmenessäyhdeksässä",
+      "elatiivi": "yhdeksästäkymmenestäyhdeksästä",
+      "illatiivi": "yhdeksääntokymmeneenyhdeksään",
+      "adessiivi": "yhdeksälläkymmenelläyhdeksällä",
+      "ablatiivi": "yhdeksältäkymmeneltäyhdeksältä",
+      "allatiivi": "yhdeksällekymmenelleyhdeksälle"
+    }
+  },
+  "81": {
+    "short": {
+      "genetiivi": "81:n",
+      "partitiivi": "81:tä",
+      "inessiivi": "81:ssä",
+      "elatiivi": "81:stä",
+      "illatiivi": "81:een",
+      "adessiivi": "81:llä",
+      "ablatiivi": "81:ltä",
+      "allatiivi": "81:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenyhden",
+      "partitiivi": "kahdeksaakymmentäyhtä",
+      "inessiivi": "kahdeksassakymmenessäyhdessä",
+      "elatiivi": "kahdeksastakymmenestäyhdestä",
+      "illatiivi": "kahteentokymmeneenyhteen",
+      "adessiivi": "kahdeksallakymmenelläyhdellä",
+      "ablatiivi": "kahdeksaltakymmeneltäyhdeltä",
+      "allatiivi": "kahdeksallekymmenelleyhdelle"
+    }
+  },
+  "82": {
+    "short": {
+      "genetiivi": "82:n",
+      "partitiivi": "82:ta",
+      "inessiivi": "82:ssa",
+      "elatiivi": "82:sta",
+      "illatiivi": "82:een",
+      "adessiivi": "82:lla",
+      "ablatiivi": "82:lta",
+      "allatiivi": "82:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenkahden",
+      "partitiivi": "kahdeksaakymmentäkahta",
+      "inessiivi": "kahdeksassakymmenessäkahdessa",
+      "elatiivi": "kahdeksastakymmenestäkahdesta",
+      "illatiivi": "kahteentokymmeneenkahteen",
+      "adessiivi": "kahdeksallakymmenelläkahdella",
+      "ablatiivi": "kahdeksaltakymmeneltäkahdelta",
+      "allatiivi": "kahdeksallekymmenellekahdelle"
+    }
+  },
+  "83": {
+    "short": {
+      "genetiivi": "83:n",
+      "partitiivi": "83:a",
+      "inessiivi": "83:ssa",
+      "elatiivi": "83:sta",
+      "illatiivi": "83:een",
+      "adessiivi": "83:lla",
+      "ablatiivi": "83:lta",
+      "allatiivi": "83:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenkolmen",
+      "partitiivi": "kahdeksaakymmentäkolmea",
+      "inessiivi": "kahdeksassakymmenessäkolmessa",
+      "elatiivi": "kahdeksastakymmenestäkolmesta",
+      "illatiivi": "kahteentokymmeneenkolmeen",
+      "adessiivi": "kahdeksallakymmenelläkolmella",
+      "ablatiivi": "kahdeksaltakymmeneltäkolmelta",
+      "allatiivi": "kahdeksallekymmenellekolmelle"
+    }
+  },
+  "84": {
+    "short": {
+      "genetiivi": "84:n",
+      "partitiivi": "84:ää",
+      "inessiivi": "84:ssä",
+      "elatiivi": "84:stä",
+      "illatiivi": "84:ään",
+      "adessiivi": "84:llä",
+      "ablatiivi": "84:ltä",
+      "allatiivi": "84:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenneljän",
+      "partitiivi": "kahdeksaakymmentäneljää",
+      "inessiivi": "kahdeksassakymmenessäneljässä",
+      "elatiivi": "kahdeksastakymmenestäneljästä",
+      "illatiivi": "kahteentokymmeneenneljään",
+      "adessiivi": "kahdeksallakymmenelläneljällä",
+      "ablatiivi": "kahdeksaltakymmeneltäneljältä",
+      "allatiivi": "kahdeksallekymmenelleneljälle"
+    }
+  },
+  "85": {
+    "short": {
+      "genetiivi": "85:n",
+      "partitiivi": "85:tä",
+      "inessiivi": "85:ssä",
+      "elatiivi": "85:stä",
+      "illatiivi": "85:een",
+      "adessiivi": "85:llä",
+      "ablatiivi": "85:ltä",
+      "allatiivi": "85:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenviiden",
+      "partitiivi": "kahdeksaakymmentäviittä",
+      "inessiivi": "kahdeksassakymmenessäviidessä",
+      "elatiivi": "kahdeksastakymmenestäviidestä",
+      "illatiivi": "kahteentokymmeneenviiteen",
+      "adessiivi": "kahdeksallakymmenelläviidellä",
+      "ablatiivi": "kahdeksaltakymmeneltäviideltä",
+      "allatiivi": "kahdeksallekymmenelleviidelle"
+    }
+  },
+  "86": {
+    "short": {
+      "genetiivi": "86:n",
+      "partitiivi": "86:ta",
+      "inessiivi": "86:ssa",
+      "elatiivi": "86:sta",
+      "illatiivi": "86:een",
+      "adessiivi": "86:lla",
+      "ablatiivi": "86:lta",
+      "allatiivi": "86:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenkuuden",
+      "partitiivi": "kahdeksaakymmentäkuutta",
+      "inessiivi": "kahdeksassakymmenessäkuudessa",
+      "elatiivi": "kahdeksastakymmenestäkuudesta",
+      "illatiivi": "kahteentokymmeneenkuuteen",
+      "adessiivi": "kahdeksallakymmenelläkuudella",
+      "ablatiivi": "kahdeksaltakymmeneltäkuudelta",
+      "allatiivi": "kahdeksallekymmenellekuudelle"
+    }
+  },
+  "87": {
+    "short": {
+      "genetiivi": "87:n",
+      "partitiivi": "87:ää",
+      "inessiivi": "87:ssä",
+      "elatiivi": "87:stä",
+      "illatiivi": "87:ään",
+      "adessiivi": "87:llä",
+      "ablatiivi": "87:ltä",
+      "allatiivi": "87:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenseitsemän",
+      "partitiivi": "kahdeksaakymmentäseitsemää",
+      "inessiivi": "kahdeksassakymmenessäseitsemässä",
+      "elatiivi": "kahdeksastakymmenestäseitsemästä",
+      "illatiivi": "kahteentokymmeneenseitsemään",
+      "adessiivi": "kahdeksallakymmenelläseitsemällä",
+      "ablatiivi": "kahdeksaltakymmeneltäseitsemältä",
+      "allatiivi": "kahdeksallekymmenelleseitsemälle"
+    }
+  },
+  "88": {
+    "short": {
+      "genetiivi": "88:n",
+      "partitiivi": "88:aa",
+      "inessiivi": "88:ssa",
+      "elatiivi": "88:sta",
+      "illatiivi": "88:aan",
+      "adessiivi": "88:lla",
+      "ablatiivi": "88:lta",
+      "allatiivi": "88:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenkahdeksan",
+      "partitiivi": "kahdeksaakymmentäkahdeksaa",
+      "inessiivi": "kahdeksassakymmenessäkahdeksassa",
+      "elatiivi": "kahdeksastakymmenestäkahdeksasta",
+      "illatiivi": "kahteentokymmeneenkahdeksaan",
+      "adessiivi": "kahdeksallakymmenelläkahdeksalla",
+      "ablatiivi": "kahdeksaltakymmeneltäkahdeksalta",
+      "allatiivi": "kahdeksallekymmenellekahdeksalle"
+    }
+  },
+  "89": {
+    "short": {
+      "genetiivi": "89:n",
+      "partitiivi": "89:ää",
+      "inessiivi": "89:ssä",
+      "elatiivi": "89:stä",
+      "illatiivi": "89:ään",
+      "adessiivi": "89:llä",
+      "ablatiivi": "89:ltä",
+      "allatiivi": "89:lle"
+    },
+    "long": {
+      "genetiivi": "kahdeksankymmenenyhdeksän",
+      "partitiivi": "kahdeksaakymmentäyhdeksää",
+      "inessiivi": "kahdeksassakymmenessäyhdeksässä",
+      "elatiivi": "kahdeksastakymmenestäyhdeksästä",
+      "illatiivi": "kahteentokymmeneenyhdeksään",
+      "adessiivi": "kahdeksallakymmenelläyhdeksällä",
+      "ablatiivi": "kahdeksaltakymmeneltäyhdeksältä",
+      "allatiivi": "kahdeksallekymmenelleyhdeksälle"
+    }
+  },
+  "93": {
+    "short": {
+      "genetiivi": "93:n",
+      "partitiivi": "93:a",
+      "inessiivi": "93:ssa",
+      "elatiivi": "93:sta",
+      "illatiivi": "93:een",
+      "adessiivi": "93:lla",
+      "ablatiivi": "93:lta",
+      "allatiivi": "93:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenkolmen",
+      "partitiivi": "yhdeksääkymmentäkolmea",
+      "inessiivi": "yhdeksässäkymmenessäkolmessa",
+      "elatiivi": "yhdeksästäkymmenestäkolmesta",
+      "illatiivi": "yhdeksääntokymmeneenkolmeen",
+      "adessiivi": "yhdeksälläkymmenelläkolmella",
+      "ablatiivi": "yhdeksältäkymmeneltäkolmelta",
+      "allatiivi": "yhdeksällekymmenellekolmelle"
+    }
+  },
+  "94": {
+    "short": {
+      "genetiivi": "94:n",
+      "partitiivi": "94:ää",
+      "inessiivi": "94:ssä",
+      "elatiivi": "94:stä",
+      "illatiivi": "94:ään",
+      "adessiivi": "94:llä",
+      "ablatiivi": "94:ltä",
+      "allatiivi": "94:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenneljän",
+      "partitiivi": "yhdeksääkymmentäneljää",
+      "inessiivi": "yhdeksässäkymmenessäneljässä",
+      "elatiivi": "yhdeksästäkymmenestäneljästä",
+      "illatiivi": "yhdeksääntokymmeneenneljään",
+      "adessiivi": "yhdeksälläkymmenelläneljällä",
+      "ablatiivi": "yhdeksältäkymmeneltäneljältä",
+      "allatiivi": "yhdeksällekymmenelleneljälle"
+    }
+  },
+  "95": {
+    "short": {
+      "genetiivi": "95:n",
+      "partitiivi": "95:tä",
+      "inessiivi": "95:ssä",
+      "elatiivi": "95:stä",
+      "illatiivi": "95:een",
+      "adessiivi": "95:llä",
+      "ablatiivi": "95:ltä",
+      "allatiivi": "95:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenviiden",
+      "partitiivi": "yhdeksääkymmentäviittä",
+      "inessiivi": "yhdeksässäkymmenessäviidessä",
+      "elatiivi": "yhdeksästäkymmenestäviidestä",
+      "illatiivi": "yhdeksääntokymmeneenviiteen",
+      "adessiivi": "yhdeksälläkymmenelläviidellä",
+      "ablatiivi": "yhdeksältäkymmeneltäviideltä",
+      "allatiivi": "yhdeksällekymmenelleviidelle"
+    }
+  },
+  "96": {
+    "short": {
+      "genetiivi": "96:n",
+      "partitiivi": "96:ta",
+      "inessiivi": "96:ssa",
+      "elatiivi": "96:sta",
+      "illatiivi": "96:een",
+      "adessiivi": "96:lla",
+      "ablatiivi": "96:lta",
+      "allatiivi": "96:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenkuuden",
+      "partitiivi": "yhdeksääkymmentäkuutta",
+      "inessiivi": "yhdeksässäkymmenessäkuudessa",
+      "elatiivi": "yhdeksästäkymmenestäkuudesta",
+      "illatiivi": "yhdeksääntokymmeneenkuuteen",
+      "adessiivi": "yhdeksälläkymmenelläkuudella",
+      "ablatiivi": "yhdeksältäkymmeneltäkuudelta",
+      "allatiivi": "yhdeksällekymmenellekuudelle"
+    }
+  },
+  "97": {
+    "short": {
+      "genetiivi": "97:n",
+      "partitiivi": "97:ää",
+      "inessiivi": "97:ssä",
+      "elatiivi": "97:stä",
+      "illatiivi": "97:ään",
+      "adessiivi": "97:llä",
+      "ablatiivi": "97:ltä",
+      "allatiivi": "97:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenseitsemän",
+      "partitiivi": "yhdeksääkymmentäseitsemää",
+      "inessiivi": "yhdeksässäkymmenessäseitsemässä",
+      "elatiivi": "yhdeksästäkymmenestäseitsemästä",
+      "illatiivi": "yhdeksääntokymmeneenseitsemään",
+      "adessiivi": "yhdeksälläkymmenelläseitsemällä",
+      "ablatiivi": "yhdeksältäkymmeneltäseitsemältä",
+      "allatiivi": "yhdeksällekymmenelleseitsemälle"
+    }
+  },
+  "98": {
+    "short": {
+      "genetiivi": "98:n",
+      "partitiivi": "98:aa",
+      "inessiivi": "98:ssa",
+      "elatiivi": "98:sta",
+      "illatiivi": "98:aan",
+      "adessiivi": "98:lla",
+      "ablatiivi": "98:lta",
+      "allatiivi": "98:lle"
+    },
+    "long": {
+      "genetiivi": "yhdeksänkymmenenkahdeksan",
+      "partitiivi": "yhdeksääkymmentäkahdeksaa",
+      "inessiivi": "yhdeksässäkymmenessäkahdeksassa",
+      "elatiivi": "yhdeksästäkymmenestäkahdeksasta",
+      "illatiivi": "yhdeksääntokymmeneenkahdeksaan",
+      "adessiivi": "yhdeksälläkymmenelläkahdeksalla",
+      "ablatiivi": "yhdeksältäkymmeneltäkahdeksalta",
+      "allatiivi": "yhdeksällekymmenellekahdeksalle"
+    }
+  }
+} 
