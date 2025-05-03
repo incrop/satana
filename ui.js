@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     answer = inflect(question);
 
     document.getElementById("question").textContent = answer.short;
+    document.getElementById("answer").disabled = false;
     document.getElementById("answer").value = "";
     document.querySelector(".answer-hint").textContent = question.title;
 
@@ -179,6 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateDontknowEmoji("✓");
         addFeedbackClasses("correct");
         holdAnswer = userAnswer;
+        if (currentQuestions.length === 1) {
+          document.getElementById("answer").disabled = true;
+        }
         updateButtonState();
         setTimeout(() => {
           holdAnswer = "";
