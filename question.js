@@ -13,7 +13,7 @@
         "ablatiivi",
         "allatiivi",
       ],
-      ["essiivi", "translatiivi", "abessiivi"],
+      ["essiivi", "translatiivi"],
     ],
     range: [11, 20, 100, 200, 1000, 2000, 10000],
     choices: {

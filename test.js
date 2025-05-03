@@ -17,7 +17,6 @@ const cases = [
   "allatiivi",
   "essiivi",
   "translatiivi",
-  "abessiivi",
 ];
 
 const pluralities = ["yksikko", "monikko"];

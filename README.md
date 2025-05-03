@@ -17,13 +17,14 @@ The first exercises cover simple numbers from 0 to 10 in the nominative case, bu
 ## Features
 
 Topics can include any combination of the following:
+
 - Numbers from 0 up to 9999, split into ranges: 0–10, 11–19, 20–99, etc.
 - Singular and plural forms (e.g., _yksi_ vs _yhdet_).
 - Cardinal and ordinal numbers (_kaksi_ vs _toinen_).
-- One of 12 grammatical cases, split into 3 groups. You can unlock the next group after completing all cases in the current one:
+- One of 11 grammatical cases, split into 3 groups. You can unlock the next group after completing all cases in the current one:
   - Basic: nominatiivi, genetiivi, partitiivi
   - Locative: inessiivi, elatiivi, illatiivi, adessiivi, ablatiivi, allatiivi
-  - The rest: essiivi, translatiivi, abessiivi
+  - The rest: essiivi, translatiivi
 
 Your progress is stored locally. Topics where you’ve had more wrong answers or clicked “Don’t know” more often will be suggested more frequently.
 
@@ -33,4 +34,4 @@ No backend or tracking involved. The app is just a few kilobytes of raw HTML, CS
 
 - To [Mirtl](https://github.com/mirtlbu) for inspiration and suggestions ❤️
 - To [Tuomas Salste](https://www.tuomas.salste.net/doc/numero/sijamuodot.html) for the large collection of inflected numbers I used as a testing suite
-- To [Cursor AI](https://www.cursor.com/) and LLMs involved for helping with design and UI logic. 
+- To [Cursor AI](https://www.cursor.com/) and LLMs involved for helping with design and UI logic.

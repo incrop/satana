@@ -103,18 +103,6 @@
         yksikko: [{ value: "ksi" }],
         monikko: [{ value: "iksi" }],
       },
-      abessiivi: {
-        yksikko: [
-          { value: "tta" },
-          { value: "ttä", lastDigit: [1, 4, 5, 7, 9] },
-          { value: "ttä", lastDigit: 0, trailingZeros: 1 },
-        ],
-        monikko: [
-          { value: "itta" },
-          { value: "ittä", lastDigit: [1, 4, 5, 7, 9] },
-          { value: "ittä", lastDigit: 0, trailingZeros: 1 },
-        ],
-      },
     },
     jarjestys: {
       nominatiivi: {
@@ -252,22 +240,6 @@
         monikko: [
           { value: "nsiksi" },
           { value: "siksi", originalNumber: [1, 2] },
-        ],
-      },
-      abessiivi: {
-        yksikko: [
-          { value: "nnetta" },
-          { value: "settä", originalNumber: 1 },
-          { value: "setta", originalNumber: 2 },
-          { value: "nnettä", lastDigit: [1, 4, 5, 7, 9] },
-          { value: "nnettä", lastDigit: 0, trailingZeros: 1 },
-        ],
-        monikko: [
-          { value: "nsitta" },
-          { value: "sittä", originalNumber: 1 },
-          { value: "sitta", originalNumber: 2 },
-          { value: "nsittä", lastDigit: [1, 4, 5, 7, 9] },
-          { value: "nsittä", lastDigit: 0, trailingZeros: 1 },
         ],
       },
     },
