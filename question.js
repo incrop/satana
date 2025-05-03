@@ -20,7 +20,7 @@
       ],
       ["essiivi", "translatiivi"],
     ],
-    range: [11, 20, 100, 200, 1000, 2100, 10000],
+    range: [11, 20, 100, 200, 1000, 2000, 10000],
     statsVersion: 1,
     practice: {
       questionCount: 10,
