@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
         wrong(question);
       }
       addFeedbackClasses("incorrect");
-      document.getElementById("answer").value = correctAnswer;
+      document.getElementById("answer").value = answer.long;
       updateDontknowEmoji("✓");
       showingCorrectAnswer = true;
     }
