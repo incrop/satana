@@ -85,6 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const knownHeader = document.createElement("div");
     knownHeader.className = "choice-header";
     knownHeader.textContent = "Jatka harjoittelua";
+
+    const refreshLink = document.createElement("a");
+    refreshLink.href = "";
+    refreshLink.className = "choice-hint refresh-link";
+    refreshLink.textContent = "⇄";
+    knownHeader.appendChild(refreshLink);
+
     choiceContainer.appendChild(knownHeader);
 
     const knownButton = document.createElement("button");
