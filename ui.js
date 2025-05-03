@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const { kinds, cases, pluralities, inflect } = this.inflect;
+  const { inflect } = this.inflect;
   const { generate, right, wrong } = this.question;
 
   let question;
@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateButtonState() {
     const input = document.getElementById("answer");
-    const submitButton = document.getElementById("submit");
-    submitButton.disabled = input.value.trim() === "";
+    const dontknowButton = document.getElementById("dontknow");
+    dontknowButton.disabled = input.value.trim() === "";
   }
 
   function addFeedbackClasses(isCorrect) {
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("button").classList.remove("correct", "incorrect");
   }
 
-  function updateSubmitEmoji(emoji) {
-    document.getElementById("submit-emoji").textContent = emoji;
+  function updateDontknowEmoji(emoji) {
+    document.getElementById("dontknow-emoji").textContent = emoji;
   }
 
   function placeholderText({ kind, caseName, plurality }) {
@@ -58,17 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("choice-container").classList.remove("visible");
     document.getElementById("question-container").classList.add("visible");
     updateButtonState();
+    document.getElementById("answer").focus();
   }
 
   function showChoiceButtons(questions) {
     const choiceContainer = document.getElementById("choice-container");
     choiceContainer.innerHTML = "";
-
-    questions.forEach((q) => {
+    questions.forEach(q => {
       const button = document.createElement("button");
       button.className = "choice-button";
       button.textContent = inflect(q).short;
-      button.onclick = () => showQuestion(q);
+      button.onclick = () => {
+        showQuestion(q);
+      };
       choiceContainer.appendChild(button);
     });
 
@@ -78,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateQuestion() {
     currentQuestions = generate();
-
+    
     if (currentQuestions.length === 1) {
       showQuestion(currentQuestions[0]);
     } else {
@@ -95,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (userAnswer === correctAnswer) {
       right(question);
-      updateSubmitEmoji("✓");
+      updateDontknowEmoji("✓");
       addFeedbackClasses(true);
       setTimeout(() => {
         removeFeedbackClasses();
@@ -106,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
       addFeedbackClasses(false);
       document.getElementById("answer").value = correctAnswer;
       setTimeout(() => {
-        updateSubmitEmoji("✓");
+        updateDontknowEmoji("✓");
         removeFeedbackClasses();
         generateQuestion();
       }, 3000);
     } else {
-      updateSubmitEmoji("🤔");
+      updateDontknowEmoji("🤔");
     }
   }
 
@@ -121,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateButtonState();
   });
   document
-    .getElementById("submit")
+    .getElementById("dontknow")
     .addEventListener("click", () => checkAnswer(false));
 
   generateQuestion();
