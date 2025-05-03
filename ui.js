@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateButtonState() {
     const input = document.getElementById("answer");
     const dontknowButton = document.getElementById("dontknow");
-    input.disabled = forceDisable;
+    input.readOnly = forceDisable;
     dontknowButton.disabled = forceDisable || input.value.trim() === "";
   }
 
