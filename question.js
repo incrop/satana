@@ -2,7 +2,7 @@
   const settings = {
     kind: ["perus", "jarjestys"],
     plurality: ["yksikko", "monikko"],
-    case: [
+    caseName: [
       "nominatiivi",
       "genetiivi",
       "partitiivi",
@@ -17,7 +17,10 @@
       "abessiivi",
     ],
     range: [11, 20, 100, 200, 1000, 2000, 10000],
-    intervalLength: 3,
+    choices: {
+      count: 3,
+      interval: 4,
+    },
   };
 
   const stats = (() => {
@@ -26,9 +29,9 @@
       return JSON.parse(statsStr);
     }
     const stats = {
-      lastId: 0,
+      sequence: 0,
       topics: {
-        // Indexes for kind, plurality, case, range
+        // Indexes for kind, plurality, caseName, range
         "0,0,0,0": {
           right: 0,
           wrong: 0,
@@ -38,26 +41,93 @@
     return stats;
   })();
 
-  const randomTopicIndex = () => {
+  const parseIndex = (key) => {
+    const [kind, plurality, caseName, range] = key
+      .split(",")
+      .map((s) => parseInt(s, 10));
+    return {
+      kind,
+      plurality,
+      caseName,
+      range,
+    };
+  };
+
+  const indexToString = ({ kind, plurality, caseName, range }) =>
+    `${kind},${plurality},${caseName},${range}`;
+
+  const knownTopicIndex = () => {
     let totalWeight = 0;
     for (const t of Object.values(stats.topics)) {
       totalWeight += (t.wrong + 1) / (t.right + 1);
     }
-    let rnd = Math.random() * totalWeight;
+    const rnd = Math.random() * totalWeight;
+    let inc = 0;
     for (const [key, t] of Object.entries(stats.topics)) {
-      rnd -= (t.wrong + 1) / (t.right + 1);
-      if (rnd < 0) {
-        return key.split(",").map((s) => parseInt(s, 10));
+      inc += (t.wrong + 1) / (t.right + 1);
+      if (inc > rnd) {
+        return parseIndex(key);
       }
     }
     throw Error("this should not have happened 😅");
   };
 
+  const newTopicIndexes = () => {
+    const consider = {};
+    const reject = {};
+    for (const key of Object.keys(stats.topics)) {
+      const index = parseIndex(key);
+      for (const [dim, i] of Object.entries(index)) {
+        if (i + 1 === settings[dim].length) {
+          continue;
+        }
+        const candidate = { ...index, [dim]: i + 1 };
+        const candidateKey = indexToString(candidate);
+        if (
+          stats.topics[candidateKey] ||
+          consider[candidateKey] ||
+          reject[candidateKey]
+        ) {
+          continue;
+        }
+        for (const [cdim, j] of Object.entries(candidate)) {
+          if (j === 0) {
+            continue;
+          }
+          const dependency = { ...candidate, [cdim]: j - 1 };
+          const dependencyKey = indexToString(dependency);
+          if (stats.topics[dependencyKey]) {
+            continue;
+          }
+          reject[candidateKey] = true;
+          break;
+        }
+        if (!reject[candidateKey]) {
+          consider[candidateKey] = candidate;
+        }
+      }
+    }
+    console.log("consider", consider);
+    console.log("reject", reject);
+
+    const results = [];
+    let n = settings.choices.count;
+    while (n > 0 && Object.keys(consider).length > 0) {
+      const keys = Object.keys(consider);
+      const pick = keys[Math.floor(Math.random() * keys.length)];
+      results.push(consider[pick]);
+      delete consider[pick];
+      n--;
+    }
+    console.log("results", results);
+    return results;
+  };
+
   const questionForTopic = (index) => {
-    const kind = settings.kind[index[0]];
-    const plurality = settings.plurality[index[1]];
-    const caseName = settings.case[index[2]];
-    const maxNumberIndex = index[3];
+    const kind = settings.kind[index.kind];
+    const plurality = settings.plurality[index.plurality];
+    const caseName = settings.caseName[index.caseName];
+    const maxNumberIndex = index.range;
 
     const minNumber =
       maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
@@ -66,7 +136,7 @@
       Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
 
     return {
-      id: stats.lastId + 1,
+      sequence: stats.sequence + 1,
       topicIndex: index,
       number: number,
       kind: kind,
@@ -76,28 +146,31 @@
   };
 
   exports.generate = () => {
-    const index = randomTopicIndex();
-    console.log(stats);
-    return [questionForTopic(index)];
+    console.log("stats", stats);
+    const topicIndexes = [knownTopicIndex()];
+    if ((stats.sequence + 1) % settings.choices.interval === 0) {
+      topicIndexes.push(...newTopicIndexes());
+    }
+    return topicIndexes.map((index) => questionForTopic(index));
   };
 
   exports.right = (question) => {
-    const key = question.topicIndex.toString();
+    const key = indexToString(question.topicIndex);
     if (stats.topics[key]) {
       stats.topics[key].right++;
     } else {
-      stats.topics[key] = { rigth: 1, wrong: 0 };
+      stats.topics[key] = { right: 1, wrong: 0 };
     }
-    stats.lastId = question.id;
+    stats.sequence = question.sequence;
   };
 
   exports.wrong = (question) => {
-    const key = question.topicIndex.toString();
+    const key = indexToString(question.topicIndex);
     if (stats.topics[key]) {
       stats.topics[key].wrong++;
     } else {
       stats.topics[key] = { wrong: 1, right: 0 };
     }
-    stats.lastId = question.id;
+    stats.sequence = question.sequence;
   };
 })(typeof exports === "undefined" ? (this["question"] = {}) : exports);

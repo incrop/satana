@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function showChoiceButtons(questions) {
     const choiceContainer = document.getElementById("choice-container");
     choiceContainer.innerHTML = "";
-    
-    questions.forEach((q, index) => {
+
+    questions.forEach((q) => {
       const button = document.createElement("button");
       button.className = "choice-button";
       button.textContent = inflect(q).short;
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateQuestion() {
     currentQuestions = generate();
-    
+
     if (currentQuestions.length === 1) {
       showQuestion(currentQuestions[0]);
     } else {
