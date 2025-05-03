@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       addFeedbackClasses("incorrect");
       document.getElementById("answer").value = answer.long;
+      document.getElementById("answer").disabled = true;
       updateDontknowEmoji("✓");
       showingCorrectAnswer = true;
     }
