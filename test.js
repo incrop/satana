@@ -66,5 +66,3 @@ if (errors.length === 0) {
     console.log(`  Actual:   ${JSON.stringify(error.actual)}`);
   });
 }
-
-// console.log(inflect(210, "perus", "nominatiivi", "yksikko"))

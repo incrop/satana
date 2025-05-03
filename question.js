@@ -144,8 +144,6 @@
         }
       }
     }
-    console.log("consider", consider);
-    console.log("reject", reject);
     const results = [];
     let n = settings.choices.count;
     while (n > 0 && Object.keys(consider).length > 0) {
@@ -210,6 +208,9 @@
       stats.topics[key] = { right: 1, wrong: 0 };
     }
     stats.sequence = question.sequence;
+    if (question.sequence % settings.choices.interval === 0) {
+      localStorage.setItem("stats", JSON.stringify(stats));
+    }
   };
 
   exports.wrong = (question) => {
@@ -220,5 +221,8 @@
       stats.topics[key] = { wrong: 1, right: 0 };
     }
     stats.sequence = question.sequence;
+    if (question.sequence % settings.choices.interval === 0) {
+      localStorage.setItem("stats", JSON.stringify(stats));
+    }
   };
 })(typeof exports === "undefined" ? (this["question"] = {}) : exports);

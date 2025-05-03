@@ -65,13 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const choiceContainer = document.getElementById("choice-container");
     choiceContainer.innerHTML = "";
     
-    // Add a header for known topic
     const knownHeader = document.createElement("div");
     knownHeader.className = "choice-header";
     knownHeader.textContent = "Tunnettu aihe";
     choiceContainer.appendChild(knownHeader);
 
-    // First question is the known topic
     const knownButton = document.createElement("button");
     knownButton.className = "choice-button known-topic";
     knownButton.textContent = inflect(questions[0]).short;
@@ -84,13 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
     knownHint.textContent = placeholderText(questions[0]);
     choiceContainer.appendChild(knownHint);
 
-    // Add a header for new topics
     const newHeader = document.createElement("div");
     newHeader.className = "choice-header";
     newHeader.textContent = "Uudet aiheet";
     choiceContainer.appendChild(newHeader);
 
-    // Add new topic buttons
     for (let i = 1; i < questions.length; i++) {
       const button = document.createElement("button");
       button.className = "choice-button new-topic";
