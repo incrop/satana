@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateButtonState();
   }
 
-  // Function to check the answer
   function checkAnswer(isKeypress = false) {
     const userAnswer = document
       .getElementById("answer")
