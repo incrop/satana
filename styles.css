@@ -72,6 +72,7 @@ h1.incorrect {
 }
 
 .answer-container {
+    height: 70px;
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
@@ -109,7 +110,8 @@ input[type="text"].incorrect {
 
 button {
     padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    font-size: 2rem;
+    width: 82px;
     background-color: #ff00ff;
     color: white;
     border: none;

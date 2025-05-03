@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const { kinds, cases, pluralities, inflect } = this.inflect;
-  const maxNumber = 10000;
+  const { generate } = this.question;
 
   let current = {};
 
@@ -33,25 +33,29 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("submit-emoji").textContent = emoji;
   }
 
-  function generateQuestion() {
-    const number = Math.floor(Math.random() * maxNumber);
-    const kind = kinds[Math.floor(Math.random() * kinds.length)];
-    const caseName = cases[Math.floor(Math.random() * cases.length)];
-    const plurality =
-      pluralities[Math.floor(Math.random() * pluralities.length)];
-    current = inflect(number, kind, caseName, plurality);
+  function placeholderText({ kind, caseName, plurality }) {
+    let pluralityText = {
+      yksikko: 'Yksikkö',
+      monikko: 'Monikko',
+    };
+    let kindText = {
+      perus: 'perusluku',
+      jarjestys: 'järjestysluku',
+    };
+    return `${pluralityText[plurality]} ${caseName} ${kindText[kind]}`
+  }
 
-    // Update the question element
+  function generateQuestion() {
+    question = generate()
+    console.log('question', question)
+    current = inflect(question);
+
     document.getElementById("question").textContent = current.short;
     document.getElementById("answer").value = "";
-    document.getElementById(
-      "answer"
-    ).placeholder = `${kind} ${plurality} ${caseName}`;
+    document.getElementById("answer").placeholder = placeholderText(question);
 
-    // Reset submit button to checkmark
     updateSubmitEmoji("✓");
 
-    // Update button state
     updateButtonState();
   }
 
@@ -69,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         generateQuestion();
       }, 1000);
     } else if (!isKeypress) {
-      // Only show incorrect feedback when submit button is clicked
       addFeedbackClasses(false);
       document.getElementById("answer").value = correctAnswer;
       setTimeout(() => {
@@ -79,12 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
       }, 3000);
     } else {
-      // On keypress, just update the submit button emoji
-      updateSubmitEmoji("🤷");
+      updateSubmitEmoji("🤔");
     }
   }
 
-  // Add event listeners
   const answerInput = document.getElementById("answer");
   answerInput.addEventListener("input", () => {
     checkAnswer(true);
@@ -94,6 +95,5 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("submit")
     .addEventListener("click", () => checkAnswer(false));
 
-  // Generate initial question
   generateQuestion();
 });

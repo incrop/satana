@@ -594,7 +594,7 @@
     return trailingZeros;
   }
 
-  function inflect(originalNumber, kind, caseName, plurality) {
+  function inflect({ number: originalNumber, kind, caseName, plurality }) {
     if (originalNumber < 0 || originalNumber > 10000) {
       throw new Error(`Unexpected number: ${originalNumber}`);
     }
