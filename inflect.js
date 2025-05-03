@@ -137,25 +137,28 @@
     },
     jarjestys: {
       nominatiivi: {
-        yksikko: [{ value: "s" }, { value: "nen", number: [1, 2] }],
-        monikko: [{ value: "nnet" }, { value: "set", number: [1, 2] }],
+        yksikko: [{ value: "s" }, { value: "nen", originalNumber: [1, 2] }],
+        monikko: [{ value: "nnet" }, { value: "set", originalNumber: [1, 2] }],
       },
       genetiivi: {
-        yksikko: [{ value: "nnen" }, { value: "sen", number: [1, 2] }],
-        monikko: [{ value: "nsien" }, { value: "sten", number: [1, 2] }],
+        yksikko: [{ value: "nnen" }, { value: "sen", originalNumber: [1, 2] }],
+        monikko: [
+          { value: "nsien" },
+          { value: "sten", originalNumber: [1, 2] },
+        ],
       },
       partitiivi: {
         yksikko: [
           { value: "tta" },
-          { value: "stä", number: 1 },
-          { value: "sta", number: 2 },
+          { value: "stä", originalNumber: 1 },
+          { value: "sta", originalNumber: 2 },
           { value: "ttä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "ttä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsia" },
-          { value: "siä", number: 1 },
-          { value: "sia", number: 2 },
+          { value: "siä", originalNumber: 1 },
+          { value: "sia", originalNumber: 2 },
           { value: "nsiä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsiä", lastDigit: 0, trailingZeros: 1 },
         ],
@@ -163,15 +166,15 @@
       inessiivi: {
         yksikko: [
           { value: "nnessa" },
-          { value: "sessä", number: 1 },
-          { value: "sessa", number: 2 },
+          { value: "sessä", originalNumber: 1 },
+          { value: "sessa", originalNumber: 2 },
           { value: "nnessä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nnessä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsissa" },
-          { value: "sissä", number: 1 },
-          { value: "sissa", number: 2 },
+          { value: "sissä", originalNumber: 1 },
+          { value: "sissa", originalNumber: 2 },
           { value: "nsissä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsissä", lastDigit: 0, trailingZeros: 1 },
         ],
@@ -179,35 +182,41 @@
       elatiivi: {
         yksikko: [
           { value: "nnesta" },
-          { value: "sestä", number: 1 },
-          { value: "sesta", number: 2 },
+          { value: "sestä", originalNumber: 1 },
+          { value: "sesta", originalNumber: 2 },
           { value: "nnestä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nnestä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsista" },
-          { value: "sistä", number: 1 },
-          { value: "sista", number: 2 },
+          { value: "sistä", originalNumber: 1 },
+          { value: "sista", originalNumber: 2 },
           { value: "nsistä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsistä", lastDigit: 0, trailingZeros: 1 },
         ],
       },
       illatiivi: {
-        yksikko: [{ value: "nteen" }, { value: "seen", number: [1, 2] }],
-        monikko: [{ value: "nsiin" }, { value: "siin", number: [1, 2] }],
+        yksikko: [
+          { value: "nteen" },
+          { value: "seen", originalNumber: [1, 2] },
+        ],
+        monikko: [
+          { value: "nsiin" },
+          { value: "siin", originalNumber: [1, 2] },
+        ],
       },
       adessiivi: {
         yksikko: [
           { value: "nnella" },
-          { value: "sellä", number: 1 },
-          { value: "sella", number: 2 },
+          { value: "sellä", originalNumber: 1 },
+          { value: "sella", originalNumber: 2 },
           { value: "nnellä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nnellä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsilla" },
-          { value: "sillä", number: 1 },
-          { value: "silla", number: 2 },
+          { value: "sillä", originalNumber: 1 },
+          { value: "silla", originalNumber: 2 },
           { value: "nsillä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsillä", lastDigit: 0, trailingZeros: 1 },
         ],
@@ -215,55 +224,67 @@
       ablatiivi: {
         yksikko: [
           { value: "nnelta" },
-          { value: "seltä", number: 1 },
-          { value: "selta", number: 2 },
+          { value: "seltä", originalNumber: 1 },
+          { value: "selta", originalNumber: 2 },
           { value: "nneltä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nneltä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsilta" },
-          { value: "siltä", number: 1 },
-          { value: "silta", number: 2 },
+          { value: "siltä", originalNumber: 1 },
+          { value: "silta", originalNumber: 2 },
           { value: "nsiltä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsiltä", lastDigit: 0, trailingZeros: 1 },
         ],
       },
       allatiivi: {
-        yksikko: [{ value: "nnelle" }, { value: "selle", number: [1, 2] }],
-        monikko: [{ value: "nsille" }, { value: "sille", number: [1, 2] }],
+        yksikko: [
+          { value: "nnelle" },
+          { value: "selle", originalNumber: [1, 2] },
+        ],
+        monikko: [
+          { value: "nsille" },
+          { value: "sille", originalNumber: [1, 2] },
+        ],
       },
       essiivi: {
         yksikko: [
           { value: "ntena" },
-          { value: "senä", number: 1 },
-          { value: "sena", number: 2 },
+          { value: "senä", originalNumber: 1 },
+          { value: "sena", originalNumber: 2 },
           { value: "ntenä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "ntenä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsina" },
-          { value: "sinä", number: 1 },
-          { value: "sina", number: 2 },
+          { value: "sinä", originalNumber: 1 },
+          { value: "sina", originalNumber: 2 },
           { value: "nsinä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsinä", lastDigit: 0, trailingZeros: 1 },
         ],
       },
       translatiivi: {
-        yksikko: [{ value: "nneksi" }, { value: "seksi", number: [1, 2] }],
-        monikko: [{ value: "nsiksi" }, { value: "siksi", number: [1, 2] }],
+        yksikko: [
+          { value: "nneksi" },
+          { value: "seksi", originalNumber: [1, 2] },
+        ],
+        monikko: [
+          { value: "nsiksi" },
+          { value: "siksi", originalNumber: [1, 2] },
+        ],
       },
       abessiivi: {
         yksikko: [
           { value: "nnetta" },
-          { value: "settä", number: 1 },
-          { value: "setta", number: 2 },
+          { value: "settä", originalNumber: 1 },
+          { value: "setta", originalNumber: 2 },
           { value: "nnettä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nnettä", lastDigit: 0, trailingZeros: 1 },
         ],
         monikko: [
           { value: "nsitta" },
-          { value: "sittä", number: 1 },
-          { value: "sitta", number: 2 },
+          { value: "sittä", originalNumber: 1 },
+          { value: "sitta", originalNumber: 2 },
           { value: "nsittä", lastDigit: [1, 4, 5, 7, 9] },
           { value: "nsittä", lastDigit: 0, trailingZeros: 1 },
         ],
@@ -427,10 +448,17 @@
         plurality: "yksikko",
       },
       {
+        value: "kymmentä",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "yksikko",
+      },
+      {
         value: "kymmenen",
         kind: "perus",
         caseName: "nominatiivi",
         plurality: "yksikko",
+        originalNumber: 10,
       },
     ],
   };
@@ -475,46 +503,65 @@
       throw new Error(`Unexpected plurality: ${plurality}`);
     }
 
-    let trailingZeros = 0;
-    if (number > 0) {
-      let n = number;
-      while (n % 10 === 0) {
-        trailingZeros++;
-        n = n / 10;
+    const findSuffix = (suffixNumber, overrides = {}) => {
+      let trailingZeros = 0;
+      if (suffixNumber > 0) {
+        let n = suffixNumber;
+        while (n % 10 === 0) {
+          trailingZeros++;
+          n = n / 10;
+        }
       }
-    }
-
-    let suffixOptions = suffixes[kind][caseName][plurality];
-    let suffix = findMatchingValue(suffixOptions, {
-      number: number,
-      lastDigit: number % 10,
-      trailingZeros: trailingZeros,
-    });
-
-    const findRoot = (rootNumber) => {
-      return findMatchingValue(roots[rootNumber], {
-        number: rootNumber,
+      let suffixOptions =
+        suffixes[overrides.kind || kind][overrides.caseName || caseName][
+          overrides.plurality || plurality
+        ];
+      return findMatchingValue(suffixOptions, {
+        number: suffixNumber,
         originalNumber: number,
-        kind: kind,
-        caseName: caseName,
-        plurality: plurality,
-        suffixStartVocals: ((ssv) => (ssv ? ssv[0].length : 0))(
-          /^[aouäöyie]+/i.exec(suffix)
-        ),
+        lastDigit: suffixNumber % 10,
+        trailingZeros: trailingZeros,
+        ...overrides,
       });
     };
 
-    let long;
+    const findRoot = (rootNumber, suffix, overrides = {}) => {
+      return (
+        findMatchingValue(roots[rootNumber], {
+          number: rootNumber,
+          originalNumber: number,
+          kind: kind,
+          caseName: caseName,
+          plurality: plurality,
+          suffixStartVocals: ((ssv) => (ssv ? ssv[0].length : 0))(
+            /^[aouäöyie]+/i.exec(suffix)
+          ),
+          ...overrides,
+        }) + suffix
+      );
+    };
+
+    let lastSuffix = findSuffix(number);
+
+    let long = "";
     if (number <= 10) {
-      long = findRoot(number) + suffix;
+      long = findRoot(number, lastSuffix);
     } else if (number < 20) {
-      long = findRoot(number - 10) + suffix + "toista";
+      long = findRoot(number - 10, lastSuffix) + "toista";
+    } else if (number < 100) {
+      const firstDigit = Math.floor(number / 10);
+      const lastDigit = number % 10;
+      long = findRoot(firstDigit, findSuffix(firstDigit));
+      long += findRoot(10, findSuffix(10));
+      if (lastDigit > 0) {
+        long += findRoot(lastDigit, findSuffix(lastDigit));
+      }
     } else {
       throw new Error(`Nuber is not supported: ${number}`);
     }
 
     return {
-      short: suffix ? `${number}:${suffix}` : `${number}`,
+      short: lastSuffix ? `${number}:${lastSuffix}` : `${number}`,
       long: long,
     };
   }
