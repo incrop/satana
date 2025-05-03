@@ -25,7 +25,7 @@ const pluralities = ["yksikko", "monikko"];
 let passedCount = 0;
 let errors = [];
 
-for (let number = 0; number <= 99; number++) {
+for (let number = 0; number <= 999; number++) {
   if (!testData[number.toString()]) {
     continue;
   }
@@ -67,4 +67,4 @@ if (errors.length === 0) {
   });
 }
 
-// console.log(inflect(21, "perus", "partitiivi", "yksikko"))
+// console.log(inflect(210, "perus", "nominatiivi", "yksikko"))

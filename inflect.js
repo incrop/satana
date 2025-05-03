@@ -76,7 +76,7 @@
           { value: "een", lastDigit: 0, trailingZeros: 1 },
           { value: "ään", lastDigit: [4, 7, 9] },
         ],
-        monikko: [{ value: "iin" }],
+        monikko: [{ value: "iin" }, { value: "ihin", trailingZeros: 2 }],
       },
       adessiivi: {
         yksikko: [
@@ -448,17 +448,64 @@
         plurality: "yksikko",
       },
       {
-        value: "kymmentä",
+        value: "kymmenen",
         kind: "perus",
         caseName: "nominatiivi",
         plurality: "yksikko",
       },
       {
-        value: "kymmenen",
+        value: "kymmentä",
         kind: "perus",
         caseName: "nominatiivi",
         plurality: "yksikko",
-        originalNumber: 10,
+        kymmentaUseCase: true,
+      },
+    ],
+    100: [
+      { value: "sada" },
+      {
+        value: "sado",
+        kind: "perus",
+        plurality: "monikko",
+      },
+      {
+        value: "sada",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "monikko",
+      },
+      {
+        value: "sata",
+        kind: "perus",
+        caseName: "essiivi",
+        plurality: "yksikko",
+      },
+      {
+        value: "sataa",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "yksikko",
+        trailingZeros: 2,
+      },
+      {
+        value: "sata",
+        kind: "perus",
+        caseName: "nominatiivi",
+        plurality: "yksikko",
+        trailingZeros: 2,
+        firstDigit: 1,
+      },
+      {
+        value: "sat",
+        kind: "perus",
+        caseName: ["partitiivi", "illatiivi"],
+        plurality: "yksikko",
+      },
+      {
+        value: "sato",
+        kind: "perus",
+        caseName: ["genetiivi", "partitiivi", "illatiivi", "essiivi"],
+        plurality: "monikko",
       },
     ],
   };
@@ -489,9 +536,20 @@
     return bestMatch.value;
   }
 
-  function inflect(number, kind, caseName, plurality) {
-    if (number < 0 || number > 10000) {
-      throw new Error(`Unexpected number: ${number}`);
+  function trailingZeros(number) {
+    let trailingZeros = 0;
+    if (number > 0) {
+      while (number % 10 === 0) {
+        trailingZeros++;
+        number = number / 10;
+      }
+    }
+    return trailingZeros;
+  }
+
+  function inflect(originalNumber, kind, caseName, plurality) {
+    if (originalNumber < 0 || originalNumber > 10000) {
+      throw new Error(`Unexpected number: ${originalNumber}`);
     }
     if (!exports.kinds.includes(kind)) {
       throw new Error(`Unexpected kind: ${kind}`);
@@ -504,23 +562,15 @@
     }
 
     const findSuffix = (suffixNumber, overrides = {}) => {
-      let trailingZeros = 0;
-      if (suffixNumber > 0) {
-        let n = suffixNumber;
-        while (n % 10 === 0) {
-          trailingZeros++;
-          n = n / 10;
-        }
-      }
       let suffixOptions =
         suffixes[overrides.kind || kind][overrides.caseName || caseName][
           overrides.plurality || plurality
         ];
       return findMatchingValue(suffixOptions, {
         number: suffixNumber,
-        originalNumber: number,
+        originalNumber: originalNumber,
         lastDigit: suffixNumber % 10,
-        trailingZeros: trailingZeros,
+        trailingZeros: trailingZeros(suffixNumber),
         ...overrides,
       });
     };
@@ -529,40 +579,60 @@
       return (
         findMatchingValue(roots[rootNumber], {
           number: rootNumber,
-          originalNumber: number,
+          originalNumber: originalNumber,
           kind: kind,
           caseName: caseName,
           plurality: plurality,
           suffixStartVocals: ((ssv) => (ssv ? ssv[0].length : 0))(
             /^[aouäöyie]+/i.exec(suffix)
           ),
+          trailingZeros: trailingZeros(rootNumber),
           ...overrides,
         }) + suffix
       );
     };
 
-    let lastSuffix = findSuffix(number);
+    let lastSuffix = findSuffix(originalNumber);
 
-    let long = "";
-    if (number <= 10) {
-      long = findRoot(number, lastSuffix);
-    } else if (number < 20) {
-      long = findRoot(number - 10, lastSuffix) + "toista";
-    } else if (number < 100) {
-      const firstDigit = Math.floor(number / 10);
-      const lastDigit = number % 10;
-      long = findRoot(firstDigit, findSuffix(firstDigit));
-      long += findRoot(10, findSuffix(10));
-      if (lastDigit > 0) {
-        long += findRoot(lastDigit, findSuffix(lastDigit));
+    const findLong = (number) => {
+      if (number <= 10) {
+        return findRoot(number, lastSuffix);
       }
-    } else {
+      if (number < 20) {
+        return findRoot(number - 10, lastSuffix) + "toista";
+      }
+      if (number < 100) {
+        const firstDigit = Math.floor(number / 10);
+        const lastDigit = number % 10;
+        let long = "";
+        long += findRoot(firstDigit, findSuffix(firstDigit));
+        long += findRoot(10, findSuffix(10), { kymmentaUseCase: true });
+        if (lastDigit > 0) {
+          long += findRoot(lastDigit, findSuffix(lastDigit));
+        }
+        return long;
+      }
+      if (number < 1000) {
+        const firstDigit = Math.floor(number / 100);
+        const nuberWithoutHundreds = number - firstDigit * 100;
+        let long = "";
+        if (firstDigit > 1) {
+          long += findRoot(firstDigit, findSuffix(firstDigit));
+        }
+        long += findRoot(100, findSuffix(100), { firstDigit: firstDigit });
+        if (nuberWithoutHundreds > 0) {
+          long += findLong(nuberWithoutHundreds);
+        }
+        return long;
+      }
       throw new Error(`Nuber is not supported: ${number}`);
-    }
+    };
 
     return {
-      short: lastSuffix ? `${number}:${lastSuffix}` : `${number}`,
-      long: long,
+      short: lastSuffix
+        ? `${originalNumber}:${lastSuffix}`
+        : `${originalNumber}`,
+      long: findLong(originalNumber),
     };
   }
   exports.inflect = inflect;

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const { kinds, cases, pluralities, inflect } = this.inflect;
-  const maxNumber = 100;
+  const maxNumber = 1000;
 
   let current = {};
 
