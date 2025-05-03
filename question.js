@@ -23,39 +23,6 @@
     },
   };
 
-  const stats = (() => {
-    const statsStr = localStorage.getItem("stats");
-    if (statsStr) {
-      return JSON.parse(statsStr);
-    }
-    const stats = {
-      sequence: 0,
-      topics: {
-        // Indexes for kind, plurality, caseName, range
-        "0,0,0,0": {
-          right: 0,
-          wrong: 0,
-        },
-      },
-    };
-    return stats;
-  })();
-
-  if (window.location.hash === "#stats") {
-    var par = document.createElement("p");
-    var text = document.createTextNode(JSON.stringify(stats));
-    par.appendChild(text);
-    document.body.appendChild(par);
-  }
-
-  const progress = () => ({
-    open: Object.keys(stats.topics).length,
-    total: settings.kind.length *
-      settings.plurality.length *
-      settings.caseName.flat().length *
-      settings.range.length
-  })
-
   const parseIndex = (key) => {
     const [kind, plurality, caseName, range] = key
       .split(",")
@@ -70,6 +37,52 @@
 
   const indexToString = ({ kind, plurality, caseName, range }) =>
     `${kind},${plurality},${caseName},${range}`;
+
+  const stats = (() => {
+    const statsStr = localStorage.getItem("stats");
+    const stats = statsStr ? JSON.parse(statsStr) : {};
+    stats.sequence = 0;
+    if (!stats.topics) {
+      stats.topics = {
+        // Indexes for kind, plurality, caseName, range
+        "0,0,0,0": {
+          right: 0,
+          wrong: 0,
+        },
+      };
+    }
+    topics: for (const [key, t] of Object.entries(stats.topics)) {
+      for (const [dim, i] of Object.entries(parseIndex(key))) {
+        if (
+          typeof i !== "number" ||
+          i < 0 ||
+          !settings[dim] ||
+          i >= settings[dim].flat().length
+        ) {
+          delete stats.topics[key];
+          continue topics;
+        }
+      }
+      stats.sequence += t.right + t.wrong;
+    }
+    return stats;
+  })();
+
+  if (window.location.hash === "#stats") {
+    var par = document.createElement("p");
+    var text = document.createTextNode(JSON.stringify(stats));
+    par.appendChild(text);
+    document.body.appendChild(par);
+  }
+
+  const progress = () => ({
+    open: Object.keys(stats.topics).length,
+    total:
+      settings.kind.length *
+      settings.plurality.length *
+      settings.caseName.flat().length *
+      settings.range.length,
+  });
 
   const knownTopicIndex = () => {
     let totalWeight = 0;
@@ -186,7 +199,7 @@
     let reward;
 
     if (isNewTopic) {
-      const { open, total } = progress()
+      const { open, total } = progress();
       if (open + 1 === total) {
         reward = ["👑", "🏆", "🏅", "💎", "⭐️", "💰", "💸"];
       } else if (minNumber === 100 && caseName === "essiivi") {
