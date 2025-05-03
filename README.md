@@ -28,10 +28,11 @@ Topics can include any combination of the following:
 
 Your progress is stored locally. Topics where you’ve had more wrong answers or clicked “Don’t know” more often will be suggested more frequently.
 
-No backend or tracking involved. The app is just a few kilobytes of raw HTML, CSS, and JS.
+No backend or tracking involved. The app is just a few kilobytes of raw html, css, and js.
 
-## Kudos
+## Kiitokset
 
 - To [Mirtl](https://github.com/mirtlbu) for inspiration and suggestions ❤️
 - To [Tuomas Salste](https://www.tuomas.salste.net/doc/numero/sijamuodot.html) for the large collection of inflected numbers I used as a testing suite
 - To [Cursor AI](https://www.cursor.com/) and LLMs involved for helping with design and UI logic.
+- To [realfavicongenerator.net](https://realfavicongenerator.net/) for creating favicon pack from svg.
