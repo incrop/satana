@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateButtonState() {
     const input = document.getElementById("answer");
     const dontknowButton = document.getElementById("dontknow");
-    input.readOnly = forceDisable;
     dontknowButton.disabled = forceDisable || input.value.trim() === "";
   }
 
@@ -165,7 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .trim();
     const correctAnswer = answer.long;
 
-    if (showingCorrectAnswer) {
+    if (forceDisable) {
+      document.getElementById("answer").value = correctAnswer;
+    } else if (showingCorrectAnswer) {
       if (source === "button") {
         removeFeedbackClasses("incorrect");
         setCurrentQuestions([
