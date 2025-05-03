@@ -1,30 +1,7 @@
 (function (exports) {
-  const filterFromParams = (input) => {
-    const overrides = {};
-    const url = new URL(window.location.href);
-    url.searchParams.forEach((value, key) => {
-      if (!overrides[key]) {
-        overrides[key] = [];
-      }
-      overrides[key].push(value);
-    });
-    const output = {};
-    for (const [key, values] of Object.entries(input)) {
-      if (!overrides[key]) {
-        output[key] = values;
-      } else {
-        output[key] = values.filter((value) =>
-          overrides[key].includes(String(value))
-        );
-      }
-    }
-    return output;
-  };
-
-  const settings = filterFromParams({
+  const settings = {
     kind: ["perus", "jarjestys"],
     plurality: ["yksikko", "monikko"],
-    range: [11, 20, 100, 200, 1000, 2000, 10000],
     case: [
       "nominatiivi",
       "genetiivi",
@@ -39,16 +16,49 @@
       "translatiivi",
       "abessiivi",
     ],
-  });
+    range: [11, 20, 100, 200, 1000, 2000, 10000],
+    intervalLength: 3,
+  };
 
-  const sample = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const stats = (() => {
+    const statsStr = localStorage.getItem("stats");
+    if (statsStr) {
+      return JSON.parse(statsStr);
+    }
+    const stats = {
+      lastId: 0,
+      topics: {
+        // Indexes for kind, plurality, case, range
+        "0,0,0,0": {
+          right: 0,
+          wrong: 0,
+        },
+      },
+    };
+    return stats;
+  })();
 
-  exports.generate = () => {
-    const kind = sample(settings.kind);
-    const plurality = sample(settings.plurality);
-    const caseName = sample(settings.case);
+  const randomTopicIndex = () => {
+    let totalWeight = 0;
+    for (const t of Object.values(stats.topics)) {
+      totalWeight += (t.wrong + 1) / (t.right + 1);
+    }
+    let rnd = Math.random() * totalWeight;
+    for (const [key, t] of Object.entries(stats.topics)) {
+      rnd -= (t.wrong + 1) / (t.right + 1);
+      if (rnd < 0) {
+        return key.split(",").map((s) => parseInt(s, 10));
+      }
+    }
+    throw Error("this should not have happened 😅");
+  };
 
-    const maxNumberIndex = Math.floor(Math.random() * settings.range.length);
+  const questionForTopic = (index) => {
+    const kind = settings.kind[index[0]];
+    const plurality = settings.plurality[index[1]];
+    const caseName = settings.case[index[2]];
+    const maxNumberIndex = index[3];
+
     const minNumber =
       maxNumberIndex > 0 ? settings.range[maxNumberIndex - 1] : 0;
     const maxNumber = settings.range[maxNumberIndex];
@@ -56,10 +66,38 @@
       Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
 
     return {
+      id: stats.lastId + 1,
+      topicIndex: index,
       number: number,
       kind: kind,
       caseName: caseName,
       plurality: plurality,
     };
+  };
+
+  exports.generate = () => {
+    const index = randomTopicIndex();
+    console.log(stats);
+    return questionForTopic(index);
+  };
+
+  exports.right = (question) => {
+    const key = question.topicIndex.toString();
+    if (stats.topics[key]) {
+      stats.topics[key].right++;
+    } else {
+      stats.topics[key] = { rigth: 1, wrong: 0 };
+    }
+    stats.lastId = question.id;
+  };
+
+  exports.wrong = (question) => {
+    const key = question.topicIndex.toString();
+    if (stats.topics[key]) {
+      stats.topics[key].wrong++;
+    } else {
+      stats.topics[key] = { wrong: 1, right: 0 };
+    }
+    stats.lastId = question.id;
   };
 })(typeof exports === "undefined" ? (this["question"] = {}) : exports);

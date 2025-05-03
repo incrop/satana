@@ -653,7 +653,7 @@
         }
         return long;
       }
-      throw new Error(`Nuber is not supported: ${number}`);
+      throw new Error(`Number is not supported: ${number}`);
     };
 
     return {

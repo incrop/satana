@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const { kinds, cases, pluralities, inflect } = this.inflect;
-  const { generate } = this.question;
+  const { generate, right, wrong } = this.question;
 
-  let current = {};
+  let question;
+  let answer;
 
   function updateButtonState() {
     const input = document.getElementById("answer");
@@ -47,13 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateQuestion() {
     question = generate();
-    current = inflect(question);
+    answer = inflect(question);
 
-    document.getElementById("question").textContent = current.short;
+    document.getElementById("question").textContent = answer.short;
     document.getElementById("answer").value = "";
     document.getElementById("answer").placeholder = placeholderText(question);
-
-    updateSubmitEmoji("✓");
 
     updateButtonState();
   }
@@ -63,22 +62,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .getElementById("answer")
       .value.toLowerCase()
       .trim();
-    const correctAnswer = current.long;
+    const correctAnswer = answer.long;
 
     if (userAnswer === correctAnswer) {
+      right(question);
+      updateSubmitEmoji("✓");
       addFeedbackClasses(true);
       setTimeout(() => {
         removeFeedbackClasses();
         generateQuestion();
       }, 1000);
     } else if (!isKeypress) {
+      wrong(question);
       addFeedbackClasses(false);
       document.getElementById("answer").value = correctAnswer;
       setTimeout(() => {
+        updateSubmitEmoji("✓");
         removeFeedbackClasses();
-        setTimeout(() => {
-          generateQuestion();
-        }, 1000);
+        generateQuestion();
       }, 3000);
     } else {
       updateSubmitEmoji("🤔");
