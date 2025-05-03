@@ -1,0 +1,5 @@
+exclude:
+  - extract_test_data.js
+  - test_data.json
+  - test.js
+  - README.md
