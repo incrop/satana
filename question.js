@@ -252,7 +252,7 @@
       let count;
       if (mode === "practice") {
         count = 1;
-      } else if (caseGroup.names === "paikallissijat") {
+      } else if (caseGroup.name === "paikallissijat") {
         count = settings.newTopics.questionCountLocatives;
       } else {
         count = settings.newTopics.questionCountDefault;
