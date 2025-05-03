@@ -145,13 +145,26 @@
     };
   };
 
+  let previousNumbers = [-1, -1, -1];
+
   exports.generate = () => {
     console.log("stats", stats);
-    const topicIndexes = [knownTopicIndex()];
-    if ((stats.sequence + 1) % settings.choices.interval === 0) {
-      topicIndexes.push(...newTopicIndexes());
+    const questions = [];
+    while (true) {
+      const knownQuestion = questionForTopic(knownTopicIndex());
+      if (!previousNumbers.includes(knownQuestion.number)) {
+        questions.push(knownQuestion);
+        previousNumbers.push(knownQuestion.number);
+        previousNumbers.shift();
+        break;
+      }
     }
-    return topicIndexes.map((index) => questionForTopic(index));
+    if ((stats.sequence + 1) % settings.choices.interval === 0) {
+      questions.push(
+        ...newTopicIndexes().map((index) => questionForTopic(index))
+      );
+    }
+    return questions;
   };
 
   exports.right = (question) => {
