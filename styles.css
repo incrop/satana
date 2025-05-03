@@ -402,7 +402,17 @@ p {
     padding: 0 0.5rem;
     position: absolute;
     left: 0;
-    bottom: -1.25rem;
+    bottom: -1.5rem;
     width: 100%;
     box-sizing: border-box;
+}
+
+.answer-hint.correct {
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.answer-hint.incorrect {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 } 

@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("h1").classList.add(className);
     document.querySelector("input").classList.add(className);
     document.querySelector("button").classList.add(className);
+    document.querySelector(".answer-hint").classList.add(className);
   }
 
   function removeFeedbackClasses(classNames) {
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("h1").classList.remove(classNames);
     document.querySelector("input").classList.remove(classNames);
     document.querySelector("button").classList.remove(classNames);
+    document.querySelector(".answer-hint").classList.remove(classNames);
   }
 
   function createFlyingEmoji(emoji) {
