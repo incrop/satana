@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let question;
   let answer;
+  let currentQuestions = [];
 
   function updateButtonState() {
     const input = document.getElementById("answer");
@@ -46,15 +47,43 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${pluralityText[plurality]} ${caseName} ${kindText[kind]}`;
   }
 
-  function generateQuestion() {
-    question = generate();
+  function showQuestion(selectedQuestion) {
+    question = selectedQuestion;
     answer = inflect(question);
 
     document.getElementById("question").textContent = answer.short;
     document.getElementById("answer").value = "";
     document.getElementById("answer").placeholder = placeholderText(question);
 
+    document.getElementById("choice-container").classList.remove("visible");
+    document.getElementById("question-container").classList.add("visible");
     updateButtonState();
+  }
+
+  function showChoiceButtons(questions) {
+    const choiceContainer = document.getElementById("choice-container");
+    choiceContainer.innerHTML = "";
+    
+    questions.forEach((q, index) => {
+      const button = document.createElement("button");
+      button.className = "choice-button";
+      button.textContent = inflect(q).short;
+      button.onclick = () => showQuestion(q);
+      choiceContainer.appendChild(button);
+    });
+
+    document.getElementById("question-container").classList.remove("visible");
+    choiceContainer.classList.add("visible");
+  }
+
+  function generateQuestion() {
+    currentQuestions = generate();
+    
+    if (currentQuestions.length === 1) {
+      showQuestion(currentQuestions[0]);
+    } else {
+      showChoiceButtons(currentQuestions);
+    }
   }
 
   function checkAnswer(isKeypress = false) {

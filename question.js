@@ -78,7 +78,7 @@
   exports.generate = () => {
     const index = randomTopicIndex();
     console.log(stats);
-    return questionForTopic(index);
+    return [questionForTopic(index)];
   };
 
   exports.right = (question) => {

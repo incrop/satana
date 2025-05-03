@@ -8,11 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="question"></h1>
-        <div class="answer-container">
-            <input type="text" id="answer">
-            <button id="submit"><span id="submit-emoji">✓</span></button>
+        <div id="question-container">
+            <h1 id="question"></h1>
+            <div class="answer-container">
+                <input type="text" id="answer">
+                <button id="submit"><span id="submit-emoji">✓</span></button>
+            </div>
         </div>
+        <div id="choice-container" class="choice-container"></div>
     </div>
     <script src="inflect.js"></script>
     <script src="question.js"></script>

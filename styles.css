@@ -155,4 +155,53 @@ button.incorrect {
 
 p {
     margin-bottom: 1rem;
+}
+
+.choice-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    display: none;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.choice-container.visible {
+    display: flex;
+}
+
+.choice-button {
+    padding: 1rem;
+    background-color: #ff00ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.choice-button:hover {
+    background-color: #00ffff;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.choice-button:active {
+    transform: scale(0.95);
+}
+
+#question-container {
+    display: none;
+}
+
+#question-container.visible {
+    display: block;
 } 
