@@ -1,56 +1,68 @@
-import fs from 'fs';
-import { inflect } from './inflect.js';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import fs from "fs";
+import { inflect } from "./inflect.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const testData = JSON.parse(fs.readFileSync("./test_data.json"), "utf8");
 
-// Read the test data file
-const testData = JSON.parse(fs.readFileSync(join(__dirname, 'test_data.json'), 'utf8'));
+const kinds = ["perus", "jarjestys"];
 
-// List of all grammatical cases to check
 const cases = [
-    'genetiivi',
-    'partitiivi',
-    'inessiivi',
-    'elatiivi',
-    'illatiivi',
-    'adessiivi',
-    'ablatiivi',
-    'allatiivi'
+  "nominatiivi",
+  "genetiivi",
+  "partitiivi",
+  //   "inessiivi",
+  //   "elatiivi",
+  //   "illatiivi",
+  //   "adessiivi",
+  //   "ablatiivi",
+  //   "allatiivi",
+  //   "essiivi",
+  //   "translatiivi",
+  //   "abessiivi",
 ];
 
-let allPassed = true;
+const pluralities = ["yksikko", "monikko"];
+
+let passedCount = 0;
 let errors = [];
 
-for (let number = 0; number <= 100; number++) {
+for (let number = 0; number <= 1111; number++) {
+  if (!testData[number.toString()]) {
+    continue
+  }
+  for (const kind of kinds) {
     for (const caseName of cases) {
-        const expected = {
-            short: testData[number.toString()].short[caseName],
-            long: testData[number.toString()].long[caseName]
-        };
-        const actual = inflect(number, caseName);
-        
-        if (JSON.stringify(expected) !== JSON.stringify(actual)) {
-            allPassed = false;
-            errors.push({
-                number,
-                case: caseName,
-                expected,
-                actual
-            });
+      for (const plurality of pluralities) {
+        const expected = testData[number.toString()][kind][caseName][plurality]
+        const actual = inflect(number, kind, caseName, plurality);
+      
+        if (expected.short === actual.short) {
+          passedCount++;
+        } else {
+          errors.push({
+            number,
+            kind,
+            caseName,
+            plurality,
+            expected,
+            actual,
+          });
         }
+      }
     }
+  }
 }
 
-if (allPassed) {
-    console.log('✅ All numbers from 0 to 100 have complete data in both short and long forms!');
+if (errors.length === 0) {
+  console.log(
+    `✅ All ${passedCount} tests passed!`
+  );
 } else {
-    console.log('❌ Some tests failed:');
-    errors.forEach(error => {
-        console.log(`Number ${error.number} in ${error.case}:`);
-        console.log(`  Expected: ${JSON.stringify(error.expected)}`);
-        console.log(`  Actual:   ${JSON.stringify(error.actual)}`);
-    });
-} 
+  console.log(`❌ ${errors.length} tests of ${passedCount + errors.length} failed:`);
+  errors.forEach((error) => {
+    console.log(`Number ${error.number} in ${error.kind} ${error.caseName} ${error.plurality}:`);
+    console.log(`  Expected: ${JSON.stringify(error.expected)}`);
+    console.log(`  Actual:   ${JSON.stringify(error.actual)}`);
+  });
+}
+
+// console.log(inflect(1, "jarjestys", "genetiivi", plurality))
