@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let question;
   let answer;
   let currentQuestions = [];
+  let showingCorrectAnswer = false;
 
   function updateButtonState() {
     const input = document.getElementById("answer");
@@ -35,7 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dontknow-emoji").textContent = emoji;
   }
 
-  function placeholderText({ kind, caseName, plurality, range: [minNumber, maxNumber] }) {
+  function placeholderText({
+    kind,
+    caseName,
+    plurality,
+    range: [minNumber, maxNumber],
+  }) {
     let kindText = {
       perus: "Perusluvut",
       jarjestys: "Järjestysluvut",
@@ -44,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
       yksikko: "yksikön",
       monikko: "monikon",
     };
-    return `${kindText[kind]} ${minNumber}-${maxNumber-1}: ${pluralityText[plurality]} ${caseName}`;
+    return `${kindText[kind]} ${minNumber}-${maxNumber - 1}: ${
+      pluralityText[plurality]
+    } ${caseName}`;
   }
 
   function showQuestion(selectedQuestion) {
@@ -64,10 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function showChoiceButtons(questions) {
     const choiceContainer = document.getElementById("choice-container");
     choiceContainer.innerHTML = "";
-    
+
     const knownHeader = document.createElement("div");
     knownHeader.className = "choice-header";
-    knownHeader.textContent = "Tunnettu aihe";
+    knownHeader.textContent = "Jatka harjoittelua";
     choiceContainer.appendChild(knownHeader);
 
     const knownButton = document.createElement("button");
@@ -84,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newHeader = document.createElement("div");
     newHeader.className = "choice-header";
-    newHeader.textContent = "Uudet aiheet";
+    newHeader.textContent = "tai avaa uudet aiheet";
     choiceContainer.appendChild(newHeader);
 
     for (let i = 1; i < questions.length; i++) {
@@ -107,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function generateQuestion() {
     currentQuestions = generate();
-    
+
     if (currentQuestions.length === 1) {
       showQuestion(currentQuestions[0]);
     } else {
@@ -115,43 +123,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function checkAnswer(isKeypress = false) {
+  function checkAnswer(source) {
     const userAnswer = document
       .getElementById("answer")
       .value.toLowerCase()
       .trim();
     const correctAnswer = answer.long;
 
-    if (userAnswer === correctAnswer) {
-      right(question);
-      updateDontknowEmoji("✓");
-      addFeedbackClasses(true);
-      setTimeout(() => {
+    if (showingCorrectAnswer) {
+      if (source === "button") {
         removeFeedbackClasses();
         generateQuestion();
-      }, 1000);
-    } else if (!isKeypress) {
+        showingCorrectAnswer = false;
+      }
+    } else if (source === "input") {
+      if (userAnswer === correctAnswer) {
+        right(question);
+        updateDontknowEmoji("✓");
+        addFeedbackClasses(true);
+        setTimeout(() => {
+          removeFeedbackClasses();
+          generateQuestion();
+        }, 1000);
+      } else {
+        updateDontknowEmoji("🤔");
+      }
+    } else if (source === "button") {
       wrong(question);
       addFeedbackClasses(false);
       document.getElementById("answer").value = correctAnswer;
-      setTimeout(() => {
-        updateDontknowEmoji("✓");
-        removeFeedbackClasses();
-        generateQuestion();
-      }, 3000);
-    } else {
-      updateDontknowEmoji("🤔");
+      updateDontknowEmoji("✓");
+      showingCorrectAnswer = true;
     }
   }
 
   const answerInput = document.getElementById("answer");
   answerInput.addEventListener("input", () => {
-    checkAnswer(true);
+    checkAnswer("input");
     updateButtonState();
   });
   document
     .getElementById("dontknow")
-    .addEventListener("click", () => checkAnswer(false));
+    .addEventListener("click", () => checkAnswer("button"));
 
   generateQuestion();
 });
