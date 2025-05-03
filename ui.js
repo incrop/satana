@@ -35,16 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dontknow-emoji").textContent = emoji;
   }
 
-  function placeholderText({ kind, caseName, plurality }) {
-    let pluralityText = {
-      yksikko: "Yksikkö",
-      monikko: "Monikko",
-    };
+  function placeholderText({ kind, caseName, plurality, range: [minNumber, maxNumber] }) {
     let kindText = {
-      perus: "perusluku",
-      jarjestys: "järjestysluku",
+      perus: "Perusluvut",
+      jarjestys: "Järjestysluvut",
     };
-    return `${pluralityText[plurality]} ${caseName} ${kindText[kind]}`;
+    let pluralityText = {
+      yksikko: "yksikön",
+      monikko: "monikon",
+    };
+    return `${kindText[kind]} ${minNumber}-${maxNumber-1}: ${pluralityText[plurality]} ${caseName}`;
   }
 
   function showQuestion(selectedQuestion) {
@@ -64,15 +64,46 @@ document.addEventListener("DOMContentLoaded", () => {
   function showChoiceButtons(questions) {
     const choiceContainer = document.getElementById("choice-container");
     choiceContainer.innerHTML = "";
-    questions.forEach(q => {
+    
+    // Add a header for known topic
+    const knownHeader = document.createElement("div");
+    knownHeader.className = "choice-header";
+    knownHeader.textContent = "Tunnettu aihe";
+    choiceContainer.appendChild(knownHeader);
+
+    // First question is the known topic
+    const knownButton = document.createElement("button");
+    knownButton.className = "choice-button known-topic";
+    knownButton.textContent = inflect(questions[0]).short;
+    knownButton.onclick = () => {
+      showQuestion(questions[0]);
+    };
+    choiceContainer.appendChild(knownButton);
+    const knownHint = document.createElement("div");
+    knownHint.className = "choice-hint";
+    knownHint.textContent = placeholderText(questions[0]);
+    choiceContainer.appendChild(knownHint);
+
+    // Add a header for new topics
+    const newHeader = document.createElement("div");
+    newHeader.className = "choice-header";
+    newHeader.textContent = "Uudet aiheet";
+    choiceContainer.appendChild(newHeader);
+
+    // Add new topic buttons
+    for (let i = 1; i < questions.length; i++) {
       const button = document.createElement("button");
-      button.className = "choice-button";
-      button.textContent = inflect(q).short;
+      button.className = "choice-button new-topic";
+      button.textContent = inflect(questions[i]).short;
       button.onclick = () => {
-        showQuestion(q);
+        showQuestion(questions[i]);
       };
       choiceContainer.appendChild(button);
-    });
+      const hint = document.createElement("div");
+      hint.className = "choice-hint";
+      hint.textContent = placeholderText(questions[i]);
+      choiceContainer.appendChild(hint);
+    }
 
     document.getElementById("question-container").classList.remove("visible");
     choiceContainer.classList.add("visible");

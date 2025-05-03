@@ -107,9 +107,6 @@
         }
       }
     }
-    console.log("consider", consider);
-    console.log("reject", reject);
-
     const results = [];
     let n = settings.choices.count;
     while (n > 0 && Object.keys(consider).length > 0) {
@@ -119,7 +116,6 @@
       delete consider[pick];
       n--;
     }
-    console.log("results", results);
     return results;
   };
 
@@ -139,6 +135,7 @@
       sequence: stats.sequence + 1,
       topicIndex: index,
       number: number,
+      range: [minNumber, maxNumber],
       kind: kind,
       caseName: caseName,
       plurality: plurality,
@@ -148,7 +145,6 @@
   let previousNumbers = [-1, -1, -1];
 
   exports.generate = () => {
-    console.log("stats", stats);
     const questions = [];
     while (true) {
       const knownQuestion = questionForTopic(knownTopicIndex());
