@@ -1,7 +1,13 @@
-const fs = require('fs');
+import fs from 'fs';
+import { inflect } from './inflect.js';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Read the test data file
-const testData = JSON.parse(fs.readFileSync('test_data.json', 'utf8'));
+const testData = JSON.parse(fs.readFileSync(join(__dirname, 'test_data.json'), 'utf8'));
 
 // List of all grammatical cases to check
 const cases = [
@@ -15,62 +21,36 @@ const cases = [
     'allatiivi'
 ];
 
-// Function to check if a value is empty
-const isEmpty = (value) => {
-    return value === undefined || value === null || value === '';
-};
+let allPassed = true;
+let errors = [];
 
-// Function to validate a number's data
-const validateNumber = (number) => {
-    const data = testData[number];
-    if (!data) {
-        console.error(`❌ Missing data for number ${number}`);
-        return false;
-    }
-
-    // Check short form
-    if (!data.short) {
-        console.error(`❌ Missing short form for number ${number}`);
-        return false;
-    }
-
-    // Check long form
-    if (!data.long) {
-        console.error(`❌ Missing long form for number ${number}`);
-        return false;
-    }
-
-    // Check all cases in short form
+for (let number = 0; number <= 100; number++) {
     for (const caseName of cases) {
-        if (isEmpty(data.short[caseName])) {
-            console.error(`❌ Missing short form ${caseName} for number ${number}`);
-            return false;
+        const expected = {
+            short: testData[number.toString()].short[caseName],
+            long: testData[number.toString()].long[caseName]
+        };
+        const actual = inflect(number, caseName);
+        
+        if (JSON.stringify(expected) !== JSON.stringify(actual)) {
+            allPassed = false;
+            errors.push({
+                number,
+                case: caseName,
+                expected,
+                actual
+            });
         }
-    }
-
-    // Check all cases in long form
-    for (const caseName of cases) {
-        if (isEmpty(data.long[caseName])) {
-            console.error(`❌ Missing long form ${caseName} for number ${number}`);
-            return false;
-        }
-    }
-
-    return true;
-};
-
-// Main validation loop
-let allValid = true;
-for (let i = 0; i <= 100; i++) {
-    const number = i.toString();
-    if (!validateNumber(number)) {
-        allValid = false;
     }
 }
 
-if (allValid) {
+if (allPassed) {
     console.log('✅ All numbers from 0 to 100 have complete data in both short and long forms!');
 } else {
-    console.log('❌ Some numbers are missing data. Please check the errors above.');
-    process.exit(1);
+    console.log('❌ Some tests failed:');
+    errors.forEach(error => {
+        console.log(`Number ${error.number} in ${error.case}:`);
+        console.log(`  Expected: ${JSON.stringify(error.expected)}`);
+        console.log(`  Actual:   ${JSON.stringify(error.actual)}`);
+    });
 } 
