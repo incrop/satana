@@ -200,17 +200,30 @@
     minNumber,
     maxNumber,
   }) => {
-    let kindText = {
+    const kindText = {
       perus: "Perusluvut",
       jarjestys: "Järjestysluvut",
     };
-    let pluralityText = {
+    const pluralityText = {
       yksikko: "yksikön",
       monikko: "monikon",
     };
+    const caseClarificationText = {
+      paikallissijat: "ilman illatiivia",
+      illatiivi: "-n",
+      inessiivi: "-ssä/a",
+      elatiivi: "-stä/a",
+      allatiivi: "-lle",
+      adessiivi: "-llä/a",
+      ablatiivi: "-ltä/a",
+    };
+    let clarification = caseClarificationText[caseName] || "";
+    if (clarification) {
+      clarification = ` (${clarification})`;
+    }
     return `${kindText[kind]} ${minNumber}-${maxNumber - 1}: ${
       pluralityText[plurality]
-    } ${caseName}`;
+    } ${caseName}${clarification}`;
   };
 
   const shuffle = (array) => {
