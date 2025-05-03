@@ -3,18 +3,17 @@
     kind: ["perus", "jarjestys"],
     plurality: ["yksikko", "monikko"],
     caseName: [
-      "nominatiivi",
-      "genetiivi",
-      "partitiivi",
-      "inessiivi",
-      "elatiivi",
-      "illatiivi",
-      "adessiivi",
-      "ablatiivi",
-      "allatiivi",
-      "essiivi",
-      "translatiivi",
-      "abessiivi",
+      ["nominatiivi"],
+      ["genetiivi", "partitiivi"],
+      [
+        "inessiivi",
+        "elatiivi",
+        "illatiivi",
+        "adessiivi",
+        "ablatiivi",
+        "allatiivi",
+      ],
+      ["essiivi", "translatiivi", "abessiivi"],
     ],
     range: [11, 20, 100, 200, 1000, 2000, 10000],
     choices: {
@@ -74,9 +73,44 @@
   };
 
   const newTopicIndexes = () => {
+    const candidateIndexes = (dim, i) => {
+      if (!Array.isArray(settings[dim][0])) {
+        if (i + 1 === settings[dim].length) {
+          return [];
+        }
+        return [i + 1];
+      }
+      let j = 0;
+      for (const group of settings[dim]) {
+        if (j > i) {
+          return group.map((_, k) => j + k);
+        }
+        j += group.length;
+      }
+      return [];
+    };
+    const dependencyIndexes = (dim, i) => {
+      if (!Array.isArray(settings[dim][0])) {
+        if (i === 0) {
+          return [];
+        }
+        return [i - 1];
+      }
+      let j = 0;
+      let prevGroup = [];
+      for (const group of settings[dim]) {
+        if (j + group.length > i) {
+          return prevGroup.map((_, k) => j - k - 1);
+        }
+        j += group.length;
+        prevGroup = group;
+      }
+      return [];
+    };
+
     const consider = {};
     const reject = {};
-    for (const [key, {right, wrong}] of Object.entries(stats.topics)) {
+    for (const [key, { right, wrong }] of Object.entries(stats.topics)) {
       if (right + wrong < settings.choices.interval) {
         continue;
       }
@@ -85,35 +119,33 @@
       }
       const index = parseIndex(key);
       for (const [dim, i] of Object.entries(index)) {
-        if (i + 1 === settings[dim].length) {
-          continue;
-        }
-        const candidate = { ...index, [dim]: i + 1 };
-        const candidateKey = indexToString(candidate);
-        if (
-          stats.topics[candidateKey] ||
-          consider[candidateKey] ||
-          reject[candidateKey]
-        ) {
-          continue;
-        }
-        for (const [cdim, j] of Object.entries(candidate)) {
-          if (j === 0) {
+        candidates: for (const candidateIdx of candidateIndexes(dim, i)) {
+          const candidate = { ...index, [dim]: candidateIdx };
+          const candidateKey = indexToString(candidate);
+          if (
+            stats.topics[candidateKey] ||
+            consider[candidateKey] ||
+            reject[candidateKey]
+          ) {
             continue;
           }
-          const dependency = { ...candidate, [cdim]: j - 1 };
-          const dependencyKey = indexToString(dependency);
-          if (stats.topics[dependencyKey]) {
-            continue;
+          for (const [cdim, j] of Object.entries(candidate)) {
+            for (const dependencyIdx of dependencyIndexes(cdim, j)) {
+              const dependency = { ...candidate, [cdim]: dependencyIdx };
+              const dependencyKey = indexToString(dependency);
+              if (stats.topics[dependencyKey]) {
+                continue;
+              }
+              reject[candidateKey] = true;
+              continue candidates;
+            }
           }
-          reject[candidateKey] = true;
-          break;
-        }
-        if (!reject[candidateKey]) {
           consider[candidateKey] = candidate;
         }
       }
     }
+    console.log("consider", consider);
+    console.log("reject", reject);
     const results = [];
     let n = settings.choices.count;
     while (n > 0 && Object.keys(consider).length > 0) {
@@ -129,7 +161,7 @@
   const questionForTopic = (index) => {
     const kind = settings.kind[index.kind];
     const plurality = settings.plurality[index.plurality];
-    const caseName = settings.caseName[index.caseName];
+    const caseName = settings.caseName.flat()[index.caseName];
     const maxNumberIndex = index.range;
 
     const minNumber =
